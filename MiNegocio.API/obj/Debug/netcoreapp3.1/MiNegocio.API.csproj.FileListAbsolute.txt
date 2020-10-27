@@ -1,0 +1,14 @@
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\obj\Debug\netcoreapp3.1\MiNegocio.API.csprojAssemblyReference.cache
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\obj\Debug\netcoreapp3.1\MiNegocio.API.AssemblyInfoInputs.cache
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\obj\Debug\netcoreapp3.1\MiNegocio.API.AssemblyInfo.cs
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\obj\Debug\netcoreapp3.1\MiNegocio.API.csproj.CoreCompileInputs.cache
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\obj\Debug\netcoreapp3.1\MiNegocio.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Domain.Interfaces.dll
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.dll
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Services.dll
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Services.Interfaces.dll
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Domain.Interfaces.pdb
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.pdb
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Services.Interfaces.pdb
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\obj\Debug\netcoreapp3.1\MiNegocio.API.RazorTargetAssemblyInfo.cache

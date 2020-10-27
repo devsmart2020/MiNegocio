@@ -1,0 +1,12 @@
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.deps.json
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.dll
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.pdb
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.csprojAssemblyReference.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.AssemblyInfoInputs.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.AssemblyInfo.cs
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.csproj.CoreCompileInputs.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.dll
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.pdb
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Domain.Interfaces.dll
+C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Domain.Interfaces.pdb

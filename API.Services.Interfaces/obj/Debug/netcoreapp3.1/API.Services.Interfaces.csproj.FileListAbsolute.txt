@@ -1,0 +1,9 @@
+C:\Users\devsm\source\repos\MiNegocio\API.Services.Interfaces\bin\Debug\netcoreapp3.1\API.Services.Interfaces.deps.json
+C:\Users\devsm\source\repos\MiNegocio\API.Services.Interfaces\bin\Debug\netcoreapp3.1\API.Services.Interfaces.dll
+C:\Users\devsm\source\repos\MiNegocio\API.Services.Interfaces\bin\Debug\netcoreapp3.1\API.Services.Interfaces.pdb
+C:\Users\devsm\source\repos\MiNegocio\API.Services.Interfaces\obj\Debug\netcoreapp3.1\API.Services.Interfaces.csprojAssemblyReference.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Services.Interfaces\obj\Debug\netcoreapp3.1\API.Services.Interfaces.AssemblyInfoInputs.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Services.Interfaces\obj\Debug\netcoreapp3.1\API.Services.Interfaces.AssemblyInfo.cs
+C:\Users\devsm\source\repos\MiNegocio\API.Services.Interfaces\obj\Debug\netcoreapp3.1\API.Services.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Services.Interfaces\obj\Debug\netcoreapp3.1\API.Services.Interfaces.dll
+C:\Users\devsm\source\repos\MiNegocio\API.Services.Interfaces\obj\Debug\netcoreapp3.1\API.Services.Interfaces.pdb

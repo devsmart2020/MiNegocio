@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>0958f3b8-dcfc-4f7f-abcf-eb11862cafb6</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\API.Domain.Entities\API.Domain.Entities.csproj" />
+    <ProjectReference Include="..\API.Domain.Interfaces\API.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\API.Infrastructure.Data\API.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\API.Services.Interfaces\API.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\API.Services\API.Services.csproj" />
+  </ItemGroup>
+
+
+</Project>

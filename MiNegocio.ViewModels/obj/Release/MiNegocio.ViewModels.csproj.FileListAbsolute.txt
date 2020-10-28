@@ -1,0 +1,15 @@
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\bin\Release\MiNegocio.ViewModels.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\bin\Release\MiNegocio.ViewModels.pdb
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\bin\Release\MiNegocio.Models.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\bin\Release\MiNegocio.Services.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\bin\Release\Newtonsoft.Json.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\bin\Release\MiNegocio.Models.pdb
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\bin\Release\MiNegocio.Services.pdb
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\bin\Release\Newtonsoft.Json.xml
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\obj\Release\MiNegocio.ViewModels.csprojAssemblyReference.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\obj\Release\MiNegocio.ViewModels.Properties.Resources.resources
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\obj\Release\MiNegocio.ViewModels.csproj.GenerateResource.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\obj\Release\MiNegocio.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\obj\Release\MiNegocio.ViewModels.csproj.CopyComplete
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\obj\Release\MiNegocio.ViewModels.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.ViewModels\obj\Release\MiNegocio.ViewModels.pdb

@@ -11,3 +11,16 @@ C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Ser
 C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.csproj.CopyComplete
 C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.dll
 C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.pdb
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\MiNegocio.Services.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\MiNegocio.Services.pdb
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\MiNegocio.Models.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\MiNegocio.Models.pdb
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.csprojAssemblyReference.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.Properties.Resources.resources
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.csproj.GenerateResource.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.csproj.CopyComplete
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Services\obj\Debug\MiNegocio.Services.pdb

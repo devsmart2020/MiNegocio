@@ -11,7 +11,7 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("0958f3b8-dcfc-4f7f-abcf-eb11862cafb6")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("77695d07-9ed1-4ee7-bdaf-1eb65998e0cb")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiNegocio.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

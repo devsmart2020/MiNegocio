@@ -1,15 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using API.Domain.Entities;
+using API.Domain.Interfaces;
+using API.Infrastructure.Data.Data;
+using API.Infrastructure.Data.Repositories;
+using API.Services;
+using API.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace MiNegocio.API
 {
@@ -26,6 +26,11 @@ namespace MiNegocio.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<soport43_minegociopruebasContext>(options =>
+            options.UseMySql(Configuration.GetConnectionString("prueba")));
+
+            services.AddTransient<ICliente<Tbcliente>, ClienteRepository>();
+            services.AddTransient<IClienteService<Tbcliente>, ClienteService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

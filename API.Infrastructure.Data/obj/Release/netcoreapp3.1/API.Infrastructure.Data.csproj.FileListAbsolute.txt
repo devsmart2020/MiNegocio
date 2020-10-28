@@ -1,0 +1,17 @@
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Release\netcoreapp3.1\API.Infrastructure.Data.deps.json
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Release\netcoreapp3.1\API.Infrastructure.Data.runtimeconfig.json
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Release\netcoreapp3.1\API.Infrastructure.Data.runtimeconfig.dev.json
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Release\netcoreapp3.1\API.Infrastructure.Data.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Release\netcoreapp3.1\API.Infrastructure.Data.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Release\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Release\netcoreapp3.1\API.Domain.Interfaces.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Release\netcoreapp3.1\API.Domain.Entities.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Release\netcoreapp3.1\API.Domain.Interfaces.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Release\netcoreapp3.1\API.Infrastructure.Data.csprojAssemblyReference.cache
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Release\netcoreapp3.1\API.Infrastructure.Data.AssemblyInfoInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Release\netcoreapp3.1\API.Infrastructure.Data.AssemblyInfo.cs
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Release\netcoreapp3.1\API.Infrastructure.Data.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Release\netcoreapp3.1\API.Infrastructure.Data.csproj.CopyComplete
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Release\netcoreapp3.1\API.Infrastructure.Data.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Release\netcoreapp3.1\API.Infrastructure.Data.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Release\netcoreapp3.1\API.Infrastructure.Data.genruntimeconfig.cache

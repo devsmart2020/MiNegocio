@@ -1,0 +1,6 @@
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\bin\Release\MiNegocio.Models.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\bin\Release\MiNegocio.Models.pdb
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\obj\Release\MiNegocio.Models.csprojAssemblyReference.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\obj\Release\MiNegocio.Models.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\obj\Release\MiNegocio.Models.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\obj\Release\MiNegocio.Models.pdb

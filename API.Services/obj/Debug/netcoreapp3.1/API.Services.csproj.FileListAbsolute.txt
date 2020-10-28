@@ -1,0 +1,16 @@
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\bin\Debug\netcoreapp3.1\API.Services.deps.json
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\bin\Debug\netcoreapp3.1\API.Services.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\bin\Debug\netcoreapp3.1\API.Services.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\bin\Debug\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\bin\Debug\netcoreapp3.1\API.Domain.Interfaces.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\bin\Debug\netcoreapp3.1\API.Services.Interfaces.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\bin\Debug\netcoreapp3.1\API.Domain.Entities.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\bin\Debug\netcoreapp3.1\API.Domain.Interfaces.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\bin\Debug\netcoreapp3.1\API.Services.Interfaces.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\obj\Debug\netcoreapp3.1\API.Services.csprojAssemblyReference.cache
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\obj\Debug\netcoreapp3.1\API.Services.AssemblyInfoInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\obj\Debug\netcoreapp3.1\API.Services.AssemblyInfo.cs
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\obj\Debug\netcoreapp3.1\API.Services.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\obj\Debug\netcoreapp3.1\API.Services.csproj.CopyComplete
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\obj\Debug\netcoreapp3.1\API.Services.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Services\obj\Debug\netcoreapp3.1\API.Services.pdb

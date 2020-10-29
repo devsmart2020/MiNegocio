@@ -1,7 +1,6 @@
 ﻿using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Services.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,19 +15,19 @@ namespace API.Services
             _repository = repository;
         }
 
-        public Task<bool> Delete(Tbcliente entity)
+        public async Task<bool> Delete(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            return await _repository.Delete(entity);
         }
 
-        public Task<bool> Exists(Tbcliente entity)
+        public async Task<bool> Exists(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            return await _repository.Exists(entity);
         }
 
-        public Task<Tbcliente> GetById(Tbcliente entity)
+        public async Task<Tbcliente> GetById(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            return await _repository.GetById(entity);
         }
 
         public async Task<IEnumerable<Tbcliente>> Get()
@@ -36,14 +35,14 @@ namespace API.Services
             return await _repository.Get();
         }
 
-        public Task<Tbcliente> Post(Tbcliente entity)
+        public async Task<Tbcliente> Post(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            return await _repository.Post(entity);
         }
 
-        public Task<Tbcliente> Put(Tbcliente entity)
+        public async Task<Tbcliente> Put(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            return await _repository.Put(entity);
         }
     }
 }

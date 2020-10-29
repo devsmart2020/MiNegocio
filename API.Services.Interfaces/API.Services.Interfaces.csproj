@@ -8,4 +8,10 @@
     <ProjectReference Include="..\API.Domain.Entities\API.Domain.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ICompraService.cs">
+      <CustomToolNamespace></CustomToolNamespace>
+    </Compile>
+  </ItemGroup>
+
 </Project>

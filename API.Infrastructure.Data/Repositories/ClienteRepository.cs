@@ -2,7 +2,6 @@
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,14 +17,27 @@ namespace API.Infrastructure.Data.Repositories
             _context = context;
         }
 
-        public Task<bool> Delete(Tbcliente entity)
+        public async Task<bool> Delete(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            if (await Exists(entity))
+            {
+                _context.Tbcliente.Remove(entity);
+                var query = await _context.SaveChangesAsync();
+                if (query > 0)
+                    return true;
+                else
+                    return false;
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public Task<bool> Exists(Tbcliente entity)
+        public async Task<bool> Exists(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            return await _context.Tbcliente.AnyAsync(e => e.DocId == entity.DocId);
         }
 
         public async Task<IEnumerable<Tbcliente>> Get()
@@ -35,19 +47,41 @@ namespace API.Infrastructure.Data.Repositories
                 .ToListAsync();
         }
 
-        public Task<Tbcliente> GetById(Tbcliente entity)
+        public async Task<Tbcliente> GetById(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            return await _context.Tbcliente.Where(x => x.DocId == entity.DocId)
+                .FirstOrDefaultAsync();
         }
 
-        public Task<Tbcliente> Post(Tbcliente entity)
+        public async Task<Tbcliente> Post(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            await _context.Tbcliente.AddAsync(entity);
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)            
+                return await GetById(entity);           
+            else            
+                return null;
+            
         }
 
-        public Task<Tbcliente> Put(Tbcliente entity)
+        public async Task<Tbcliente> Put(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Modified;
+            try
+            {
+                var query = await _context.SaveChangesAsync();
+                if (query > 0)                
+                    return await GetById(entity);                
+                else                
+                    return null;                
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!await Exists(entity))                
+                    return null;                
+                else                
+                    throw;               
+            }
         }
     }
 }

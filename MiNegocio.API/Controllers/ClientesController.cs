@@ -1,7 +1,6 @@
 ﻿using API.Domain.Entities;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,12 +32,7 @@ namespace MiNegocio.API.Controllers
             {
                 return BadRequest();
             }
-        }
-
-        public Task<bool> Exists(Tbcliente entity)
-        {
-            throw new NotImplementedException();
-        }
+        }      
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Tbcliente>>> Get()
@@ -50,19 +44,49 @@ namespace MiNegocio.API.Controllers
                 return NoContent();
         }
 
-        public Task<Tbcliente> GetById(Tbcliente entity)
+        [HttpPost("GetById")]
+        public async Task<ActionResult<Tbcliente>> GetById(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            Tbcliente cliente = await _service.GetById(entity);
+
+            if (cliente != null)
+                return Ok(cliente);
+            else
+                return NotFound();
         }
 
-        public Task<Tbcliente> Post(Tbcliente entity)
+        [HttpPost()]
+        public async Task<ActionResult<Tbcliente>> Post(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            if (entity != null && ModelState.IsValid)
+            {
+                Tbcliente cliente = await _service.Post(entity);
+                if (cliente != null)
+                    return Ok(cliente);
+                else
+                    return Conflict();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
-        public Task<Tbcliente> Put(Tbcliente entity)
+        [HttpPut()]
+        public async Task<IActionResult> Put(Tbcliente entity)
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrEmpty(entity.DocId))
+            {
+                var cliente = await _service.Put(entity);
+                if (cliente != null)
+                    return Ok(cliente);
+                else
+                    return NotFound();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

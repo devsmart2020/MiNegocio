@@ -1070,23 +1070,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrador\\.nuget\\packages\\": {},
+    "C:\\Users\\devsm\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
+      "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
       "projectName": "MiNegocio.API",
-      "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
-      "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\obj\\",
+      "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
+      "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1100,20 +1100,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
+              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
             },
-            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
+            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
             },
-            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj"
+            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj": {
+              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj"
             },
-            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
+            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
             },
-            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj"
+            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj": {
+              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj"
             }
           }
         }

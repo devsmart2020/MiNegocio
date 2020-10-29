@@ -7,3 +7,12 @@ C:\Users\Administrador\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netc
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.dll
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.pdb
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.csprojAssemblyReference.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\bin\Debug\netcoreapp3.1\API.Domain.Entities.deps.json
+C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\bin\Debug\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\bin\Debug\netcoreapp3.1\API.Domain.Entities.pdb
+C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.csprojAssemblyReference.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.AssemblyInfoInputs.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.AssemblyInfo.cs
+C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.csproj.CoreCompileInputs.cache
+C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.pdb

@@ -120,10 +120,13 @@
   <data name="ConnectionConfig" xml:space="preserve">
     <value>WebService</value>
   </data>
+  <data name="LoginController" xml:space="preserve">
+    <value>api/Login</value>
+  </data>
   <data name="RequestHeaders" xml:space="preserve">
     <value>application/json</value>
   </data>
   <data name="UsersController" xml:space="preserve">
-    <value>Users</value>
+    <value>api/Users</value>
   </data>
 </root>

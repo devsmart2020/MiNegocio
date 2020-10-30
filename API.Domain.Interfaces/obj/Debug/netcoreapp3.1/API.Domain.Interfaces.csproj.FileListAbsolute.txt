@@ -22,3 +22,15 @@ C:\Users\devsm\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp
 C:\Users\devsm\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.csproj.CopyComplete
 C:\Users\devsm\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.dll
 C:\Users\devsm\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.pdb
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\bin\Debug\netcoreapp3.1\API.Domain.Interfaces.deps.json
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\bin\Debug\netcoreapp3.1\API.Domain.Interfaces.dll
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\bin\Debug\netcoreapp3.1\API.Domain.Interfaces.pdb
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\bin\Debug\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\bin\Debug\netcoreapp3.1\API.Domain.Entities.pdb
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.csprojAssemblyReference.cache
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.AssemblyInfoInputs.cache
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.AssemblyInfo.cs
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.csproj.CopyComplete
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.dll
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Interfaces\obj\Debug\netcoreapp3.1\API.Domain.Interfaces.pdb

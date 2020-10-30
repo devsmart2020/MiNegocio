@@ -10,3 +10,8 @@ C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegoc
 C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.csproj.CoreCompileInputs.cache
 C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.dll
 C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.pdb
+C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\bin\Debug\MiNegocio.Models.dll
+C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\bin\Debug\MiNegocio.Models.pdb
+C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.csproj.CoreCompileInputs.cache
+C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.dll
+C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.pdb

@@ -11,5 +11,7 @@ namespace API.Domain.Interfaces
         Task<IEnumerable<T>> Get();
         Task<T> Post(T entity);
         Task<T> Put(T entity);
+        Task<T> Login(T entity);
+
     }
 }

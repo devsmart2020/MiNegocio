@@ -42,53 +42,11 @@ namespace MiNegocio.ViewModels.ViewModels
             {
                 IsBusy = false;
             }
-        }
-        private async Task Login()
-        {
-            IsBusy = true;
-            IsEnabled = false;
-            TbUsuario usuario = new TbUsuario()
-            {
-                User = User,
-                Pass = Pass,
-            };
-            try
-            {
-                if (usuario != null)
-                {
-                    Usuario = await _service.Login(usuario);
-                    if (!string.IsNullOrEmpty(Usuario.DocId))
-                    {
-                        IsLogued = true;                        
-                        Msj = $"{Resources.MsjLoginSucess}{Usuario.Nombres + Usuario.Apellidos}";
-                    }
-                    else
-                    {
-                        IsLogued = false;
-                        Msj = RestService<TbUsuario>.ErrorRestService;
-                    }
-                }
-                else
-                {
-                    Msj = Resources.MsjErrorFields;
-                }
-            }
-            catch (Exception ex)
-            {
-                IsLogued = false;
-                Msj = ex.Message;
-            }
-            finally
-            {
-                IsVisible = false;
-                IsBusy = false;
-                IsEnabled = true;
-            }
-        }
+        }      
         public void Clean()
         {
             User = string.Empty;
-            Pass = string.Empty;           
+            //Pass = string.Empty;           
         }
         #endregion
 
@@ -110,7 +68,7 @@ namespace MiNegocio.ViewModels.ViewModels
         private string pass;
         public string Pass
         {
-            get => Encrypt(pass);           
+            get => Encrypt(pass);
             set => SetProperty(ref pass, value);
         }
 
@@ -143,10 +101,7 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             await GetUsuarios();
         }
-        public async Task LoginCmd()
-        {
-            await Login();
-        }
+      
         #endregion
     }
 }

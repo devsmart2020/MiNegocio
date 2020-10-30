@@ -43,5 +43,10 @@ namespace API.Services
         {
             return await _repository.Put(entity);
         }
+
+        public async Task<Tbusuario> Login(Tbusuario entity)
+        {
+            return await _repository.Login(entity);
+        }
     }
 }

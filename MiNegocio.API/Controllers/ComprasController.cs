@@ -37,9 +37,9 @@ namespace MiNegocio.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Tbcompra>>> Get()
         {
-            IEnumerable<Tbcompra> Tbcompras = await _service.Get();
-            if (Tbcompras.Count() > 0)
-                return Ok(Tbcompras);
+            IEnumerable<Tbcompra> model = await _service.Get();
+            if (model.Count() > 0)
+                return Ok(model);
             else
                 return NoContent();
         }
@@ -47,10 +47,10 @@ namespace MiNegocio.API.Controllers
         [HttpPost("GetById")]
         public async Task<ActionResult<Tbcompra>> GetById(Tbcompra entity)
         {
-            Tbcompra cliente = await _service.GetById(entity);
+            Tbcompra model = await _service.GetById(entity);
 
-            if (cliente != null)
-                return Ok(cliente);
+            if (model != null)
+                return Ok(model);
             else
                 return NotFound();
         }
@@ -60,9 +60,9 @@ namespace MiNegocio.API.Controllers
         {
             if (entity != null && ModelState.IsValid)
             {
-                Tbcompra cliente = await _service.Post(entity);
-                if (cliente != null)
-                    return Ok(cliente);
+                Tbcompra model = await _service.Post(entity);
+                if (model != null)
+                    return Ok(model);
                 else
                     return Conflict();
             }
@@ -77,9 +77,9 @@ namespace MiNegocio.API.Controllers
         {
             if (!string.IsNullOrEmpty(entity.IdUsuario))
             {
-                var cliente = await _service.Put(entity);
-                if (cliente != null)
-                    return Ok(cliente);
+                var model = await _service.Put(entity);
+                if (model != null)
+                    return Ok(model);
                 else
                     return NotFound();
             }

@@ -70,6 +70,15 @@ namespace MiNegocio.Services.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a api/Login.
+        /// </summary>
+        internal static string LoginController {
+            get {
+                return ResourceManager.GetString("LoginController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a application/json.
         /// </summary>
         internal static string RequestHeaders {
@@ -79,7 +88,7 @@ namespace MiNegocio.Services.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Users.
+        ///   Busca una cadena traducida similar a api/Users.
         /// </summary>
         internal static string UsersController {
             get {

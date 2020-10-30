@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class VentaProducto : IVentaProductoService<Tbventaproducto>
+    public class VentaAnuladaService : IVentaAnuladaService<Tbventaanulada>
     {
-        private readonly IVentaProducto<Tbventaproducto> _repository;
+        private readonly IVentaAnulada<Tbventaanulada> _repository;
 
-        public VentaProducto(IVentaProducto<Tbventaproducto> repository)
+        public VentaAnuladaService(IVentaAnulada<Tbventaanulada> repository)
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(Tbventaproducto entity)
+        public async Task<bool> Delete(Tbventaanulada entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(Tbventaproducto entity)
+        public async Task<bool> Exists(Tbventaanulada entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<IEnumerable<Tbventaproducto>> Get()
+        public async Task<IEnumerable<Tbventaanulada>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<Tbventaproducto> GetById(Tbventaproducto entity)
+        public async Task<Tbventaanulada> GetById(Tbventaanulada entity)
         {
             return await _repository.GetById(entity);
         }
 
-        public async Task<Tbventaproducto> Post(Tbventaproducto entity)
+        public async Task<Tbventaanulada> Post(Tbventaanulada entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<Tbventaproducto> Put(Tbventaproducto entity)
+        public async Task<Tbventaanulada> Put(Tbventaanulada entity)
         {
             return await _repository.Put(entity);
         }

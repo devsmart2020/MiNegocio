@@ -35,12 +35,7 @@ namespace MiNegocio.Services.Services
         public Task<IEnumerable<TbUsuario>> GetTs()
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<TbUsuario> Login(TbUsuario entity)
-        {
-            return await _service.Login(controllerName, entity);
-        }
+        }     
 
         public Task<bool> Post(TbUsuario entity, bool isNewItem)
         {

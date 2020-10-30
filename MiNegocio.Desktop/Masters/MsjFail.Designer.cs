@@ -68,6 +68,7 @@
             this.btnClose.Style.PressedForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnClose.TabIndex = 17;
             this.btnClose.Text = "OK";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblDetail
             // 
@@ -104,13 +105,15 @@
             // 
             // lblError
             // 
-            this.lblError.AutoSize = true;
+            this.lblError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblError.BackColor = System.Drawing.Color.Transparent;
             this.lblError.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
             this.lblError.ForeColor = System.Drawing.Color.Black;
             this.lblError.Location = new System.Drawing.Point(15, 185);
+            this.lblError.MaximumSize = new System.Drawing.Size(260, 45);
+            this.lblError.MinimumSize = new System.Drawing.Size(10, 45);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(15, 15);
+            this.lblError.Size = new System.Drawing.Size(250, 45);
             this.lblError.TabIndex = 18;
             this.lblError.Text = "A";
             // 

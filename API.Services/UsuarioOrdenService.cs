@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class UsuarioOrden : IUsuarioOrdenService<Tbusuarioorden>
+    public class UsuarioOrdenService : IUsuarioOrdenService<Tbusuarioorden>
     {
         private readonly IUsuarioOrden<Tbusuarioorden> _repository;
 
-        public UsuarioOrden(IUsuarioOrden<Tbusuarioorden> repository)
+        public UsuarioOrdenService(IUsuarioOrden<Tbusuarioorden> repository)
         {
             _repository = repository;
         }

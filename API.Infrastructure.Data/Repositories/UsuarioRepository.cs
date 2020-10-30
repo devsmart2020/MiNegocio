@@ -55,6 +55,13 @@ namespace API.Infrastructure.Data.Repositories
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<Tbusuario> Login(Tbusuario entity)
+        {
+            return await _context.Tbusuario
+                .Where(x => x.User.Equals(entity.User) && x.Pass.Equals(entity.Pass))
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<Tbusuario> Post(Tbusuario entity)
         {
             await _context.Tbusuario.AddAsync(entity);

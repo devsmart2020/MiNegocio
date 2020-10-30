@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class VentaProductoAnulada : IVentaProductoAnuladaService<Tbventaproductoanulada>
+    public class VentaProductoAnuladaService : IVentaProductoAnuladaService<Tbventaproductoanulada>
     {
         private readonly IVentaProductoAnulada<Tbventaproductoanulada> _repository;
 
-        public VentaProductoAnulada(IVentaProductoAnulada<Tbventaproductoanulada> repository)
+        public VentaProductoAnuladaService(IVentaProductoAnulada<Tbventaproductoanulada> repository)
         {
             _repository = repository;
         }

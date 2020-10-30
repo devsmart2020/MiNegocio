@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class EgresoConcepto : IEgresoConceptoService<Tbegresoconcepto>
+    public class EgresoConceptoService : IEgresoConceptoService<Tbegresoconcepto>
     {
         private readonly IEgresoConcepto<Tbegresoconcepto> _repository;
 
-        public EgresoConcepto(IEgresoConcepto<Tbegresoconcepto> repository)
+        public EgresoConceptoService(IEgresoConcepto<Tbegresoconcepto> repository)
         {
             _repository = repository;
         }

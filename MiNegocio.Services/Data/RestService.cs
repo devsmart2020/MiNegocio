@@ -44,7 +44,8 @@ namespace MiNegocio.Services.Data
                     }
                     else
                     {
-                        ErrorRestService = $"{httpResponse.ReasonPhrase} Código: {httpResponse.StatusCode}";
+                        ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
+
                         return false;
                     }
                 }
@@ -74,7 +75,8 @@ namespace MiNegocio.Services.Data
                     }
                     else
                     {
-                        ErrorRestService = $"{httpResponse.ReasonPhrase} Código: {httpResponse.StatusCode}";
+                        ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
+
                         return default;
                     }
                 }
@@ -106,7 +108,8 @@ namespace MiNegocio.Services.Data
                     }
                     else
                     {
-                        ErrorRestService = $"{httpResponse.ReasonPhrase} Código: {httpResponse.StatusCode}";
+                        ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
+
                         return default;
                     }
                 }
@@ -132,11 +135,12 @@ namespace MiNegocio.Services.Data
                     {
                         var query = await httpResponse.Content.ReadAsStringAsync();
                         var model = JsonConvert.DeserializeObject<T>(query);
+                        Token = JsonConvert.DeserializeObject<String>(query);
                         return model;
                     }
                     else
                     {
-                        ErrorRestService = $"{httpResponse.ReasonPhrase} Código: {httpResponse.StatusCode}";
+                        ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
                         return default;
                     }
                 }
@@ -166,7 +170,8 @@ namespace MiNegocio.Services.Data
                         }
                         else
                         {
-                            ErrorRestService = $"{httpResponse.ReasonPhrase} Código: {httpResponse.StatusCode}";
+                            ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
+
                             return false;
                         }
                     }
@@ -182,7 +187,8 @@ namespace MiNegocio.Services.Data
                         }
                         else
                         {
-                            ErrorRestService = $"{httpResponse.ReasonPhrase} Código: {httpResponse.StatusCode}";
+                            ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
+
                             return false;
                         }
                     }
@@ -209,12 +215,9 @@ namespace MiNegocio.Services.Data
                 returnValue = settings.ConnectionString;
             }
             return returnValue;
-        }
-        public static void InitializeClient()
-        {
-
-        }
+        }        
         public static string ErrorRestService { get; set; }
+        public static string Token { get; private set; }
         #endregion
     }
 }

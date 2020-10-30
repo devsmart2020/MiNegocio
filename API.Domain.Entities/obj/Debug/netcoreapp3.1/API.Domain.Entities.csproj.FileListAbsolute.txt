@@ -16,3 +16,12 @@ C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.
 C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.csproj.CoreCompileInputs.cache
 C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.dll
 C:\Users\devsm\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.pdb
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Entities\bin\Debug\netcoreapp3.1\API.Domain.Entities.deps.json
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Entities\bin\Debug\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Entities\bin\Debug\netcoreapp3.1\API.Domain.Entities.pdb
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.csprojAssemblyReference.cache
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.AssemblyInfoInputs.cache
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.AssemblyInfo.cs
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.csproj.CoreCompileInputs.cache
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\john.tobon\source\repos\MiNegocio\API.Domain.Entities\obj\Debug\netcoreapp3.1\API.Domain.Entities.pdb

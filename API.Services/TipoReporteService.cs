@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class ITipoReporte : ITipoReporteService<Tbtiporeporte>
+    public class TipoReporteService : ITipoReporteService<Tbtiporeporte>
     {
         private readonly ITipoReporte<Tbtiporeporte> _repository;
 
-        public ITipoReporte(ITipoReporte<Tbtiporeporte> repository)
+        public TipoReporteService(ITipoReporte<Tbtiporeporte> repository)
         {
             _repository = repository;
         }

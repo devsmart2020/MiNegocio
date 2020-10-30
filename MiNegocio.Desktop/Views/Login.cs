@@ -9,14 +9,14 @@ namespace MiNegocio.Desktop.Views
     public partial class frmLogin : Form
     {
         #region Members Variables
-        private protected UsuarioViewModel _usuarioVm;
+        private protected LoginViewModel _service;
         #endregion
 
         #region Constructor
         public frmLogin()
         {
             InitializeComponent();
-            _usuarioVm = new UsuarioViewModel();
+            _service = new LoginViewModel();
             Binding();
         }
         #endregion
@@ -24,36 +24,40 @@ namespace MiNegocio.Desktop.Views
         #region Private Methods
         private protected void Binding()
         {
-            txtUser.DataBindings.Add(Resources.BindingText, _usuarioVm, Resources.PropUser, 
+            txtUser.DataBindings.Add(Resources.BindingText, _service, Resources.PropUser, 
                 true, DataSourceUpdateMode.OnPropertyChanged);
-            txtUser.DataBindings.Add(Resources.BindingEnabled, _usuarioVm, Resources.PropIsEnabled,
+            txtUser.DataBindings.Add(Resources.BindingEnabled, _service, Resources.PropIsEnabled,
                true, DataSourceUpdateMode.OnPropertyChanged);
-            txtPass.DataBindings.Add(Resources.BindingText, _usuarioVm, Resources.PropPass,
+            txtPass.DataBindings.Add(Resources.BindingText, _service, Resources.PropPass,
                 true, DataSourceUpdateMode.OnPropertyChanged);
-            txtPass.DataBindings.Add(Resources.BindingEnabled, _usuarioVm, Resources.PropIsEnabled,
+            txtPass.DataBindings.Add(Resources.BindingEnabled, _service, Resources.PropIsEnabled,
                 true, DataSourceUpdateMode.OnPropertyChanged);
-            pbLoad.DataBindings.Add(Resources.BindingVisible, _usuarioVm, Resources.PropIsBusy,
+            pbLoad.DataBindings.Add(Resources.BindingVisible, _service, Resources.PropIsBusy,
                 true, DataSourceUpdateMode.OnPropertyChanged);
-            pbSuccess.DataBindings.Add(Resources.BindingVisible, _usuarioVm, Resources.PropIsVisible,
+            pbSuccess.DataBindings.Add(Resources.BindingVisible, _service, Resources.PropIsVisible,
                 true, DataSourceUpdateMode.OnPropertyChanged);
-            btnLogin.DataBindings.Add(Resources.BindingEnabled, _usuarioVm, Resources.PropIsEnabled,
+            btnLogin.DataBindings.Add(Resources.BindingEnabled, _service, Resources.PropIsEnabled,
                true, DataSourceUpdateMode.OnPropertyChanged);
         }        
         private protected async Task Login()
         {
-            await _usuarioVm.LoginCmd();
-            if (_usuarioVm.IsLogued)
+            await _service.LoginCmd();
+            if (_service.IsLogued)
             {
                 using (frmMain main = new frmMain())
                 {
+                    using (MsjOk _msjOk = new MsjOk(_service.Msj))
+                    {
+                        _msjOk.ShowDialog();
+                    }
                     this.Hide();
-                    _usuarioVm.Clean();
+                    _service.Clean();
                     main.Show();
                 }
             }
-            else if (_usuarioVm.IsLogued == false)
+            else if (_service.IsLogued == false)
             {
-                using (MsjFail _msjFail = new MsjFail(_usuarioVm.Msj))
+                using (MsjFail _msjFail = new MsjFail(_service.Msj))
                 {
                     _msjFail.ShowDialog();
                 }
@@ -62,13 +66,11 @@ namespace MiNegocio.Desktop.Views
         #endregion
 
         #region Events
-
-        #endregion
-
         private async void btnLogin_Click(object sender, System.EventArgs e)
         {
             await Login();
         }
-       
+        #endregion
+
     }
 }

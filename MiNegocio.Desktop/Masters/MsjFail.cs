@@ -9,5 +9,10 @@ namespace MiNegocio.Desktop.Masters
             InitializeComponent();
             lblError.Text = error;
         }
+
+        private void btnClose_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
     }
 }

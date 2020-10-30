@@ -11,9 +11,9 @@ namespace API.Infrastructure.Data.Repositories
 {
     public class ConceptoRepository : IConcepto<Tbconcepto>
     {
-        private readonly soport43_minegociopruebasContext _context;
+        private readonly soport43_minegocioContext _context;
 
-        public ConceptoRepository(soport43_minegociopruebasContext context)
+        public ConceptoRepository(soport43_minegocioContext context)
         {
             _context = context;
         }

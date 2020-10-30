@@ -26,11 +26,13 @@ namespace MiNegocio.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<soport43_minegociopruebasContext>(options =>
+            services.AddDbContext<soport43_minegocioContext>(options =>
             options.UseMySql(Configuration.GetConnectionString("prueba")));
 
             services.AddTransient<ICliente<Tbcliente>, ClienteRepository>();
             services.AddTransient<IClienteService<Tbcliente>, ClienteService>();
+            services.AddTransient<ICompra<Tbcompra>, CompraRepository>();
+            services.AddTransient<ICompraService<Tbcompra>, CompraService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Infrastructure.Data.Data
 {
-    public partial class soport43_minegociopruebasContext : DbContext
+    public partial class soport43_minegocioContext : DbContext
     {
-        public soport43_minegociopruebasContext()
+        public soport43_minegocioContext()
         {
         }
 
-        public soport43_minegociopruebasContext(DbContextOptions<soport43_minegociopruebasContext> options)
+        public soport43_minegocioContext(DbContextOptions<soport43_minegocioContext> options)
             : base(options)
         {
         }
@@ -21,7 +21,7 @@ namespace API.Infrastructure.Data.Data
         public virtual DbSet<Tbegreso> Tbegreso { get; set; }
         public virtual DbSet<Tbegresoconcepto> Tbegresoconcepto { get; set; }
         public virtual DbSet<Tbequipo> Tbequipo { get; set; }
-        public virtual DbSet<Tbequipo> Tbestadocompra { get; set; }
+        public virtual DbSet<Tbestadocompra> Tbestadocompra { get; set; }
         public virtual DbSet<Tbestadoorden> Tbestadoorden { get; set; }
         public virtual DbSet<Tbformapago> Tbformapago { get; set; }
         public virtual DbSet<Tbinventariofijo> Tbinventariofijo { get; set; }
@@ -46,7 +46,12 @@ namespace API.Infrastructure.Data.Data
         public virtual DbSet<Tbventaanulada> Tbventaanulada { get; set; }
         public virtual DbSet<Tbventaproducto> Tbventaproducto { get; set; }
         public virtual DbSet<Tbventaproductoanulada> Tbventaproductoanulada { get; set; }
-        public virtual DbSet<Tbventaservicio> Tbventaservicio { get; set; }      
+        public virtual DbSet<Tbventaservicio> Tbventaservicio { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -352,76 +357,20 @@ namespace API.Infrastructure.Data.Data
                     .HasConstraintName("fk_TbEquipo_TbModelo1");
             });
 
-
-            modelBuilder.Entity<Tbequipo>(entity =>
+            modelBuilder.Entity<Tbestadocompra>(entity =>
             {
-                entity.HasKey(e => e.IdEquipo)
+                entity.HasKey(e => e.IdEstadoCompra)
                     .HasName("PRIMARY");
 
-                entity.ToTable("tbequipo");
+                entity.ToTable("tbestadocompra");
 
-                entity.HasIndex(e => e.IdCliente)
-                    .HasName("fk_TbEquipo_TbCliente1_idx");
+                entity.Property(e => e.IdEstadoCompra).HasColumnType("int(11)");
 
-                entity.HasIndex(e => e.IdModelo)
-                    .HasName("fk_TbEquipo_TbModelo1_idx");
-
-                entity.HasIndex(e => e.Imei1)
-                    .HasName("Imei1_UNIQUE")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.Imei2)
-                    .HasName("Imei2_UNIQUE")
-                    .IsUnique();
-
-                entity.Property(e => e.IdEquipo).HasColumnType("int(11)");
-
-                entity.Property(e => e.Color)
-                    .HasColumnType("varchar(15)")
-                    .HasCharSet("utf8")
-                    .HasCollation("utf8_unicode_ci");
-
-                entity.Property(e => e.Fecha).HasColumnType("datetime");
-
-                entity.Property(e => e.IdCliente)
+                entity.Property(e => e.Estado)
                     .IsRequired()
-                    .HasColumnType("varchar(15)")
+                    .HasColumnType("varchar(20)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_unicode_ci");
-
-                entity.Property(e => e.IdModelo).HasColumnType("int(11)");
-
-                entity.Property(e => e.Imei1)
-                    .HasColumnType("varchar(17)")
-                    .HasCharSet("utf8")
-                    .HasCollation("utf8_unicode_ci");
-
-                entity.Property(e => e.Imei2)
-                    .HasColumnType("varchar(17)")
-                    .HasCharSet("utf8")
-                    .HasCollation("utf8_unicode_ci");
-
-                entity.Property(e => e.Observacion)
-                    .HasColumnType("varchar(1000)")
-                    .HasCharSet("utf8")
-                    .HasCollation("utf8_unicode_ci");
-
-                entity.Property(e => e.Serie)
-                    .HasColumnType("varchar(30)")
-                    .HasCharSet("utf8")
-                    .HasCollation("utf8_unicode_ci");
-
-                entity.HasOne(d => d.IdClienteNavigation)
-                    .WithMany(p => p.Tbequipo)
-                    .HasForeignKey(d => d.IdCliente)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_TbEquipo_TbCliente1");
-
-                entity.HasOne(d => d.IdModeloNavigation)
-                    .WithMany(p => p.Tbequipo)
-                    .HasForeignKey(d => d.IdModelo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_TbEquipo_TbModelo1");
             });
 
             modelBuilder.Entity<Tbestadoorden>(entity =>
@@ -1438,6 +1387,8 @@ namespace API.Infrastructure.Data.Data
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_TbVentaServicio_TbVenta1");
             });
+
         }
+
     }
 }

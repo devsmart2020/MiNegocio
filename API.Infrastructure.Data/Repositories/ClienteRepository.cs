@@ -10,9 +10,9 @@ namespace API.Infrastructure.Data.Repositories
 {
     public class ClienteRepository : ICliente<Tbcliente>
     {
-        private readonly soport43_minegociopruebasContext _context;
+        private readonly soport43_minegocioContext _context;
 
-        public ClienteRepository(soport43_minegociopruebasContext context)
+        public ClienteRepository(soport43_minegocioContext context)
         {
             _context = context;
         }
@@ -49,7 +49,8 @@ namespace API.Infrastructure.Data.Repositories
 
         public async Task<Tbcliente> GetById(Tbcliente entity)
         {
-            return await _context.Tbcliente.Where(x => x.DocId == entity.DocId)
+            return await _context.Tbcliente
+                .Where(x => x.DocId == entity.DocId)
                 .FirstOrDefaultAsync();
         }
 

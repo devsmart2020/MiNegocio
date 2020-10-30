@@ -10,9 +10,9 @@ namespace API.Infrastructure.Data.Repositories
 {
     public class CompraRepository : ICompra<Tbcompra>
     {
-        private readonly soport43_minegociopruebasContext _context;
+        private readonly soport43_minegocioContext _context;
 
-        public CompraRepository(soport43_minegociopruebasContext context)
+        public CompraRepository(soport43_minegocioContext context)
         {
             _context = context;
         }

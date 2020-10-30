@@ -10,9 +10,9 @@ namespace API.Infrastructure.Data.Repositories
 {
     public class CreditoRepository : ICredito<Tbcredito>
     {
-        private readonly soport43_minegociopruebasContext _context;
+        private readonly soport43_minegocioContext _context;
 
-        public CreditoRepository(soport43_minegociopruebasContext context)
+        public CreditoRepository(soport43_minegocioContext context)
         {
             _context = context;
         }

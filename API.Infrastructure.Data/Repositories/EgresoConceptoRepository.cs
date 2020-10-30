@@ -10,9 +10,9 @@ namespace API.Infrastructure.Data.Repositories
 {
     public class EgresoConceptoRepository : IEgresoConcepto<Tbegresoconcepto>
     {
-        private readonly soport43_minegociopruebasContext _context;
+        private readonly soport43_minegocioContext _context;
 
-        public EgresoConceptoRepository(soport43_minegociopruebasContext context)
+        public EgresoConceptoRepository(soport43_minegocioContext context)
         {
             _context = context;
         }

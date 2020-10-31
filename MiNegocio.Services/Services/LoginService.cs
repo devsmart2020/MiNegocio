@@ -7,15 +7,15 @@ namespace MiNegocio.Services.Services
 {
     public class LoginService
     {
-        private readonly IRestService<TbUsuario> _service;
+        private readonly IRestService<Tbusuario> _service;
         private readonly string controllerName = Resources.LoginController;
 
         public LoginService()
         {
-            _service = new RestService<TbUsuario>();
+            _service = new RestService<Tbusuario>();
         }
 
-        public  async Task<TbUsuario>Login(TbUsuario entity)
+        public  async Task<Tbusuario>Login(Tbusuario entity)
         {
             return await _service.Login(controllerName, entity);
         }

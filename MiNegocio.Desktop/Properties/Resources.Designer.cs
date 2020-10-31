@@ -148,6 +148,15 @@ namespace MiNegocio.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Value.
+        /// </summary>
+        internal static string BindingValue {
+            get {
+                return ResourceManager.GetString("BindingValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Visible.
         /// </summary>
         internal static string BindingVisible {
@@ -587,6 +596,15 @@ namespace MiNegocio.Desktop.Properties {
         internal static string PropIsVisible {
             get {
                 return ResourceManager.GetString("PropIsVisible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a List.
+        /// </summary>
+        internal static string PropList {
+            get {
+                return ResourceManager.GetString("PropList", resourceCulture);
             }
         }
         

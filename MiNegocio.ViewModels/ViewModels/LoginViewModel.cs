@@ -25,7 +25,7 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             IsBusy = true;
             IsEnabled = false;
-            TbUsuario usuario = new TbUsuario()
+            Tbusuario usuario = new Tbusuario()
             {
                 User = User,
                 Pass = Pass,
@@ -45,7 +45,7 @@ namespace MiNegocio.ViewModels.ViewModels
                     {
                         IsLogued = false;
                         Pass = string.Empty;
-                        Msj = RestService<TbUsuario>.ErrorRestService;
+                        Msj = RestService<Tbusuario>.ErrorRestService;
                     }
                 }
                 else
@@ -93,9 +93,9 @@ namespace MiNegocio.ViewModels.ViewModels
             get => token;
             set => SetProperty(ref token, value);
         }
-        private TbUsuario usuario;
+        private Tbusuario usuario;
 
-        public TbUsuario Usuario
+        public Tbusuario Usuario
         {
             get => usuario;
             set => SetProperty(ref usuario, value);
@@ -114,7 +114,7 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             await Login();
         }
-        public static TbUsuario UserLogued { get; set; }
+        public static Tbusuario UserLogued { get; set; }
         #endregion
     }
 }

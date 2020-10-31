@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pbSuccess = new System.Windows.Forms.PictureBox();
             this.btnClose = new Syncfusion.WinForms.Controls.SfButton();
             this.lblDetail = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Elipse = new Bunifu.Framework.UI.BunifuElipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,6 +105,11 @@
             this.panel4.Size = new System.Drawing.Size(286, 4);
             this.panel4.TabIndex = 17;
             // 
+            // Elipse
+            // 
+            this.Elipse.ElipseRadius = 5;
+            this.Elipse.TargetControl = this;
+            // 
             // MsjOk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,5 +140,6 @@
         private System.Windows.Forms.Label lblDetail;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panel4;
+        private Bunifu.Framework.UI.BunifuElipse Elipse;
     }
 }

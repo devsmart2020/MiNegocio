@@ -79,11 +79,20 @@ namespace MiNegocio.ViewModels.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Datos guardados con éxito..
+        ///   Busca una cadena traducida similar a Datos registrados con éxito..
         /// </summary>
         internal static string MsjSaveOk {
             get {
                 return ResourceManager.GetString("MsjSaveOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos actualizados con éxito..
+        /// </summary>
+        internal static string MsjUpdateOk {
+            get {
+                return ResourceManager.GetString("MsjUpdateOk", resourceCulture);
             }
         }
     }

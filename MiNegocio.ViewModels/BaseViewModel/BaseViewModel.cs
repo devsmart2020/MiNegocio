@@ -21,7 +21,7 @@ namespace MiNegocio.ViewModels.BaseViewModel
             get { return msj; }
             set { SetProperty(ref msj, value); }
         }
-        private bool isVisible;
+        private bool isVisible = true;
 
         public bool IsVisible
         {
@@ -35,7 +35,13 @@ namespace MiNegocio.ViewModels.BaseViewModel
             get => isEnabled;
             set => SetProperty(ref isEnabled, value);
         }
+        private bool isNewItem;
 
+        public bool IsNewItem
+        {
+            get { return isNewItem; }
+            set { isNewItem = value; }
+        }
         protected bool SetProperty<T>(ref T backingStore, T value, 
             [CallerMemberName] string propertyName = "", 
             Action onChanged = null)

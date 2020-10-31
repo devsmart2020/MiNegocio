@@ -142,6 +142,9 @@
   <data name="BindingText" xml:space="preserve">
     <value>Text</value>
   </data>
+  <data name="BindingValue" xml:space="preserve">
+    <value>Value</value>
+  </data>
   <data name="BindingVisible" xml:space="preserve">
     <value>Visible</value>
   </data>
@@ -276,6 +279,9 @@
   </data>
   <data name="PropIsVisible" xml:space="preserve">
     <value>IsVisible</value>
+  </data>
+  <data name="PropList" xml:space="preserve">
+    <value>List</value>
   </data>
   <data name="PropPass" xml:space="preserve">
     <value>Pass</value>

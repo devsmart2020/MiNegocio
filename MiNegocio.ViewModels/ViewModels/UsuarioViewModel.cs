@@ -32,7 +32,7 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsBusy = true;
                 Usuarios = await _service.GetTs();
                 if (Usuarios.Count() == 0)
-                    Msj = RestService<TbUsuario>.ErrorRestService;
+                    Msj = RestService<Tbusuario>.ErrorRestService;
             }
             catch (Exception ex)
             {
@@ -72,16 +72,16 @@ namespace MiNegocio.ViewModels.ViewModels
             set => SetProperty(ref pass, value);
         }
 
-        private TbUsuario usuario;
+        private Tbusuario usuario;
 
-        public TbUsuario Usuario
+        public Tbusuario Usuario
         {
             get => usuario;
             set => SetProperty(ref usuario, value);
         }
-        private IEnumerable<TbUsuario> usuarios;
+        private IEnumerable<Tbusuario> usuarios;
 
-        public IEnumerable<TbUsuario> Usuarios
+        public IEnumerable<Tbusuario> Usuarios
         {
             get => usuarios;
             set => SetProperty(ref usuarios, value);

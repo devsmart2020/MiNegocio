@@ -15,3 +15,4 @@ C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\bin\Debug\MiNegocio.
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.csproj.CoreCompileInputs.cache
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.dll
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.pdb
+C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Models\obj\Debug\MiNegocio.Models.csprojAssemblyReference.cache

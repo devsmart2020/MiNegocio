@@ -10,7 +10,7 @@ namespace MiNegocio.Services.Data
         Task<IEnumerable<T>> GetListEntity(string controllerName, T entity);
         Task<IEnumerable<T>> GetTs(string controllerName);
         Task<T> Login(string controllerName, T entity);
-        Task<bool> Post(T entity, bool isNewItem);
+        Task<bool> Post(string controllerName, T entity, bool isNewItem);
 
     
     }

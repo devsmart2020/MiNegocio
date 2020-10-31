@@ -61,6 +61,15 @@ namespace MiNegocio.Services.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a api/Clientes.
+        /// </summary>
+        internal static string ClienteController {
+            get {
+                return ResourceManager.GetString("ClienteController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a WebService.
         /// </summary>
         internal static string ConnectionConfig {

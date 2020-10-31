@@ -65,23 +65,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrador\\.nuget\\packages\\": {},
+    "C:\\Users\\john.tobon\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj",
+      "projectUniqueName": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj",
       "projectName": "API.Services",
-      "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj",
-      "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\obj\\",
+      "projectPath": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj",
+      "packagesPath": "C:\\Users\\john.tobon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\john.tobon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -95,14 +95,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+            "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
+              "projectPath": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
             },
-            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
+            "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
             },
-            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
+            "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
             }
           }
         }

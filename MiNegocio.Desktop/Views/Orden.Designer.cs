@@ -295,7 +295,7 @@
             // txtEquipoOrden
             // 
             this.txtEquipoOrden.BackColor = System.Drawing.Color.White;
-            this.txtEquipoOrden.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtEquipoOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtEquipoOrden.BorderColor = System.Drawing.Color.DimGray;
             this.txtEquipoOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtEquipoOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -324,7 +324,7 @@
             // txtInfoMarca
             // 
             this.txtInfoMarca.BackColor = System.Drawing.Color.White;
-            this.txtInfoMarca.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtInfoMarca.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtInfoMarca.BorderColor = System.Drawing.Color.DimGray;
             this.txtInfoMarca.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtInfoMarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -353,7 +353,7 @@
             // txtInfoTipo
             // 
             this.txtInfoTipo.BackColor = System.Drawing.Color.White;
-            this.txtInfoTipo.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtInfoTipo.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtInfoTipo.BorderColor = System.Drawing.Color.DimGray;
             this.txtInfoTipo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtInfoTipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -461,7 +461,7 @@
             // txtDatoBloqueo
             // 
             this.txtDatoBloqueo.BackColor = System.Drawing.Color.White;
-            this.txtDatoBloqueo.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtDatoBloqueo.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtDatoBloqueo.BorderColor = System.Drawing.Color.DimGray;
             this.txtDatoBloqueo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDatoBloqueo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -580,7 +580,7 @@
             // txtObsOrden
             // 
             this.txtObsOrden.BackColor = System.Drawing.Color.White;
-            this.txtObsOrden.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtObsOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtObsOrden.BorderColor = System.Drawing.Color.DimGray;
             this.txtObsOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtObsOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -607,7 +607,7 @@
             // txtDiagCliente
             // 
             this.txtDiagCliente.BackColor = System.Drawing.Color.White;
-            this.txtDiagCliente.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtDiagCliente.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtDiagCliente.BorderColor = System.Drawing.Color.DimGray;
             this.txtDiagCliente.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDiagCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -634,7 +634,7 @@
             // txtObsEquipo
             // 
             this.txtObsEquipo.BackColor = System.Drawing.Color.White;
-            this.txtObsEquipo.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtObsEquipo.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtObsEquipo.BorderColor = System.Drawing.Color.DimGray;
             this.txtObsEquipo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtObsEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -672,7 +672,7 @@
             // txtColor
             // 
             this.txtColor.BackColor = System.Drawing.Color.White;
-            this.txtColor.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtColor.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtColor.BorderColor = System.Drawing.Color.DimGray;
             this.txtColor.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -699,7 +699,7 @@
             // txtImei1
             // 
             this.txtImei1.BackColor = System.Drawing.Color.White;
-            this.txtImei1.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtImei1.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtImei1.BorderColor = System.Drawing.Color.DimGray;
             this.txtImei1.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtImei1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -726,7 +726,7 @@
             // txtSerial
             // 
             this.txtSerial.BackColor = System.Drawing.Color.White;
-            this.txtSerial.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtSerial.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtSerial.BorderColor = System.Drawing.Color.DimGray;
             this.txtSerial.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtSerial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -810,7 +810,7 @@
             // txtClienteOrden
             // 
             this.txtClienteOrden.BackColor = System.Drawing.Color.White;
-            this.txtClienteOrden.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtClienteOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtClienteOrden.BorderColor = System.Drawing.Color.DimGray;
             this.txtClienteOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtClienteOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -837,7 +837,7 @@
             // txtClienteEquipo
             // 
             this.txtClienteEquipo.BackColor = System.Drawing.Color.White;
-            this.txtClienteEquipo.BeforeTouchSize = new System.Drawing.Size(170, 22);
+            this.txtClienteEquipo.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtClienteEquipo.BorderColor = System.Drawing.Color.DimGray;
             this.txtClienteEquipo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtClienteEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;

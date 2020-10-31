@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.label7 = new System.Windows.Forms.Label();
             this.txtDocId = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.lblUser = new System.Windows.Forms.Label();
@@ -50,12 +51,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dgvCliente = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.pbLoading = new System.Windows.Forms.PictureBox();
-            this.btnGuardar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.label11 = new System.Windows.Forms.Label();
             this.pbLoad = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btnActualizar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.errorCliente = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label13 = new System.Windows.Forms.Label();
+            this.dpFcha = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            this.btnGuardar = new Syncfusion.WinForms.Controls.SfButton();
+            this.btnActualizar = new Syncfusion.WinForms.Controls.SfButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtDocId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtApellido)).BeginInit();
@@ -85,7 +86,7 @@
             // txtDocId
             // 
             this.txtDocId.BackColor = System.Drawing.Color.White;
-            this.txtDocId.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtDocId.BeforeTouchSize = new System.Drawing.Size(200, 23);
             this.txtDocId.BorderColor = System.Drawing.Color.DimGray;
             this.txtDocId.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDocId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -100,7 +101,7 @@
             this.txtDocId.Name = "txtDocId";
             this.txtDocId.NearImage = global::MiNegocio.Desktop.Properties.Resources.DocId;
             this.txtDocId.Size = new System.Drawing.Size(200, 23);
-            this.txtDocId.TabIndex = 24;
+            this.txtDocId.TabIndex = 0;
             this.txtDocId.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             this.txtDocId.ThemeStyle.CornerRadius = 0;
             this.txtDocId.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -108,6 +109,9 @@
             this.txtDocId.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDocId.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDocId.UseBorderColorOnFocus = true;
+            this.txtDocId.TextChanged += new System.EventHandler(this.txtDocId_TextChanged);
+            this.txtDocId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocId_KeyPress);
+            this.txtDocId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDocId_KeyUp);
             // 
             // lblUser
             // 
@@ -124,7 +128,7 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.White;
-            this.txtNombre.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtNombre.BeforeTouchSize = new System.Drawing.Size(200, 23);
             this.txtNombre.BorderColor = System.Drawing.Color.DimGray;
             this.txtNombre.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -139,7 +143,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.NearImage = global::MiNegocio.Desktop.Properties.Resources.Texto;
             this.txtNombre.Size = new System.Drawing.Size(200, 23);
-            this.txtNombre.TabIndex = 26;
+            this.txtNombre.TabIndex = 1;
             this.txtNombre.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             this.txtNombre.ThemeStyle.CornerRadius = 0;
             this.txtNombre.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -147,6 +151,7 @@
             this.txtNombre.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombre.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNombre.UseBorderColorOnFocus = true;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // label1
             // 
@@ -163,7 +168,7 @@
             // txtApellido
             // 
             this.txtApellido.BackColor = System.Drawing.Color.White;
-            this.txtApellido.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtApellido.BeforeTouchSize = new System.Drawing.Size(200, 23);
             this.txtApellido.BorderColor = System.Drawing.Color.DimGray;
             this.txtApellido.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -178,7 +183,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.NearImage = global::MiNegocio.Desktop.Properties.Resources.Texto;
             this.txtApellido.Size = new System.Drawing.Size(200, 23);
-            this.txtApellido.TabIndex = 28;
+            this.txtApellido.TabIndex = 2;
             this.txtApellido.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             this.txtApellido.ThemeStyle.CornerRadius = 0;
             this.txtApellido.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -214,7 +219,7 @@
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.Color.White;
-            this.txtTelefono.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtTelefono.BeforeTouchSize = new System.Drawing.Size(200, 23);
             this.txtTelefono.BorderColor = System.Drawing.Color.DimGray;
             this.txtTelefono.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -228,7 +233,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.NearImage = global::MiNegocio.Desktop.Properties.Resources.Telefono;
             this.txtTelefono.Size = new System.Drawing.Size(200, 23);
-            this.txtTelefono.TabIndex = 31;
+            this.txtTelefono.TabIndex = 3;
             this.txtTelefono.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             this.txtTelefono.ThemeStyle.CornerRadius = 0;
             this.txtTelefono.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -236,6 +241,7 @@
             this.txtTelefono.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTelefono.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTelefono.UseBorderColorOnFocus = true;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label4
             // 
@@ -252,7 +258,7 @@
             // txtTelAlterno
             // 
             this.txtTelAlterno.BackColor = System.Drawing.Color.White;
-            this.txtTelAlterno.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtTelAlterno.BeforeTouchSize = new System.Drawing.Size(200, 23);
             this.txtTelAlterno.BorderColor = System.Drawing.Color.DimGray;
             this.txtTelAlterno.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtTelAlterno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -266,7 +272,7 @@
             this.txtTelAlterno.Name = "txtTelAlterno";
             this.txtTelAlterno.NearImage = global::MiNegocio.Desktop.Properties.Resources.Telefono;
             this.txtTelAlterno.Size = new System.Drawing.Size(200, 23);
-            this.txtTelAlterno.TabIndex = 33;
+            this.txtTelAlterno.TabIndex = 4;
             this.txtTelAlterno.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             this.txtTelAlterno.ThemeStyle.CornerRadius = 0;
             this.txtTelAlterno.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -274,6 +280,7 @@
             this.txtTelAlterno.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTelAlterno.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTelAlterno.UseBorderColorOnFocus = true;
+            this.txtTelAlterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelAlterno_KeyPress);
             // 
             // label5
             // 
@@ -290,7 +297,7 @@
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(200, 23);
             this.txtEmail.BorderColor = System.Drawing.Color.DimGray;
             this.txtEmail.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -305,7 +312,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.NearImage = global::MiNegocio.Desktop.Properties.Resources.Email;
             this.txtEmail.Size = new System.Drawing.Size(200, 23);
-            this.txtEmail.TabIndex = 35;
+            this.txtEmail.TabIndex = 5;
             this.txtEmail.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             this.txtEmail.ThemeStyle.CornerRadius = 0;
             this.txtEmail.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -329,7 +336,7 @@
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.White;
-            this.txtDireccion.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtDireccion.BeforeTouchSize = new System.Drawing.Size(200, 23);
             this.txtDireccion.BorderColor = System.Drawing.Color.DimGray;
             this.txtDireccion.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -338,13 +345,13 @@
             this.txtDireccion.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDireccion.ForeColor = System.Drawing.Color.Black;
-            this.txtDireccion.Location = new System.Drawing.Point(31, 200);
+            this.txtDireccion.Location = new System.Drawing.Point(31, 204);
             this.txtDireccion.MaxLength = 60;
             this.txtDireccion.Metrocolor = System.Drawing.Color.Silver;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.NearImage = global::MiNegocio.Desktop.Properties.Resources.Gps;
-            this.txtDireccion.Size = new System.Drawing.Size(694, 23);
-            this.txtDireccion.TabIndex = 37;
+            this.txtDireccion.Size = new System.Drawing.Size(447, 23);
+            this.txtDireccion.TabIndex = 6;
             this.txtDireccion.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             this.txtDireccion.ThemeStyle.CornerRadius = 0;
             this.txtDireccion.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -359,7 +366,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label3.Location = new System.Drawing.Point(28, 184);
+            this.label3.Location = new System.Drawing.Point(28, 188);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 38;
@@ -380,7 +387,7 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.White;
-            this.txtBuscar.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtBuscar.BeforeTouchSize = new System.Drawing.Size(200, 23);
             this.txtBuscar.BorderColor = System.Drawing.Color.DimGray;
             this.txtBuscar.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -395,7 +402,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.NearImage = global::MiNegocio.Desktop.Properties.Resources.BuscaPersona;
             this.txtBuscar.Size = new System.Drawing.Size(200, 23);
-            this.txtBuscar.TabIndex = 40;
+            this.txtBuscar.TabIndex = 11;
             this.txtBuscar.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             this.txtBuscar.ThemeStyle.CornerRadius = 0;
             this.txtBuscar.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -403,6 +410,7 @@
             this.txtBuscar.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtBuscar.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBuscar.UseBorderColorOnFocus = true;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label9
             // 
@@ -429,63 +437,18 @@
             this.dgvCliente.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
             this.dgvCliente.Size = new System.Drawing.Size(866, 264);
             this.dgvCliente.Style.BorderColor = System.Drawing.Color.DarkGray;
-            this.dgvCliente.TabIndex = 42;
+            this.dgvCliente.TabIndex = 12;
+            this.dgvCliente.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.dgvCliente_CellDoubleClick);
             // 
             // pbLoading
             // 
             this.pbLoading.BackColor = System.Drawing.Color.Transparent;
             this.pbLoading.Image = global::MiNegocio.Desktop.Properties.Resources._128x128;
-            this.pbLoading.Location = new System.Drawing.Point(377, 246);
+            this.pbLoading.Location = new System.Drawing.Point(377, 374);
             this.pbLoading.Name = "pbLoading";
             this.pbLoading.Size = new System.Drawing.Size(136, 99);
             this.pbLoading.TabIndex = 125;
             this.pbLoading.TabStop = false;
-            this.pbLoading.Visible = false;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Activecolor = System.Drawing.Color.Coral;
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
-            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnGuardar.BorderRadius = 4;
-            this.btnGuardar.ButtonText = "";
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.DisabledColor = System.Drawing.Color.Gray;
-            this.btnGuardar.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnGuardar.Iconimage = global::MiNegocio.Desktop.Properties.Resources.Guardar;
-            this.btnGuardar.Iconimage_right = null;
-            this.btnGuardar.Iconimage_right_Selected = null;
-            this.btnGuardar.Iconimage_Selected = null;
-            this.btnGuardar.IconMarginLeft = 0;
-            this.btnGuardar.IconMarginRight = 0;
-            this.btnGuardar.IconRightVisible = false;
-            this.btnGuardar.IconRightZoom = 0D;
-            this.btnGuardar.IconVisible = true;
-            this.btnGuardar.IconZoom = 60D;
-            this.btnGuardar.IsTab = false;
-            this.btnGuardar.Location = new System.Drawing.Point(786, 76);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
-            this.btnGuardar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(73)))));
-            this.btnGuardar.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnGuardar.selected = false;
-            this.btnGuardar.Size = new System.Drawing.Size(35, 35);
-            this.btnGuardar.TabIndex = 126;
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGuardar.Textcolor = System.Drawing.Color.White;
-            this.btnGuardar.TextFont = new System.Drawing.Font("Segoe UI", 8F);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 6.75F);
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label11.Location = new System.Drawing.Point(784, 110);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 12);
-            this.label11.TabIndex = 127;
-            this.label11.Text = "Guardar";
             // 
             // pbLoad
             // 
@@ -503,7 +466,7 @@
             this.pbLoad.ForegroundImage = null;
             this.pbLoad.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
             this.pbLoad.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
-            this.pbLoad.Location = new System.Drawing.Point(759, 217);
+            this.pbLoad.Location = new System.Drawing.Point(752, 192);
             this.pbLoad.MultipleColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(58))))),
@@ -512,7 +475,7 @@
             this.pbLoad.Name = "pbLoad";
             this.pbLoad.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
             this.pbLoad.SegmentWidth = 12;
-            this.pbLoad.Size = new System.Drawing.Size(108, 6);
+            this.pbLoad.Size = new System.Drawing.Size(126, 6);
             this.pbLoad.TabIndex = 130;
             this.pbLoad.TextStyle = Syncfusion.Windows.Forms.Tools.ProgressBarTextStyles.Custom;
             this.pbLoad.ThemeName = "WaitingGradient";
@@ -521,54 +484,101 @@
             this.pbLoad.WaitingGradientInterval = 70;
             this.pbLoad.WaitingGradientWidth = 100;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 6.75F);
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.label12.Location = new System.Drawing.Point(780, 182);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 12);
-            this.label12.TabIndex = 129;
-            this.label12.Text = "Actualizar";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Activecolor = System.Drawing.Color.Coral;
-            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
-            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizar.BorderRadius = 4;
-            this.btnActualizar.ButtonText = "";
-            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActualizar.DisabledColor = System.Drawing.Color.Gray;
-            this.btnActualizar.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnActualizar.Iconimage = global::MiNegocio.Desktop.Properties.Resources.Actualizar;
-            this.btnActualizar.Iconimage_right = null;
-            this.btnActualizar.Iconimage_right_Selected = null;
-            this.btnActualizar.Iconimage_Selected = null;
-            this.btnActualizar.IconMarginLeft = 0;
-            this.btnActualizar.IconMarginRight = 0;
-            this.btnActualizar.IconRightVisible = false;
-            this.btnActualizar.IconRightZoom = 0D;
-            this.btnActualizar.IconVisible = true;
-            this.btnActualizar.IconZoom = 60D;
-            this.btnActualizar.IsTab = false;
-            this.btnActualizar.Location = new System.Drawing.Point(786, 148);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
-            this.btnActualizar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(73)))));
-            this.btnActualizar.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnActualizar.selected = false;
-            this.btnActualizar.Size = new System.Drawing.Size(35, 35);
-            this.btnActualizar.TabIndex = 128;
-            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizar.Textcolor = System.Drawing.Color.White;
-            this.btnActualizar.TextFont = new System.Drawing.Font("Segoe UI", 8F);
-            // 
             // errorCliente
             // 
             this.errorCliente.ContainerControl = this;
+            this.errorCliente.Icon = ((System.Drawing.Icon)(resources.GetObject("errorCliente.Icon")));
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label13.Location = new System.Drawing.Point(522, 188);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(71, 13);
+            this.label13.TabIndex = 172;
+            this.label13.Text = "Cumpleaños";
+            // 
+            // dpFcha
+            // 
+            this.dpFcha.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dpFcha.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.LongDate;
+            this.dpFcha.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dpFcha.Location = new System.Drawing.Point(525, 204);
+            this.dpFcha.Name = "dpFcha";
+            this.dpFcha.Size = new System.Drawing.Size(200, 23);
+            this.dpFcha.Style.BackColor = System.Drawing.Color.White;
+            this.dpFcha.Style.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(14)))));
+            this.dpFcha.Style.FocusedBorderColor = System.Drawing.Color.OrangeRed;
+            this.dpFcha.Style.ForeColor = System.Drawing.Color.Black;
+            this.dpFcha.Style.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(14)))));
+            this.dpFcha.Style.UpDownBackColor = System.Drawing.Color.White;
+            this.dpFcha.Style.UpDownForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dpFcha.Style.UpDownHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(14)))));
+            this.dpFcha.Style.UpDownHoverForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dpFcha.TabIndex = 7;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.AccessibleName = "Button";
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.FocusRectangleVisible = true;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGuardar.ImageSize = new System.Drawing.Size(18, 18);
+            this.btnGuardar.Location = new System.Drawing.Point(752, 101);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(126, 35);
+            this.btnGuardar.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
+            this.btnGuardar.Style.DisabledBackColor = System.Drawing.Color.Gray;
+            this.btnGuardar.Style.DisabledForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGuardar.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.btnGuardar.Style.FocusedForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGuardar.Style.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(0)))));
+            this.btnGuardar.Style.HoverForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGuardar.Style.Image = global::MiNegocio.Desktop.Properties.Resources.Guardar;
+            this.btnGuardar.Style.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
+            this.btnGuardar.Style.PressedForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.AccessibleName = "Button";
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
+            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.FocusRectangleVisible = true;
+            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnActualizar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnActualizar.Location = new System.Drawing.Point(752, 153);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(126, 35);
+            this.btnActualizar.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
+            this.btnActualizar.Style.DisabledBackColor = System.Drawing.Color.Gray;
+            this.btnActualizar.Style.DisabledForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnActualizar.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.btnActualizar.Style.FocusedForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnActualizar.Style.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(0)))));
+            this.btnActualizar.Style.HoverForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnActualizar.Style.Image = global::MiNegocio.Desktop.Properties.Resources.Actualizar;
+            this.btnActualizar.Style.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
+            this.btnActualizar.Style.PressedForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnActualizar.TabIndex = 9;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // frmCliente
             // 
@@ -576,12 +586,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(890, 590);
-            this.Controls.Add(this.pbLoad);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.dpFcha);
             this.Controls.Add(this.pbLoading);
+            this.Controls.Add(this.pbLoad);
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label9);
@@ -608,6 +618,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
+            this.Shown += new System.EventHandler(this.frmCliente_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.txtDocId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtApellido)).EndInit();
@@ -648,11 +659,11 @@
         private System.Windows.Forms.Label label9;
         private Syncfusion.WinForms.DataGrid.SfDataGrid dgvCliente;
         private System.Windows.Forms.PictureBox pbLoading;
-        private Bunifu.Framework.UI.BunifuFlatButton btnGuardar;
-        private System.Windows.Forms.Label label11;
         private Syncfusion.Windows.Forms.Tools.ProgressBarAdv pbLoad;
-        private System.Windows.Forms.Label label12;
-        private Bunifu.Framework.UI.BunifuFlatButton btnActualizar;
         private System.Windows.Forms.ErrorProvider errorCliente;
+        private System.Windows.Forms.Label label13;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit dpFcha;
+        private Syncfusion.WinForms.Controls.SfButton btnGuardar;
+        private Syncfusion.WinForms.Controls.SfButton btnActualizar;
     }
 }

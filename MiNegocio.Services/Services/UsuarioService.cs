@@ -9,12 +9,12 @@ namespace MiNegocio.Services.Services
 {
     public class UsuarioService
     {
-        private readonly IRestService<TbUsuario> _service;
+        private readonly IRestService<Tbusuario> _service;
         private readonly string controllerName = Resources.UsersController;
 
         public UsuarioService()
         {
-            _service = new RestService<TbUsuario>();
+            _service = new RestService<Tbusuario>();
         }
 
         public Task<bool> Delete(string id)
@@ -22,22 +22,22 @@ namespace MiNegocio.Services.Services
             throw new NotImplementedException();
         }
 
-        public Task<TbUsuario> GetById(TbUsuario entity)
+        public Task<Tbusuario> GetById(Tbusuario entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TbUsuario>> GetListEntity( TbUsuario entity)
+        public Task<IEnumerable<Tbusuario>> GetListEntity( Tbusuario entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TbUsuario>> GetTs()
+        public Task<IEnumerable<Tbusuario>> GetTs()
         {
             throw new NotImplementedException();
         }     
 
-        public Task<bool> Post(TbUsuario entity, bool isNewItem)
+        public Task<bool> Post(Tbusuario entity, bool isNewItem)
         {
             throw new NotImplementedException();
         }

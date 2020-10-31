@@ -1,9 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MiNegocio.Models.Models
 {
-    public class TbUsuario
+    public partial class Tbusuario
     {
+        public Tbusuario()
+        {
+            Tbcompra = new HashSet<Tbcompra>();
+            Tborden = new HashSet<Tborden>();
+            Tbusuarioorden = new HashSet<Tbusuarioorden>();
+            Tbventa = new HashSet<Tbventa>();
+            Tbventaanulada = new HashSet<Tbventaanulada>();
+        }
+
         public string DocId { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
@@ -17,5 +27,12 @@ namespace MiNegocio.Models.Models
         public DateTime Fecha { get; set; }
         public string Token { get; set; }
 
+
+        public virtual Tbperfil IdPerfilNavigation { get; set; }
+        public virtual ICollection<Tbcompra> Tbcompra { get; set; }
+        public virtual ICollection<Tborden> Tborden { get; set; }
+        public virtual ICollection<Tbusuarioorden> Tbusuarioorden { get; set; }
+        public virtual ICollection<Tbventa> Tbventa { get; set; }
+        public virtual ICollection<Tbventaanulada> Tbventaanulada { get; set; }
     }
 }

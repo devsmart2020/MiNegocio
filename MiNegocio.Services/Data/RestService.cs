@@ -152,9 +152,9 @@ namespace MiNegocio.Services.Data
             }
         }
 
-        public async Task<bool> Post(T entity, bool isNewItem)
+        public async Task<bool> Post(string controllerName,T entity, bool isNewItem)
         {
-            Uri uri = new Uri($"{_httpClient.BaseAddress}");
+            Uri uri = new Uri($"{_httpClient.BaseAddress}{controllerName}");
             try
             {
                 string json = JsonConvert.SerializeObject(entity);

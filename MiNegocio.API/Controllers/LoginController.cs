@@ -36,7 +36,8 @@ namespace MiNegocio.API.Controllers
             {
                 if (userInfo.IdPerfil == 2)
                 {
-                    return Ok(new { token = GenerarTokenJWT(userInfo)});
+                    userInfo.Token = GenerarTokenJWT(userInfo);
+                    return Ok(userInfo);
                 }
                 else
                 {

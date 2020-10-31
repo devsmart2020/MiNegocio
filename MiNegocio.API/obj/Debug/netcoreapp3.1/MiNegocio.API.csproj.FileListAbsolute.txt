@@ -170,3 +170,10 @@ C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.API\obj\Debug\netcoreapp3.1\MiNegocio.API.csproj.CoreCompileInputs.cache
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.API\obj\Debug\netcoreapp3.1\MiNegocio.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

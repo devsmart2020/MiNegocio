@@ -24,44 +24,57 @@ namespace MiNegocio.Desktop.Views
         #region Private Methods
         private protected void Binding()
         {
-            txtUser.DataBindings.Add(Resources.BindingText, _service, Resources.PropUser, 
-                true, DataSourceUpdateMode.OnPropertyChanged);
-            txtUser.DataBindings.Add(Resources.BindingEnabled, _service, Resources.PropIsEnabled,
-               true, DataSourceUpdateMode.OnPropertyChanged);
-            txtPass.DataBindings.Add(Resources.BindingText, _service, Resources.PropPass,
-                true, DataSourceUpdateMode.OnPropertyChanged);
-            txtPass.DataBindings.Add(Resources.BindingEnabled, _service, Resources.PropIsEnabled,
-                true, DataSourceUpdateMode.OnPropertyChanged);
-            pbLoad.DataBindings.Add(Resources.BindingVisible, _service, Resources.PropIsBusy,
-                true, DataSourceUpdateMode.OnPropertyChanged);
-            pbSuccess.DataBindings.Add(Resources.BindingVisible, _service, Resources.PropIsVisible,
-                true, DataSourceUpdateMode.OnPropertyChanged);
-            btnLogin.DataBindings.Add(Resources.BindingEnabled, _service, Resources.PropIsEnabled,
-               true, DataSourceUpdateMode.OnPropertyChanged);
-        }        
+            txtUser.DataBindings.Add(Resources.BindingText, _service, Resources.PropUser,true, DataSourceUpdateMode.OnPropertyChanged);
+            txtUser.DataBindings.Add(Resources.BindingEnabled, _service, Resources.PropIsEnabled,true, DataSourceUpdateMode.OnPropertyChanged);
+            txtPass.DataBindings.Add(Resources.BindingText, _service, Resources.PropPass,true, DataSourceUpdateMode.OnPropertyChanged);
+            txtPass.DataBindings.Add(Resources.BindingEnabled, _service, Resources.PropIsEnabled,true, DataSourceUpdateMode.OnPropertyChanged);
+            pbLoad.DataBindings.Add(Resources.BindingVisible, _service, Resources.PropIsBusy,true, DataSourceUpdateMode.OnPropertyChanged);
+            btnLogin.DataBindings.Add(Resources.BindingEnabled, _service, Resources.PropIsEnabled,true, DataSourceUpdateMode.OnPropertyChanged);
+        }
+        private protected bool ValidateFields()
+        {
+            bool noError = false;
+            if (string.IsNullOrEmpty(txtUser.Text))
+            {
+                errorLogin.SetError(txtUser, Resources.MsjValidateField);
+                noError = false;
+            }
+            else if (string.IsNullOrEmpty(txtPass.Text))
+            {
+                errorLogin.SetError(txtUser, Resources.MsjValidateField);
+                noError = false;
+            }
+            else
+            {
+                noError = true;
+                errorLogin.Clear();
+            }
+            return noError;
+        }
         private protected async Task Login()
         {
-            await _service.LoginCmd();
-            if (_service.IsLogued)
+            if (ValidateFields())
             {
-                using (frmMain main = new frmMain())
+                await _service.LoginCmd();
+                if (_service.IsLogued)
                 {
                     using (MsjOk _msjOk = new MsjOk(_service.Msj))
                     {
                         _msjOk.ShowDialog();
                     }
                     this.Hide();
-                    _service.Clean();
+                    frmMain main = new frmMain();
                     main.Show();
+                    _service.Clean();
                 }
-            }
-            else if (_service.IsLogued == false)
-            {
-                using (MsjFail _msjFail = new MsjFail(_service.Msj))
+                else if (_service.IsLogued == false)
                 {
-                    _msjFail.ShowDialog();
+                    using (MsjFail _msjFail = new MsjFail(_service.Msj))
+                    {
+                        _msjFail.ShowDialog();
+                    }
                 }
-            }
+            }            
         }
         #endregion
 
@@ -70,7 +83,18 @@ namespace MiNegocio.Desktop.Views
         {
             await Login();
         }
+        private void btnClose_Click(object sender, System.EventArgs e)
+        {
+            Application.Exit();
+        }        private async void txtPass_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                await Login();
+            }
+        }
         #endregion
+
 
     }
 }

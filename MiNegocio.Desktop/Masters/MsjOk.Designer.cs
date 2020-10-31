@@ -40,9 +40,9 @@
             // 
             this.pbSuccess.BackColor = System.Drawing.Color.Transparent;
             this.pbSuccess.Image = global::MiNegocio.Desktop.Properties.Resources.CheckSmall;
-            this.pbSuccess.Location = new System.Drawing.Point(79, 71);
+            this.pbSuccess.Location = new System.Drawing.Point(81, 101);
             this.pbSuccess.Name = "pbSuccess";
-            this.pbSuccess.Size = new System.Drawing.Size(128, 128);
+            this.pbSuccess.Size = new System.Drawing.Size(124, 124);
             this.pbSuccess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbSuccess.TabIndex = 16;
             this.pbSuccess.TabStop = false;
@@ -52,7 +52,7 @@
             this.btnClose.AccessibleName = "Button";
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.btnClose.Location = new System.Drawing.Point(28, 205);
+            this.btnClose.Location = new System.Drawing.Point(28, 228);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(230, 40);
             this.btnClose.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
@@ -71,14 +71,16 @@
             // 
             // lblDetail
             // 
-            this.lblDetail.AutoSize = true;
             this.lblDetail.BackColor = System.Drawing.Color.Transparent;
             this.lblDetail.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.lblDetail.ForeColor = System.Drawing.Color.Black;
-            this.lblDetail.Location = new System.Drawing.Point(43, 47);
+            this.lblDetail.Location = new System.Drawing.Point(18, 46);
+            this.lblDetail.MaximumSize = new System.Drawing.Size(250, 30);
+            this.lblDetail.MinimumSize = new System.Drawing.Size(250, 50);
             this.lblDetail.Name = "lblDetail";
-            this.lblDetail.Size = new System.Drawing.Size(0, 21);
+            this.lblDetail.Size = new System.Drawing.Size(250, 50);
             this.lblDetail.TabIndex = 14;
+            this.lblDetail.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblTitle
             // 
@@ -98,7 +100,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(286, 3);
+            this.panel4.Size = new System.Drawing.Size(286, 4);
             this.panel4.TabIndex = 17;
             // 
             // MsjOk
@@ -106,7 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(286, 253);
+            this.ClientSize = new System.Drawing.Size(286, 272);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pbSuccess);
             this.Controls.Add(this.btnClose);

@@ -134,8 +134,7 @@ namespace MiNegocio.Services.Data
                     if (httpResponse.IsSuccessStatusCode)
                     {
                         var query = await httpResponse.Content.ReadAsStringAsync();
-                        var model = JsonConvert.DeserializeObject<T>(query);
-                        Token = JsonConvert.DeserializeObject<String>(query);
+                        var model = JsonConvert.DeserializeObject<T>(query);                       
                         return model;
                     }
                     else
@@ -217,7 +216,6 @@ namespace MiNegocio.Services.Data
             return returnValue;
         }        
         public static string ErrorRestService { get; set; }
-        public static string Token { get; private set; }
         #endregion
     }
 }

@@ -1064,6 +1064,11 @@ namespace API.Infrastructure.Data.Data
                     .HasCharSet("utf8")
                     .HasCollation("utf8_unicode_ci");
 
+                entity.Property(e => e.Token)
+                    .HasColumnType("varchar(400)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_unicode_ci");
+
                 entity.HasOne(d => d.IdPerfilNavigation)
                     .WithMany(p => p.Tbusuario)
                     .HasForeignKey(d => d.IdPerfil)

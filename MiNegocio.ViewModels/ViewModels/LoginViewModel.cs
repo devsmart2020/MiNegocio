@@ -36,13 +36,15 @@ namespace MiNegocio.ViewModels.ViewModels
                 {
                     Usuario = await _service.Login(usuario);
                     if (Usuario != null)
-                    {
+                    {                        
+                        UserLogued = Usuario;
                         IsLogued = true;
-                        Msj = $"{Resources.MsjLoginSucess}{Usuario.Nombres + Usuario.Apellidos} Token: {RestService<TbUsuario>.Token}";
+                        Msj = $"{Resources.MsjLoginSucess} {Usuario.Nombres} {Usuario.Apellidos}";
                     }
                     else
                     {
                         IsLogued = false;
+                        Pass = string.Empty;
                         Msj = RestService<TbUsuario>.ErrorRestService;
                     }
                 }
@@ -112,6 +114,7 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             await Login();
         }
+        public static TbUsuario UserLogued { get; set; }
         #endregion
     }
 }

@@ -121,7 +121,7 @@
     <value>Faltan datos por diligenciar, por favor verifique que tenga todos los datos diligenciados en el formulario.</value>
   </data>
   <data name="MsjLoginSucess" xml:space="preserve">
-    <value>Credenciales correctas, bienvenido /a :</value>
+    <value>Credenciales correctas, bienvenido/a</value>
   </data>
   <data name="MsjSaveOk" xml:space="preserve">
     <value>Datos guardados con éxito.</value>

@@ -63,6 +63,16 @@ namespace MiNegocio.Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _128x128 {
+            get {
+                object obj = ResourceManager.GetObject("_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actualizar {
             get {
                 object obj = ResourceManager.GetObject("Actualizar", resourceCulture);
@@ -76,6 +86,16 @@ namespace MiNegocio.Desktop.Properties {
         internal static System.Drawing.Bitmap Agregar {
             get {
                 object obj = ResourceManager.GetObject("Agregar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Agregar2 {
+            get {
+                object obj = ResourceManager.GetObject("Agregar2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -152,6 +172,16 @@ namespace MiNegocio.Desktop.Properties {
         internal static System.Drawing.Bitmap BuscaPersonaS {
             get {
                 object obj = ResourceManager.GetObject("BuscaPersonaS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Buscar {
+            get {
+                object obj = ResourceManager.GetObject("Buscar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -359,6 +389,16 @@ namespace MiNegocio.Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap idFactura {
+            get {
+                object obj = ResourceManager.GetObject("idFactura", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Imei {
             get {
                 object obj = ResourceManager.GetObject("Imei", resourceCulture);
@@ -461,6 +501,15 @@ namespace MiNegocio.Desktop.Properties {
             get {
                 object obj = ResourceManager.GetObject("Minimize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Dato requerido, por favor verifique..
+        /// </summary>
+        internal static string MsjValidateField {
+            get {
+                return ResourceManager.GetString("MsjValidateField", resourceCulture);
             }
         }
         
@@ -575,6 +624,16 @@ namespace MiNegocio.Desktop.Properties {
         internal static System.Drawing.Bitmap Serial {
             get {
                 object obj = ResourceManager.GetObject("Serial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap servicios {
+            get {
+                object obj = ResourceManager.GetObject("servicios", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -70,7 +70,7 @@ namespace MiNegocio.ViewModels.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Credenciales correctas, bienvenido /a :.
+        ///   Busca una cadena traducida similar a Credenciales correctas, bienvenido/a.
         /// </summary>
         internal static string MsjLoginSucess {
             get {

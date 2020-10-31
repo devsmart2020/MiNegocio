@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.txtPass = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.lblForgot = new System.Windows.Forms.Label();
             this.pbLoad = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
             this.btnLogin = new Syncfusion.WinForms.Controls.SfButton();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
-            this.usuarioViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtUser = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            this.pbSuccess = new System.Windows.Forms.PictureBox();
+            this.Drag = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.errorLogin = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioViewModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPass
@@ -72,6 +72,7 @@
             this.txtPass.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.UseBorderColorOnFocus = true;
             this.txtPass.UseSystemPasswordChar = true;
+            this.txtPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPass_KeyUp);
             // 
             // lblForgot
             // 
@@ -166,10 +167,7 @@
             this.btnClose.TabIndex = 17;
             this.btnClose.TabStop = false;
             this.btnClose.Zoom = 20;
-            // 
-            // usuarioViewModelBindingSource
-            // 
-            this.usuarioViewModelBindingSource.DataSource = typeof(MiNegocio.ViewModels.ViewModels.UsuarioViewModel);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // txtUser
             // 
@@ -196,16 +194,17 @@
             this.txtUser.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.UseBorderColorOnFocus = true;
             // 
-            // pbSuccess
+            // Drag
             // 
-            this.pbSuccess.BackColor = System.Drawing.Color.Transparent;
-            this.pbSuccess.Image = global::MiNegocio.Desktop.Properties.Resources.CheckFondo;
-            this.pbSuccess.Location = new System.Drawing.Point(214, 120);
-            this.pbSuccess.Name = "pbSuccess";
-            this.pbSuccess.Size = new System.Drawing.Size(56, 56);
-            this.pbSuccess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSuccess.TabIndex = 18;
-            this.pbSuccess.TabStop = false;
+            this.Drag.Fixed = true;
+            this.Drag.Horizontal = true;
+            this.Drag.TargetControl = this;
+            this.Drag.Vertical = true;
+            // 
+            // errorLogin
+            // 
+            this.errorLogin.ContainerControl = this;
+            this.errorLogin.Icon = ((System.Drawing.Icon)(resources.GetObject("errorLogin.Icon")));
             // 
             // frmLogin
             // 
@@ -215,7 +214,6 @@
             this.BackgroundImage = global::MiNegocio.Desktop.Properties.Resources.loginBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(300, 459);
-            this.Controls.Add(this.pbSuccess);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
@@ -231,9 +229,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioViewModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,8 +243,8 @@
         private Syncfusion.WinForms.Controls.SfButton btnLogin;
         private System.Windows.Forms.Label lblTitle;
         private Bunifu.Framework.UI.BunifuImageButton btnClose;
-        private System.Windows.Forms.BindingSource usuarioViewModelBindingSource;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtUser;
-        private System.Windows.Forms.PictureBox pbSuccess;
+        private Bunifu.Framework.UI.BunifuDragControl Drag;
+        private System.Windows.Forms.ErrorProvider errorLogin;
     }
 }

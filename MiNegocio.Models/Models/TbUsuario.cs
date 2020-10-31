@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security;
 
 namespace MiNegocio.Models.Models
 {
@@ -16,5 +15,7 @@ namespace MiNegocio.Models.Models
         public sbyte Estado { get; set; }
         public string CodigoRecuperacion { get; set; }
         public DateTime Fecha { get; set; }
+        public string Token { get; set; }
+
     }
 }

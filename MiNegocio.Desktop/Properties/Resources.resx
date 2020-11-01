@@ -139,6 +139,9 @@
   <data name="BindingEnabled" xml:space="preserve">
     <value>Enabled</value>
   </data>
+  <data name="BindingSelectedValue" xml:space="preserve">
+    <value>SelectedValue</value>
+  </data>
   <data name="BindingText" xml:space="preserve">
     <value>Text</value>
   </data>
@@ -285,6 +288,9 @@
   </data>
   <data name="PropPass" xml:space="preserve">
     <value>Pass</value>
+  </data>
+  <data name="PropSelectedValue" xml:space="preserve">
+    <value>SelectedValue</value>
   </data>
   <data name="PropUser" xml:space="preserve">
     <value>User</value>

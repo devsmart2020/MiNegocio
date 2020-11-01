@@ -139,6 +139,15 @@ namespace MiNegocio.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a SelectedValue.
+        /// </summary>
+        internal static string BindingSelectedValue {
+            get {
+                return ResourceManager.GetString("BindingSelectedValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Text.
         /// </summary>
         internal static string BindingText {
@@ -614,6 +623,15 @@ namespace MiNegocio.Desktop.Properties {
         internal static string PropPass {
             get {
                 return ResourceManager.GetString("PropPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SelectedValue.
+        /// </summary>
+        internal static string PropSelectedValue {
+            get {
+                return ResourceManager.GetString("PropSelectedValue", resourceCulture);
             }
         }
         

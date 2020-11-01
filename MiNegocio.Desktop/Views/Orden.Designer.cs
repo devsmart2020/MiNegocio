@@ -71,7 +71,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.btnAddEquipo = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnAddMasterEquipo = new Bunifu.Framework.UI.BunifuImageButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -104,7 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAddTecnico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClienteOrden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClienteEquipo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddEquipo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddMasterEquipo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sfComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sfComboBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sfComboBox3)).BeginInit();
@@ -295,7 +295,7 @@
             // txtEquipoOrden
             // 
             this.txtEquipoOrden.BackColor = System.Drawing.Color.White;
-            this.txtEquipoOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtEquipoOrden.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtEquipoOrden.BorderColor = System.Drawing.Color.DimGray;
             this.txtEquipoOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtEquipoOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -324,7 +324,7 @@
             // txtInfoMarca
             // 
             this.txtInfoMarca.BackColor = System.Drawing.Color.White;
-            this.txtInfoMarca.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtInfoMarca.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtInfoMarca.BorderColor = System.Drawing.Color.DimGray;
             this.txtInfoMarca.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtInfoMarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -353,7 +353,7 @@
             // txtInfoTipo
             // 
             this.txtInfoTipo.BackColor = System.Drawing.Color.White;
-            this.txtInfoTipo.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtInfoTipo.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtInfoTipo.BorderColor = System.Drawing.Color.DimGray;
             this.txtInfoTipo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtInfoTipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -461,7 +461,7 @@
             // txtDatoBloqueo
             // 
             this.txtDatoBloqueo.BackColor = System.Drawing.Color.White;
-            this.txtDatoBloqueo.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtDatoBloqueo.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtDatoBloqueo.BorderColor = System.Drawing.Color.DimGray;
             this.txtDatoBloqueo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDatoBloqueo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -576,11 +576,12 @@
             this.btnBuscaCliente.TabIndex = 164;
             this.btnBuscaCliente.TabStop = false;
             this.btnBuscaCliente.Zoom = 20;
+            this.btnBuscaCliente.Click += new System.EventHandler(this.btnBuscaCliente_Click);
             // 
             // txtObsOrden
             // 
             this.txtObsOrden.BackColor = System.Drawing.Color.White;
-            this.txtObsOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtObsOrden.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtObsOrden.BorderColor = System.Drawing.Color.DimGray;
             this.txtObsOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtObsOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -607,7 +608,7 @@
             // txtDiagCliente
             // 
             this.txtDiagCliente.BackColor = System.Drawing.Color.White;
-            this.txtDiagCliente.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtDiagCliente.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtDiagCliente.BorderColor = System.Drawing.Color.DimGray;
             this.txtDiagCliente.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDiagCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -634,7 +635,7 @@
             // txtObsEquipo
             // 
             this.txtObsEquipo.BackColor = System.Drawing.Color.White;
-            this.txtObsEquipo.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtObsEquipo.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtObsEquipo.BorderColor = System.Drawing.Color.DimGray;
             this.txtObsEquipo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtObsEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -672,7 +673,7 @@
             // txtColor
             // 
             this.txtColor.BackColor = System.Drawing.Color.White;
-            this.txtColor.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtColor.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtColor.BorderColor = System.Drawing.Color.DimGray;
             this.txtColor.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -699,7 +700,7 @@
             // txtImei1
             // 
             this.txtImei1.BackColor = System.Drawing.Color.White;
-            this.txtImei1.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtImei1.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtImei1.BorderColor = System.Drawing.Color.DimGray;
             this.txtImei1.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtImei1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -726,7 +727,7 @@
             // txtSerial
             // 
             this.txtSerial.BackColor = System.Drawing.Color.White;
-            this.txtSerial.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtSerial.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtSerial.BorderColor = System.Drawing.Color.DimGray;
             this.txtSerial.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtSerial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -810,7 +811,7 @@
             // txtClienteOrden
             // 
             this.txtClienteOrden.BackColor = System.Drawing.Color.White;
-            this.txtClienteOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtClienteOrden.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtClienteOrden.BorderColor = System.Drawing.Color.DimGray;
             this.txtClienteOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtClienteOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -837,7 +838,7 @@
             // txtClienteEquipo
             // 
             this.txtClienteEquipo.BackColor = System.Drawing.Color.White;
-            this.txtClienteEquipo.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtClienteEquipo.BeforeTouchSize = new System.Drawing.Size(204, 23);
             this.txtClienteEquipo.BorderColor = System.Drawing.Color.DimGray;
             this.txtClienteEquipo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtClienteEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -860,6 +861,7 @@
             this.txtClienteEquipo.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtClienteEquipo.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtClienteEquipo.UseBorderColorOnFocus = true;
+            this.txtClienteEquipo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtClienteEquipo_KeyUp);
             // 
             // label25
             // 
@@ -920,18 +922,19 @@
             this.label24.TabIndex = 153;
             this.label24.Text = "Cliente";
             // 
-            // btnAddEquipo
+            // btnAddMasterEquipo
             // 
-            this.btnAddEquipo.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddEquipo.Image = global::MiNegocio.Desktop.Properties.Resources.buscarBlackGrande;
-            this.btnAddEquipo.ImageActive = null;
-            this.btnAddEquipo.Location = new System.Drawing.Point(21, 113);
-            this.btnAddEquipo.Name = "btnAddEquipo";
-            this.btnAddEquipo.Size = new System.Drawing.Size(20, 20);
-            this.btnAddEquipo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAddEquipo.TabIndex = 151;
-            this.btnAddEquipo.TabStop = false;
-            this.btnAddEquipo.Zoom = 20;
+            this.btnAddMasterEquipo.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddMasterEquipo.Image = global::MiNegocio.Desktop.Properties.Resources.Agregar2;
+            this.btnAddMasterEquipo.ImageActive = null;
+            this.btnAddMasterEquipo.Location = new System.Drawing.Point(21, 113);
+            this.btnAddMasterEquipo.Name = "btnAddMasterEquipo";
+            this.btnAddMasterEquipo.Size = new System.Drawing.Size(20, 20);
+            this.btnAddMasterEquipo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAddMasterEquipo.TabIndex = 151;
+            this.btnAddMasterEquipo.TabStop = false;
+            this.btnAddMasterEquipo.Zoom = 20;
+            this.btnAddMasterEquipo.Click += new System.EventHandler(this.btnAddMasterEquipo_Click);
             // 
             // label4
             // 
@@ -1075,7 +1078,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.btnAddEquipo);
+            this.Controls.Add(this.btnAddMasterEquipo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -1088,6 +1091,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Orden";
+            this.Shown += new System.EventHandler(this.frmOrden_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoadEquipo)).EndInit();
@@ -1113,7 +1117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAddTecnico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClienteOrden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtClienteEquipo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddEquipo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddMasterEquipo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sfComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sfComboBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sfComboBox3)).EndInit();
@@ -1168,7 +1172,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label24;
-        private Bunifu.Framework.UI.BunifuImageButton btnAddEquipo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
@@ -1179,5 +1182,6 @@
         private Syncfusion.WinForms.ListView.SfComboBox sfComboBox2;
         private Syncfusion.WinForms.ListView.SfComboBox sfComboBox3;
         private Syncfusion.WinForms.ListView.SfComboBox sfComboBox4;
+        private Bunifu.Framework.UI.BunifuImageButton btnAddMasterEquipo;
     }
 }

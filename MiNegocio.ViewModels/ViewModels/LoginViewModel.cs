@@ -1,6 +1,7 @@
 ﻿using MiNegocio.Models.Models;
 using MiNegocio.Services.Data;
 using MiNegocio.Services.Services;
+using MiNegocio.Services.Services_interfaces;
 using MiNegocio.ViewModels.Properties;
 using System;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace MiNegocio.ViewModels.ViewModels
     public class LoginViewModel : BaseViewModel.BaseViewModel
     {
         #region Members Variables
-        private readonly LoginService _service;
+        private readonly ILoginService<Tbusuario> _service;
         #endregion
 
         #region Constructor

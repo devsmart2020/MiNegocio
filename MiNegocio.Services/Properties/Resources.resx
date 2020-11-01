@@ -126,8 +126,17 @@
   <data name="LoginController" xml:space="preserve">
     <value>api/Login</value>
   </data>
+  <data name="MarcaController" xml:space="preserve">
+    <value>api/Marcas</value>
+  </data>
+  <data name="ModelController" xml:space="preserve">
+    <value>api/Modelos</value>
+  </data>
   <data name="RequestHeaders" xml:space="preserve">
     <value>application/json</value>
+  </data>
+  <data name="TipoEquipoController" xml:space="preserve">
+    <value>api/TipoEquipos</value>
   </data>
   <data name="UsersController" xml:space="preserve">
     <value>api/Users</value>

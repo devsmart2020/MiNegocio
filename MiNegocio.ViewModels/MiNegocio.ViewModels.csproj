@@ -51,6 +51,9 @@
     </Compile>
     <Compile Include="ViewModels\ClienteVIewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MarcaViewModel.cs" />
+    <Compile Include="ViewModels\ModeloViewModel.cs" />
+    <Compile Include="ViewModels\TipoEquipoViewModel.cs" />
     <Compile Include="ViewModels\UsuarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

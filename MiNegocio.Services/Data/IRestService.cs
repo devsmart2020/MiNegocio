@@ -5,7 +5,7 @@ namespace MiNegocio.Services.Data
 {
     public interface IRestService<T>
     {
-        Task<bool> Delete(string id);
+        Task<bool> Delete(dynamic id);
         Task<T> GetById(string controllerName, T entity);
         Task<IEnumerable<T>> GetListEntity(string controllerName, T entity);
         Task<IEnumerable<T>> GetTs(string controllerName);

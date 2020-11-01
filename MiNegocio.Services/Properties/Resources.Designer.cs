@@ -88,11 +88,38 @@ namespace MiNegocio.Services.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a api/Marcas.
+        /// </summary>
+        internal static string MarcaController {
+            get {
+                return ResourceManager.GetString("MarcaController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a api/Modelos.
+        /// </summary>
+        internal static string ModelController {
+            get {
+                return ResourceManager.GetString("ModelController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a application/json.
         /// </summary>
         internal static string RequestHeaders {
             get {
                 return ResourceManager.GetString("RequestHeaders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a api/TipoEquipos.
+        /// </summary>
+        internal static string TipoEquipoController {
+            get {
+                return ResourceManager.GetString("TipoEquipoController", resourceCulture);
             }
         }
         

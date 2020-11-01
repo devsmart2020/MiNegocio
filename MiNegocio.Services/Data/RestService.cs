@@ -31,7 +31,7 @@ namespace MiNegocio.Services.Data
         #endregion
 
         #region Public Methods
-        public async Task<bool> Delete(string id)
+        public async Task<bool> Delete(dynamic id)
         {
             Uri uri = new Uri(_httpClient.BaseAddress, id);
             try

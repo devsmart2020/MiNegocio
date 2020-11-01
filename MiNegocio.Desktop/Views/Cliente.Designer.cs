@@ -537,7 +537,7 @@
             this.btnGuardar.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
             this.btnGuardar.Style.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnGuardar.Style.DisabledForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGuardar.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.btnGuardar.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
             this.btnGuardar.Style.FocusedForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnGuardar.Style.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(0)))));
@@ -567,7 +567,7 @@
             this.btnActualizar.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
             this.btnActualizar.Style.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnActualizar.Style.DisabledForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnActualizar.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.btnActualizar.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
             this.btnActualizar.Style.FocusedForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnActualizar.Style.ForeColor = System.Drawing.Color.White;
             this.btnActualizar.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(0)))));

@@ -37,9 +37,10 @@ namespace MiNegocio.ViewModels.ViewModels
                 {
                     Usuario = await _service.Login(usuario);
                     if (Usuario != null)
-                    {                        
-                        UserLogued = Usuario;
+                    {                             
                         IsLogued = true;
+                        UserLogued = Usuario;
+                        RestService<Tbusuario>.Token = Usuario.Token;
                         Msj = $"{Resources.MsjLoginSucess} {Usuario.Nombres} {Usuario.Apellidos}";
                     }
                     else

@@ -79,6 +79,24 @@ namespace MiNegocio.Services.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a api/Equipos.
+        /// </summary>
+        internal static string EquipoController {
+            get {
+                return ResourceManager.GetString("EquipoController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a api/EstadoOrdenes.
+        /// </summary>
+        internal static string EstadoOrdenController {
+            get {
+                return ResourceManager.GetString("EstadoOrdenController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a api/Login.
         /// </summary>
         internal static string LoginController {
@@ -106,6 +124,24 @@ namespace MiNegocio.Services.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a api/Ordenes.
+        /// </summary>
+        internal static string OrdenController {
+            get {
+                return ResourceManager.GetString("OrdenController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a api/Perfiles.
+        /// </summary>
+        internal static string PerfilController {
+            get {
+                return ResourceManager.GetString("PerfilController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a application/json.
         /// </summary>
         internal static string RequestHeaders {
@@ -124,7 +160,7 @@ namespace MiNegocio.Services.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a api/Users.
+        ///   Busca una cadena traducida similar a api/Usuarios.
         /// </summary>
         internal static string UsersController {
             get {

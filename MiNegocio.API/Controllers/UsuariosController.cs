@@ -20,6 +20,7 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpDelete()]
+        [Authorize]
         public async Task<ActionResult<Tbusuario>> Delete(Tbusuario entity)
         {
             if (entity != null)
@@ -47,6 +48,7 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost("GetById")]
+        [Authorize]
         public async Task<ActionResult<Tbusuario>> GetById(Tbusuario entity)
         {
             Tbusuario model = await _service.GetById(entity);
@@ -58,6 +60,7 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost()]
+        [Authorize]
         public async Task<ActionResult<Tbusuario>> Post(Tbusuario entity)
         {
             if (entity != null && ModelState.IsValid)
@@ -75,6 +78,7 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPut()]
+        [Authorize]
         public async Task<IActionResult> Put(Tbusuario entity)
         {
             if (!string.IsNullOrEmpty(entity.DocId))

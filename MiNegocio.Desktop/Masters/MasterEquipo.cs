@@ -126,7 +126,6 @@ namespace MiNegocio.Desktop.Masters
             }
             txtNomTipoEquipo.ResetText();
         }
-
         private async Task GetMarcas()
         {
             await _marcaVm.GetsCmd();

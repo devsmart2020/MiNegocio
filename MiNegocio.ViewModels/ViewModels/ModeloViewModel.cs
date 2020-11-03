@@ -5,6 +5,7 @@ using MiNegocio.Services.Services_interfaces;
 using MiNegocio.ViewModels.Properties;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MiNegocio.ViewModels.ViewModels
@@ -39,19 +40,24 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsBusy = false;
             }
         }
+        private void GetCmbModelo()
+        {
+            CmbModelo = List.Where(x => x.TipoEquipo == IdTipoEquipo && x.Marca == IdMarca)
+                .ToList();
+        }
         private async Task Post()
         {
             IsBusy = true;
-            Tbmodelo _tipoequipo = new Tbmodelo()
+            Tbmodelo _modelo = new Tbmodelo()
             {
                 IdModelo = IdModelo,
                 Modelo = Nombre,
                 Marca = IdMarca,
-                TipoEquipo = IdTipoEquipo               
+                TipoEquipo = IdTipoEquipo
             };
             try
             {
-                IsSaved = await _service.Post(_tipoequipo, IsNewItem);
+                IsSaved = await _service.Post(_modelo, IsNewItem);
                 if (IsSaved)
                 {
                     if (IsNewItem)
@@ -133,6 +139,13 @@ namespace MiNegocio.ViewModels.ViewModels
             get => list;
             set => SetProperty(ref list, value);
         }
+        private IEnumerable<Tbmodelo> cmbModelo;
+
+        public IEnumerable<Tbmodelo> CmbModelo
+        {
+            get => cmbModelo;
+            set => SetProperty(ref cmbModelo, value);
+        }
         private bool isSaved;
 
         public bool IsSaved
@@ -146,6 +159,10 @@ namespace MiNegocio.ViewModels.ViewModels
         public async Task GetsCmd()
         {
             await Gets();
+        }
+        public void GetCmbModeloCmd()
+        {
+            GetCmbModelo();
         }
         public async Task PostCmd()
         {

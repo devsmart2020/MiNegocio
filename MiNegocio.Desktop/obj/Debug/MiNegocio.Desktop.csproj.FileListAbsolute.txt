@@ -149,3 +149,4 @@ C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Desktop\bin\Debug\Syncfu
 C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Desktop\bin\Debug\Syncfusion.Grid.Windows.XmlSerializers.dll
 C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Masters.frmMasterEquipo.resources
 C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Masters.frmBuscarCliente.resources
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Masters.frmMasterUsuario.resources

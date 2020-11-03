@@ -1,0 +1,19 @@
+#region Members Variables
+
+        #endregion
+
+        #region Constructor
+
+        #endregion
+
+        #region Private Methods
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+
+        #region Commands
+
+        #endregion

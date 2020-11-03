@@ -123,6 +123,12 @@
   <data name="ConnectionConfig" xml:space="preserve">
     <value>WebService</value>
   </data>
+  <data name="EquipoController" xml:space="preserve">
+    <value>api/Equipos</value>
+  </data>
+  <data name="EstadoOrdenController" xml:space="preserve">
+    <value>api/EstadoOrdenes</value>
+  </data>
   <data name="LoginController" xml:space="preserve">
     <value>api/Login</value>
   </data>
@@ -132,6 +138,12 @@
   <data name="ModelController" xml:space="preserve">
     <value>api/Modelos</value>
   </data>
+  <data name="OrdenController" xml:space="preserve">
+    <value>api/Ordenes</value>
+  </data>
+  <data name="PerfilController" xml:space="preserve">
+    <value>api/Perfiles</value>
+  </data>
   <data name="RequestHeaders" xml:space="preserve">
     <value>application/json</value>
   </data>
@@ -139,6 +151,6 @@
     <value>api/TipoEquipos</value>
   </data>
   <data name="UsersController" xml:space="preserve">
-    <value>api/Users</value>
+    <value>api/Usuarios</value>
   </data>
 </root>

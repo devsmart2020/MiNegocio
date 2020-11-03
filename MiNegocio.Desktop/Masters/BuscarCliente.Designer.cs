@@ -87,7 +87,7 @@
             this.dgvCliente.Location = new System.Drawing.Point(14, 54);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
-            this.dgvCliente.Size = new System.Drawing.Size(667, 357);
+            this.dgvCliente.Size = new System.Drawing.Size(948, 419);
             this.dgvCliente.Style.BorderColor = System.Drawing.Color.DarkGray;
             this.dgvCliente.TabIndex = 155;
             this.dgvCliente.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.dgvCliente_CellDoubleClick);
@@ -96,7 +96,7 @@
             // 
             this.pbLoading.BackColor = System.Drawing.Color.Transparent;
             this.pbLoading.Image = global::MiNegocio.Desktop.Properties.Resources._128x128;
-            this.pbLoading.Location = new System.Drawing.Point(279, 162);
+            this.pbLoading.Location = new System.Drawing.Point(419, 193);
             this.pbLoading.Name = "pbLoading";
             this.pbLoading.Size = new System.Drawing.Size(136, 99);
             this.pbLoading.TabIndex = 175;
@@ -108,7 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(694, 423);
+            this.ClientSize = new System.Drawing.Size(974, 485);
             this.Controls.Add(this.pbLoading);
             this.Controls.Add(this.dgvCliente);
             this.Controls.Add(this.txtBusca);

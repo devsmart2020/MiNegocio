@@ -1,17 +1,28 @@
-﻿using System.Threading.Tasks;
+﻿using MiNegocio.Models.Models;
+using MiNegocio.ViewModels.ViewModels;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MiNegocio.Desktop.Views
 {
     public partial class frmMain : Form
     {
-        #region Members Variables
+        #region Members Variables       
         #endregion
 
         #region Constructor
-        public frmMain()
+        public frmMain(Tbusuario usuario)
         {
-            InitializeComponent();
+            if (usuario != null)
+            {
+                InitializeComponent();
+                lblUser.Text = $"{usuario.Nombres} {usuario.Apellidos}";
+            }
+            else
+            {
+                Application.Restart();    
+            }
+            
         }
         #endregion
 
@@ -50,6 +61,15 @@ namespace MiNegocio.Desktop.Views
         {
             frmAjuste frmAjuste = new frmAjuste { MdiParent = this };
             frmAjuste.Show();
+        }
+        private void EndSesion()
+        {
+            DialogResult dialog = MessageBox.Show($"{lblUser.Text} ¿Seguro que desea cerrar sesión?", "Atención",
+                      MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (dialog.Equals(DialogResult.Yes))
+            {
+                Application.Restart();
+            }
         }
         #endregion
 
@@ -91,7 +111,7 @@ namespace MiNegocio.Desktop.Views
         }
         private void btnSesion_Click(object sender, System.EventArgs e)
         {
-
+            EndSesion();
         }
         private void btnClose_Click(object sender, System.EventArgs e)
         {

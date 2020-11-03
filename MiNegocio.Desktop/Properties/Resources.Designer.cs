@@ -121,6 +121,15 @@ namespace MiNegocio.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Checked.
+        /// </summary>
+        internal static string BindingChecked {
+            get {
+                return ResourceManager.GetString("BindingChecked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a DataSource.
         /// </summary>
         internal static string BindingDataSource {
@@ -261,6 +270,87 @@ namespace MiNegocio.Desktop.Properties {
             get {
                 object obj = ResourceManager.GetObject("Close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Marca.
+        /// </summary>
+        internal static string CmbDisplayMarca {
+            get {
+                return ResourceManager.GetString("CmbDisplayMarca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modelo.
+        /// </summary>
+        internal static string CmbDisplayModelo {
+            get {
+                return ResourceManager.GetString("CmbDisplayModelo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Perfil.
+        /// </summary>
+        internal static string CmbDisplayPerfil {
+            get {
+                return ResourceManager.GetString("CmbDisplayPerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a TipoEquipo.
+        /// </summary>
+        internal static string CmbDisplayTIpoEquipo {
+            get {
+                return ResourceManager.GetString("CmbDisplayTIpoEquipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a DocId.
+        /// </summary>
+        internal static string CmbValueCliente {
+            get {
+                return ResourceManager.GetString("CmbValueCliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a IdMarca.
+        /// </summary>
+        internal static string CmbValueMarca {
+            get {
+                return ResourceManager.GetString("CmbValueMarca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a IdModelo.
+        /// </summary>
+        internal static string CmbValueModelo {
+            get {
+                return ResourceManager.GetString("CmbValueModelo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a IdPerfil.
+        /// </summary>
+        internal static string CmbValuePerfil {
+            get {
+                return ResourceManager.GetString("CmbValuePerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a IdTipoEquipo.
+        /// </summary>
+        internal static string CmbValueTipoEquipo {
+            get {
+                return ResourceManager.GetString("CmbValueTipoEquipo", resourceCulture);
             }
         }
         
@@ -519,6 +609,15 @@ namespace MiNegocio.Desktop.Properties {
             get {
                 object obj = ResourceManager.GetObject("Minimize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No hay datos para mostrar..
+        /// </summary>
+        internal static string MsjNoDatos {
+            get {
+                return ResourceManager.GetString("MsjNoDatos", resourceCulture);
             }
         }
         

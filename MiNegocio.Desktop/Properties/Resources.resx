@@ -133,6 +133,9 @@
   <data name="AnularVenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AnularVenta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BindingChecked" xml:space="preserve">
+    <value>Checked</value>
+  </data>
   <data name="BindingDataSource" xml:space="preserve">
     <value>DataSource</value>
   </data>
@@ -177,6 +180,33 @@
   </data>
   <data name="Close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CmbDisplayMarca" xml:space="preserve">
+    <value>Marca</value>
+  </data>
+  <data name="CmbDisplayModelo" xml:space="preserve">
+    <value>Modelo</value>
+  </data>
+  <data name="CmbDisplayPerfil" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="CmbDisplayTIpoEquipo" xml:space="preserve">
+    <value>TipoEquipo</value>
+  </data>
+  <data name="CmbValueCliente" xml:space="preserve">
+    <value>DocId</value>
+  </data>
+  <data name="CmbValueMarca" xml:space="preserve">
+    <value>IdMarca</value>
+  </data>
+  <data name="CmbValueModelo" xml:space="preserve">
+    <value>IdModelo</value>
+  </data>
+  <data name="CmbValuePerfil" xml:space="preserve">
+    <value>IdPerfil</value>
+  </data>
+  <data name="CmbValueTipoEquipo" xml:space="preserve">
+    <value>IdTipoEquipo</value>
   </data>
   <data name="Color" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Color.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -255,6 +285,9 @@
   </data>
   <data name="Minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MsjNoDatos" xml:space="preserve">
+    <value>No hay datos para mostrar.</value>
   </data>
   <data name="MsjValidateField" xml:space="preserve">
     <value>Dato requerido, por favor verifique.</value>

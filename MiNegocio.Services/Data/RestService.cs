@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http.Headers;
 
 namespace MiNegocio.Services.Data
 {
@@ -21,11 +23,14 @@ namespace MiNegocio.Services.Data
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri(string.Format(GetConnectionStringByName()))
+                BaseAddress = new Uri(string.Format(GetConnectionStringByName())),
+                Timeout = TimeSpan.FromSeconds(5)    
+               
             };
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(
-                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue(Resources.RequestHeaders));
+                new MediaTypeWithQualityHeaderValue(Resources.RequestHeaders));
          
         }
         #endregion
@@ -216,6 +221,7 @@ namespace MiNegocio.Services.Data
             return returnValue;
         }        
         public static string ErrorRestService { get; set; }
+        public static string Token { get; set; }
         #endregion
     }
 }

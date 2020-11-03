@@ -4,6 +4,7 @@ using API.Infrastructure.Data.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
@@ -43,7 +44,7 @@ namespace API.Infrastructure.Data.Repositories
 
         public async Task<IEnumerable<Tbusuario>> Get()
         {
-            return await _context.Tbusuario
+            return await _context.Tbusuario                
                 .OrderBy(x => x.Nombres)
                 .ToListAsync();
         }

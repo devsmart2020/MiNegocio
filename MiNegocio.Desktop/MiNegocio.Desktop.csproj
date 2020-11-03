@@ -86,6 +86,12 @@
     <Compile Include="Masters\MasterEquipo.Designer.cs">
       <DependentUpon>MasterEquipo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Masters\MasterUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Masters\MasterUsuario.Designer.cs">
+      <DependentUpon>MasterUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Masters\MsjFail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Masters\MasterEquipo.resx">
       <DependentUpon>MasterEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Masters\MasterUsuario.resx">
+      <DependentUpon>MasterUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Masters\MsjFail.resx">
       <DependentUpon>MsjFail.cs</DependentUpon>

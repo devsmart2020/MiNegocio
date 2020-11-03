@@ -24,14 +24,13 @@ namespace MiNegocio.ViewModels.ViewModels
         #endregion
 
         #region Private Methods       
-        private async Task GetUsuarios()
+        private async Task Gets()
         {
             IsBusy = true;
             try
             {
-                IsBusy = true;
-                Usuarios = await _service.GetTs();
-                if (Usuarios.Count() == 0)
+                List = await _service.GetTs();
+                if (List == null)
                     Msj = RestService<Tbusuario>.ErrorRestService;
             }
             catch (Exception ex)
@@ -42,11 +41,66 @@ namespace MiNegocio.ViewModels.ViewModels
             {
                 IsBusy = false;
             }
-        }      
-        public void Clean()
+        }
+        private async Task Post()
         {
+            IsBusy = true;
+            Tbusuario _usuario = new Tbusuario()
+            {
+                DocId = DocId.Trim(),
+                Nombres = Nombres,
+                Apellidos = Apellidos,
+                Direccion = Direccion,
+                Telefono = Telefono,
+                User = User.Trim(),
+                Pass = Pass.Trim(),
+                IdPerfil = IdPerfil,
+                Fecha = Fecha.Date,
+                Estado = Estado
+            };
+            try
+            {
+                IsSaved = await _service.Post(_usuario, IsNewItem);
+                if (IsSaved)
+                {
+                    Clear();
+                    if (IsNewItem)
+                    {
+                        Msj = Resources.MsjSaveOk;
+
+                    }
+                    else
+                    {
+                        Msj = Resources.MsjUpdateOk;
+
+                    }
+                }
+                else
+                {
+                    Msj = RestService<Tbcliente>.ErrorRestService;
+                }
+            }
+            catch (Exception ex)
+            {
+                Msj = ex.Message;
+            }
+            finally
+            {
+                IsEnabled = true;
+                IsBusy = false;
+            }
+        }
+        public void Clear()
+        {
+            DocId = string.Empty;
+            Nombres = string.Empty;
+            Apellidos = string.Empty;
+            Direccion = string.Empty;
+            Telefono = string.Empty;
             User = string.Empty;
-            //Pass = string.Empty;           
+            Pass = string.Empty;
+            IdPerfil = default;            
+            Estado = default;
         }
         #endregion
 
@@ -56,6 +110,55 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             get => docId;
             set => SetProperty(ref docId, value);
+        }
+        private string nombres;
+
+        public string Nombres
+        {
+            get => nombres;
+            set => SetProperty(ref nombres, value);
+        }
+        private string apellidos;
+
+        public string Apellidos
+        {
+            get => apellidos;
+            set => SetProperty(ref apellidos, value);
+        }
+        private string direccion;
+
+        public string Direccion
+        {
+            get => direccion;
+            set => SetProperty(ref direccion, value);
+        }
+        private string telefono;
+
+        public string Telefono
+        {
+            get => telefono;
+            set => SetProperty(ref telefono, value);
+        }      
+        private sbyte estado;
+
+        public sbyte Estado
+        {
+            get => estado;
+            set => SetProperty(ref estado, value);
+        }
+        private DateTime fecha;
+
+        public DateTime Fecha
+        {
+            get => fecha;
+            set => SetProperty(ref fecha, value);
+        }
+        private int idPerfil;
+
+        public int IdPerfil
+        {
+            get => idPerfil;
+            set => SetProperty(ref idPerfil, value);
         }
 
         private string user;
@@ -68,7 +171,7 @@ namespace MiNegocio.ViewModels.ViewModels
         private string pass;
         public string Pass
         {
-            get => Encrypt(pass);
+            get => pass;
             set => SetProperty(ref pass, value);
         }
 
@@ -79,29 +182,32 @@ namespace MiNegocio.ViewModels.ViewModels
             get => usuario;
             set => SetProperty(ref usuario, value);
         }
-        private IEnumerable<Tbusuario> usuarios;
+        private IEnumerable<Tbusuario> list;
 
-        public IEnumerable<Tbusuario> Usuarios
+        public IEnumerable<Tbusuario> List
         {
-            get => usuarios;
-            set => SetProperty(ref usuarios, value);
+            get => list;
+            set => SetProperty(ref list, value);
         }
-        private bool isLogued;
+        private bool isSaved;
 
-        public bool IsLogued
+        public bool IsSaved
         {
-            get => isLogued;
-            set => SetProperty(ref isLogued, value);
+            get => isSaved;
+            set => SetProperty(ref isSaved, value);
         }
-       
+
         #endregion
 
         #region Commands
-        public async Task GetUsuariosCmd()
+        public async Task GetsCmd()
         {
-            await GetUsuarios();
+            await Gets();
         }
-      
+       public async Task PostCmd()
+        {
+            await Post();
+        }
         #endregion
     }
 }

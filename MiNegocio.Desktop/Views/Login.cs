@@ -63,7 +63,7 @@ namespace MiNegocio.Desktop.Views
                         _msjOk.ShowDialog();
                     }
                     this.Hide();
-                    frmMain main = new frmMain();
+                    frmMain main = new frmMain(LoginViewModel.UserLogued);
                     main.Show();
                     _service.Clean();
                 }
@@ -73,6 +73,7 @@ namespace MiNegocio.Desktop.Views
                     {
                         _msjFail.ShowDialog();
                     }
+                    txtPass.Focus();
                 }
             }            
         }

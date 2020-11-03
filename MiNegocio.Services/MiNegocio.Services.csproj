@@ -31,12 +31,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.8.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.8.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.8.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,14 +66,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services interfaces\IClienteService.cs" />
+    <Compile Include="Services interfaces\IEquipoService.cs" />
+    <Compile Include="Services interfaces\IEstadoOrdenService.cs" />
     <Compile Include="Services interfaces\ILoginService.cs" />
     <Compile Include="Services interfaces\IMarcaService.cs" />
     <Compile Include="Services interfaces\IModeloService.cs" />
+    <Compile Include="Services interfaces\IOrdenService.cs" />
+    <Compile Include="Services interfaces\IPerfilService.cs" />
     <Compile Include="Services interfaces\ITipoEquipoService.cs" />
+    <Compile Include="Services interfaces\IUsuarioService.cs" />
     <Compile Include="Services\ClienteService.cs" />
+    <Compile Include="Services\EquipoService.cs" />
+    <Compile Include="Services\EstadoOrdenService.cs" />
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\MarcaService.cs" />
     <Compile Include="Services\ModeloService.cs" />
+    <Compile Include="Services\OrdenService.cs" />
+    <Compile Include="Services\PerfilService.cs" />
     <Compile Include="Services\TipoEquipoService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
   </ItemGroup>

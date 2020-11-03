@@ -28,6 +28,10 @@ namespace API.Services
         {
             return await _repository.GetById(entity);
         }
+        public async Task<IEnumerable<Tbusuario>> GetTecnicos()
+        {
+            return await _repository.GetTecnicos();
+        }
 
         public async Task<IEnumerable<Tbusuario>>Get()
         {
@@ -48,5 +52,7 @@ namespace API.Services
         {
             return await _repository.Login(entity);
         }
+
+      
     }
 }

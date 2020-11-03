@@ -56,6 +56,14 @@ namespace API.Infrastructure.Data.Repositories
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<IEnumerable<Tbusuario>> GetTecnicos()
+        {
+            return await _context.Tbusuario
+                .Where(x => x.IdPerfilNavigation.Perfil.Equals("TÉCNICO"))
+                .OrderBy(x => x.Nombres)
+                .ToListAsync();
+        }
+
         public async Task<Tbusuario> Login(Tbusuario entity)
         {
             return await _context.Tbusuario

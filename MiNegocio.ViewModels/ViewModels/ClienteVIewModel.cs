@@ -105,6 +105,31 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsBusy = false;
             }
         }
+        private async Task GetEquiposxCliente()
+        {
+            IsBusy = true;
+            Tbcliente _cliente = new Tbcliente()
+            {
+                DocId = DocId
+            };
+            try
+            {
+                var query = await _service.RptEquiposxCliente(_cliente);
+                foreach (var item in query)
+                {
+                   var equipos = item.Tbequipo.ToList();
+                   EquiposxCliente = equipos;
+                }
+            }
+            catch (Exception ex)
+            {
+                Msj = ex.Message;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
         private void Clear()
         {
             DocId = string.Empty;
@@ -212,6 +237,14 @@ namespace MiNegocio.ViewModels.ViewModels
             get => list;
             set => SetProperty(ref list, value);
         }
+        private IEnumerable<Tbequipo> equiposxCliente;
+
+        public IEnumerable<Tbequipo> EquiposxCliente
+        {
+            get => equiposxCliente;
+            set => SetProperty(ref equiposxCliente, value);
+        }
+
         private bool isSaved;
 
         public bool IsSaved
@@ -234,6 +267,10 @@ namespace MiNegocio.ViewModels.ViewModels
         public async Task PostCmd()
         {
             await Post();
+        }
+        public async Task GetEquiposxClienteCmd()
+        {
+            await GetEquiposxCliente();
         }
         #endregion
     }

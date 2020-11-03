@@ -4,6 +4,7 @@ using MiNegocio.Services.Services;
 using MiNegocio.Services.Services_interfaces;
 using MiNegocio.ViewModels.Properties;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MiNegocio.ViewModels.ViewModels
@@ -12,12 +13,14 @@ namespace MiNegocio.ViewModels.ViewModels
     {
         #region Members Variables
         private readonly ILoginService<Tbusuario> _service;
+        private readonly IUsuarioService<Tbusuario> _usuarioService;
         #endregion
 
         #region Constructor
         public LoginViewModel()
         {
             _service = new LoginService();
+            _usuarioService = new UsuarioService();
         }
         #endregion
 
@@ -35,6 +38,7 @@ namespace MiNegocio.ViewModels.ViewModels
             {
                 if (usuario != null)
                 {
+                    Tecnicos = await _usuarioService.GetTecnicos();
                     Usuario = await _service.Login(usuario);
                     if (Usuario != null)
                     {                             
@@ -117,6 +121,7 @@ namespace MiNegocio.ViewModels.ViewModels
             await Login();
         }
         public static Tbusuario UserLogued { get; set; }
+        public static IEnumerable<Tbusuario> Tecnicos { get; set; }
         #endregion
     }
 }

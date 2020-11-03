@@ -94,9 +94,33 @@ namespace MiNegocio.Services.Data
             }
         }
 
-        public Task<IEnumerable<T>> GetListEntity(string controllerName, T entity)
+        public async Task<IEnumerable<T>> GetListEntity(string controllerName, T entity)
         {
-            throw new NotImplementedException();
+            Uri uri = new Uri(string.Format($"{_httpClient.BaseAddress}{controllerName}", entity));
+            try
+            {
+                string json = JsonConvert.SerializeObject(entity);
+                StringContent content = new StringContent(json, Encoding.UTF8, Resources.RequestHeaders);
+                using (HttpResponseMessage httpResponse = await _httpClient.PostAsync(uri, content))
+                {
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        var query = await httpResponse.Content.ReadAsStringAsync();
+                        return JsonConvert.DeserializeObject<IEnumerable<T>>(query);
+                    }
+                    else
+                    {
+                        ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
+                        return default;
+                    }
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Debug.WriteLine(@"\tError {0}", ex.Message);
+                ErrorRestService = ex.Message;
+                return default;
+            }
         }
 
         public async Task<IEnumerable<T>> GetTs(string controllerName)
@@ -114,7 +138,6 @@ namespace MiNegocio.Services.Data
                     else
                     {
                         ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
-
                         return default;
                     }
                 }
@@ -174,8 +197,7 @@ namespace MiNegocio.Services.Data
                         }
                         else
                         {
-                            ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
-
+                            ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}".ToString();
                             return false;
                         }
                     }
@@ -192,7 +214,6 @@ namespace MiNegocio.Services.Data
                         else
                         {
                             ErrorRestService = $"Respuesta: {httpResponse.ReasonPhrase}";
-
                             return false;
                         }
                     }

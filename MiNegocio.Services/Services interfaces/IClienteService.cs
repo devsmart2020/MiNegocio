@@ -10,5 +10,6 @@ namespace MiNegocio.Services.Services_interfaces
         Task<IEnumerable<T>> GetListEntity(T entity);
         Task<IEnumerable<T>> GetTs(); 
         Task<bool> Post(T entity, bool isNewItem);
+        Task<IEnumerable<T>> RptEquiposxCliente(T entity);
     }
 }

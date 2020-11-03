@@ -13,7 +13,10 @@ namespace MiNegocio.Models.Models
         public int IdEquipo { get; set; }
         public DateTime Fecha { get; set; }
         public string IdCliente { get; set; }
+        public string TipoEquipo { get; set; }
+        public string Marca { get; set; }
         public int IdModelo { get; set; }
+        public string Modelo { get; set; }
         public string Serie { get; set; }
         public string Imei1 { get; set; }
         public string Imei2 { get; set; }

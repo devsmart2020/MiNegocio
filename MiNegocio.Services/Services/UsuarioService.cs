@@ -32,6 +32,11 @@ namespace MiNegocio.Services.Services
             return await _service.GetListEntity(controllerName, entity);
         }
 
+        public async Task<IEnumerable<Tbusuario>> GetTecnicos()
+        {
+            return await _service.GetTs($"{controllerName}/GetTecnicos");
+        }
+
         public async Task<IEnumerable<Tbusuario>> GetTs()
         {
             return await _service.GetTs(controllerName);

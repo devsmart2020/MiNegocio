@@ -72,6 +72,27 @@ namespace MiNegocio.API.Controllers
             }
         }
 
+        [HttpPost("RptEquipoCliente")]
+        public async Task<ActionResult<IEnumerable<Tbcliente>>> RptEquiposxCliente(Tbcliente entity)
+        {
+            if (entity != null)
+            {
+                IEnumerable<Tbcliente> equipoClientes = await _service.RptEquiposxCliente(entity);
+                if (equipoClientes.Any())
+                {
+                    return Ok(equipoClientes);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
         [HttpPut()]
         public async Task<IActionResult> Put(Tbcliente entity)
         {

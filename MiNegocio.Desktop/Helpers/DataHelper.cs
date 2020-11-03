@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiNegocio.Models.Models;
+using System;
 using System.Windows.Forms;
 
 namespace MiNegocio.Desktop.Helpers
@@ -21,5 +22,6 @@ namespace MiNegocio.Desktop.Helpers
             }
             
         }
+
     }
 }

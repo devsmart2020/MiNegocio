@@ -60,7 +60,7 @@ namespace MiNegocio.API.Controllers
         [HttpPost()]
         public async Task<ActionResult<Tborden>> Post(Tborden entity)
         {
-            if (entity != null && ModelState.IsValid)
+            if (entity != null)
             {
                 Tborden model = await _service.Post(entity);
                 if (model != null)

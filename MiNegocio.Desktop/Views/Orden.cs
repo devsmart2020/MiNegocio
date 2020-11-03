@@ -2,6 +2,7 @@
 using MiNegocio.Desktop.Properties;
 using MiNegocio.ViewModels.ViewModels;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,6 +20,7 @@ namespace MiNegocio.Desktop.Views
         private protected ModeloViewModel _modeloVm;
         private protected EquipoViewModel _equipoVm;
         private protected OrdenViewModel _ordenVm;
+        private protected EstadoOrdenViewModel _estadoOrden;
         #endregion
 
         #region Constructor
@@ -31,6 +33,7 @@ namespace MiNegocio.Desktop.Views
             _modeloVm = new ModeloViewModel();
             _equipoVm = new EquipoViewModel();
             _ordenVm = new OrdenViewModel();
+            _estadoOrden = new EstadoOrdenViewModel();
             BindingEquipo();
             BindingOrden();
         }
@@ -44,6 +47,8 @@ namespace MiNegocio.Desktop.Views
             await GetMarca();
             await GetTipoEquipo();
             await GetModelo();
+            CmbTecnico();
+            await CmbEstadoOrden();
             pbLoading.Visible = false;
         }
         private void BindingEquipo()
@@ -63,8 +68,8 @@ namespace MiNegocio.Desktop.Views
         private void BindingOrden()
         {    
             pbLoadOrden.DataBindings.Add(Resources.BindingVisible, _ordenVm, Resources.PropIsBusy, false, DataSourceUpdateMode.OnPropertyChanged);
-            dgvOrden.DataBindings.Add(Resources.BindingDataSource, _ordenVm, Resources.PropList, false, DataSourceUpdateMode.OnPropertyChanged);
-            cmbTecnico.DataBindings.Add(Resources.BindingDataSource, _marcaVm, Resources.PropList, false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbEstadoOrden.DataBindings.Add(Resources.BindingDataSource, _estadoOrden, Resources.PropList, false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbEstadoOrden.DataBindings.Add(Resources.BindingSelectedValue, _ordenVm, Resources.CmbValueEstadoOrden, false, DataSourceUpdateMode.OnPropertyChanged);
             txtClienteOrden.DataBindings.Add(Resources.BindingText, _ordenVm, "IdCliente", false, DataSourceUpdateMode.OnPropertyChanged);
             txtDiagCliente.DataBindings.Add(Resources.BindingText, _ordenVm, "DiagCliente", false, DataSourceUpdateMode.OnPropertyChanged);
             txtObsOrden.DataBindings.Add(Resources.BindingText, _ordenVm, "DiagTecnico", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -102,6 +107,17 @@ namespace MiNegocio.Desktop.Views
         private async Task GetClientes()
         {
             await _clienteVm.GetClientesCmd();
+        }
+        private async Task GetEquiposCliente()
+        {
+            await _clienteVm.GetEquiposxClienteCmd();
+            if (_clienteVm.EquiposxCliente.Any())
+            {
+                using (frmEquipoCliente equipoCliente = new frmEquipoCliente(_clienteVm.EquiposxCliente))
+                {
+                    equipoCliente.ShowDialog();
+                }
+            }
         }
         private async Task GetOrdenes()
         {
@@ -151,6 +167,18 @@ namespace MiNegocio.Desktop.Views
             _modeloVm.IdTipoEquipo = Convert.ToInt32(cmbTipoE.SelectedValue);
             _modeloVm.GetCmbModeloCmd();
             cmbModelo.Refresh();
+        }
+        private void  CmbTecnico()
+        {
+            cmbTecnico.DataSource = LoginViewModel.Tecnicos;
+            cmbTecnico.ValueMember = Resources.CmbValueCliente;
+            cmbTecnico.DisplayMember = Resources.CmbDisplayCliente;
+        }
+        private async Task CmbEstadoOrden()
+        {
+            await _estadoOrden.GetsCmd();
+            cmbEstadoOrden.ValueMember = Resources.CmbValueEstadoOrden;
+            cmbEstadoOrden.DisplayMember = Resources.CmbDisplayEstadoOrden;
         }
         private async Task PostEquipo()
         {
@@ -218,13 +246,16 @@ namespace MiNegocio.Desktop.Views
                 _frmBuscaCliente.ShowDialog();
             }
         }
-        private void FormBuscaClienteClose()
+        private async Task FormBuscaClienteClose()
         {
             if (_frmBuscaCliente.ClienteSeleccionado != null)
             {
                 txtClienteEquipo.Text = _frmBuscaCliente.ClienteSeleccionado.DocId;
+                _ordenVm.IdCliente = txtClienteEquipo.Text;
                 lblNomClienteEquipo.Text = $"{_frmBuscaCliente.ClienteSeleccionado.Nombres} {_frmBuscaCliente.ClienteSeleccionado.Apellidos}";
                 lblNomClienteOrden.Text = lblNomClienteEquipo.Text;
+                _clienteVm.DocId = txtClienteEquipo.Text;
+                await GetEquiposCliente();
                 SendKeys.Send("{Enter}");
             }
         }       
@@ -235,9 +266,9 @@ namespace MiNegocio.Desktop.Views
         {
             await FormShown();
         }
-        private void BuscarCliente_FormClosing(object sender, FormClosingEventArgs e)
+        private async void BuscarCliente_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FormBuscaClienteClose();
+            await FormBuscaClienteClose();
         }
         private void btnAddMasterEquipo_Click(object sender, EventArgs e)
         {

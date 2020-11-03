@@ -18,7 +18,7 @@ namespace MiNegocio.ViewModels.ViewModels
         #region Constructor
         public UsuarioViewModel()
         {
-            _service = new UsuarioService();            
+            _service = new UsuarioService();
 
         }
         #endregion
@@ -99,7 +99,7 @@ namespace MiNegocio.ViewModels.ViewModels
             Telefono = string.Empty;
             User = string.Empty;
             Pass = string.Empty;
-            IdPerfil = default;            
+            IdPerfil = default;
             Estado = default;
         }
         #endregion
@@ -125,6 +125,14 @@ namespace MiNegocio.ViewModels.ViewModels
             get => apellidos;
             set => SetProperty(ref apellidos, value);
         }
+        private string nomCompleto;
+
+        public string NomCompleto
+        {
+            get => nomCompleto;
+            set => SetProperty(ref nomCompleto, value);
+        }
+
         private string direccion;
 
         public string Direccion
@@ -138,7 +146,7 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             get => telefono;
             set => SetProperty(ref telefono, value);
-        }      
+        }
         private sbyte estado;
 
         public sbyte Estado
@@ -180,15 +188,31 @@ namespace MiNegocio.ViewModels.ViewModels
         public Tbusuario Usuario
         {
             get => usuario;
-            set => SetProperty(ref usuario, value);
+            set
+            {
+                if (SetProperty(ref usuario, value))
+                {
+                    DocId = usuario.DocId;
+                    Nombres = usuario.Nombres;
+                    Apellidos = usuario.Apellidos;
+                    Direccion = usuario.Direccion;
+                    Telefono = usuario.Telefono;
+                    Estado = usuario.Estado;
+                    IdPerfil = usuario.IdPerfil;
+                    User = usuario.User;
+                    Pass = usuario.Pass;
+                    IsEnabled = false;
+                }
+            }
         }
         private IEnumerable<Tbusuario> list;
 
         public IEnumerable<Tbusuario> List
         {
             get => list;
-            set => SetProperty(ref list, value);
-        }
+            set => SetProperty(ref list, value);  
+        }       
+
         private bool isSaved;
 
         public bool IsSaved
@@ -204,7 +228,7 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             await Gets();
         }
-       public async Task PostCmd()
+        public async Task PostCmd()
         {
             await Post();
         }

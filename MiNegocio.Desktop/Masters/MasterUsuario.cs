@@ -1,5 +1,6 @@
 ﻿using MiNegocio.Desktop.Helpers;
 using MiNegocio.Desktop.Properties;
+using MiNegocio.Models.Models;
 using MiNegocio.ViewModels.ViewModels;
 using Syncfusion.WinForms.DataGrid.Enums;
 using System;
@@ -36,6 +37,7 @@ namespace MiNegocio.Desktop.Masters
             cmbPerfil.DataBindings.Add(Resources.BindingDataSource, _perfilVm, Resources.PropList, false, DataSourceUpdateMode.OnPropertyChanged);
             cmbPerfil.DataBindings.Add(Resources.BindingSelectedValue, _usuarioVm, Resources.CmbValuePerfil, false, DataSourceUpdateMode.OnPropertyChanged);
             txtDocId.DataBindings.Add(Resources.BindingEnabled, _usuarioVm, Resources.PropIsEnabled, false, DataSourceUpdateMode.OnPropertyChanged);
+            btnGuardar.DataBindings.Add(Resources.BindingEnabled, _usuarioVm, Resources.PropIsEnabled, false, DataSourceUpdateMode.OnPropertyChanged);
             txtDocId.DataBindings.Add(Resources.BindingText, _usuarioVm, "DocId", false, DataSourceUpdateMode.OnPropertyChanged);
             txtNombre.DataBindings.Add(Resources.BindingText, _usuarioVm, "Nombres", false, DataSourceUpdateMode.OnPropertyChanged);
             txtApellido.DataBindings.Add(Resources.BindingText, _usuarioVm, "Apellidos", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -112,6 +114,7 @@ namespace MiNegocio.Desktop.Masters
             else
             {
                 dgvUsuario.SearchController.SearchHighlightColor = Color.SeaGreen;
+                dgvUsuario.Columns[7].Visible = false;
                 dgvUsuario.Columns[9].Visible = false;
                 dgvUsuario.Columns[10].Visible = false;
                 dgvUsuario.Columns[11].Visible = false;
@@ -137,16 +140,23 @@ namespace MiNegocio.Desktop.Masters
         }
         private void SearchUser(TextBox textBox)
         {
-            string search = textBox.Text;
-            if (string.IsNullOrEmpty(search))
+            if (dgvUsuario.RowCount > 0)
             {
-                dgvUsuario.SearchController.ClearSearch();
-            }
-            dgvUsuario.SearchController.Search(search);
-            dgvUsuario.SearchController.FindNext(search);
-            dgvUsuario.View.RefreshFilter();
+                string search = textBox.Text;
+                if (string.IsNullOrEmpty(search))
+                {
+                    dgvUsuario.SearchController.ClearSearch();
+                }
+                dgvUsuario.SearchController.Search(search);
+                dgvUsuario.SearchController.FindNext(search);
+                dgvUsuario.View.RefreshFilter();
+            }           
         }
-
+        private void Selected()
+        {
+            var usuario = dgvUsuario.SelectedItem;
+            _usuarioVm.Usuario = (Tbusuario)usuario;
+        }
         private async Task Post()
         {
             if (ValidateUser())
@@ -155,6 +165,7 @@ namespace MiNegocio.Desktop.Masters
                 await _usuarioVm.PostCmd();
                 if (_usuarioVm.IsSaved)
                 {
+                    await GetUsers();
                     using (_msjOk = new MsjOk(_usuarioVm.Msj))
                     {
                         _msjOk.ShowDialog();
@@ -199,9 +210,12 @@ namespace MiNegocio.Desktop.Masters
         {
             SearchUser(txtNombre);
         }
-
+        private void dgvUsuario_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+        {
+            Selected();
+        }
         #endregion
 
-       
+
     }
 }

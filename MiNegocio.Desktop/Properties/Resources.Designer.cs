@@ -274,6 +274,24 @@ namespace MiNegocio.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nombres.
+        /// </summary>
+        internal static string CmbDisplayCliente {
+            get {
+                return ResourceManager.GetString("CmbDisplayCliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a EstadoOrden.
+        /// </summary>
+        internal static string CmbDisplayEstadoOrden {
+            get {
+                return ResourceManager.GetString("CmbDisplayEstadoOrden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Marca.
         /// </summary>
         internal static string CmbDisplayMarca {
@@ -315,6 +333,15 @@ namespace MiNegocio.Desktop.Properties {
         internal static string CmbValueCliente {
             get {
                 return ResourceManager.GetString("CmbValueCliente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a IdEstadoOrden.
+        /// </summary>
+        internal static string CmbValueEstadoOrden {
+            get {
+                return ResourceManager.GetString("CmbValueEstadoOrden", resourceCulture);
             }
         }
         

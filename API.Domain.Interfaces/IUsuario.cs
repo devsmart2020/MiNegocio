@@ -8,6 +8,7 @@ namespace API.Domain.Interfaces
         Task<bool> Delete(T entity);
         Task<bool> Exists(T entity);
         Task<T> GetById(T entity);
+        Task<IEnumerable<T>> GetTecnicos();
         Task<IEnumerable<T>> Get();
         Task<T> Post(T entity);
         Task<T> Put(T entity);

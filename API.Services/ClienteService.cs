@@ -44,5 +44,10 @@ namespace API.Services
         {
             return await _repository.Put(entity);
         }
+
+        public async Task<IEnumerable<Tbcliente>> RptEquiposxCliente(Tbcliente entity)
+        {
+            return await _repository.RptEquiposxCliente(entity);
+        }
     }
 }

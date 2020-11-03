@@ -40,5 +40,10 @@ namespace MiNegocio.Services.Services
         {
             return await _service.Post(controllerName,entity, isNewItem);
         }
+
+        public async Task<IEnumerable<Tbcliente>> RptEquiposxCliente(Tbcliente entity)
+        {
+            return await _service.GetListEntity($"{controllerName}/RptEquipoCliente", entity);
+        }
     }
 }

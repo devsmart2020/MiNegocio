@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Pq9ItIN2WnazpD1+Lu7h8Wwu4RhUHPPcCUusK+u/6s79SLbDyDI3SOcjnF5pf7h7AfGgwSyO9OcR9LatiHqHLQ==",
+  "dgSpecHash": "bxT8IkjS3dDzfCHedaN54dltUTPtE4bsJHEuQwzXyA0teqgVBDxBCDrPjZfIR2+wa0WA/6fRKghPHMGjQVIDeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
+  "projectFilePath": "C:\\Users\\john.tobon\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

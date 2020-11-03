@@ -60,6 +60,7 @@ namespace MiNegocio.ViewModels.ViewModels
             };
             try
             {
+
                 IsSaved = await _service.Post(_orden, IsNewItem);
                 if (IsSaved)
                 {
@@ -88,6 +89,7 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsBusy = false;
             }
         }
+      
         private void Clear()
         {
             IdCliente = string.Empty;

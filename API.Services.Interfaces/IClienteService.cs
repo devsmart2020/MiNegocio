@@ -11,5 +11,7 @@ namespace API.Services.Interfaces
         Task<IEnumerable<T>> Get();
         Task<T> Post(T entity);
         Task<T> Put(T entity);
+        Task<IEnumerable<T>> RptEquiposxCliente(T entity);
+
     }
 }

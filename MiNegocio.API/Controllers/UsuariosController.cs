@@ -59,6 +59,16 @@ namespace MiNegocio.API.Controllers
                 return NotFound();
         }
 
+        [HttpGet("GetTecnicos")]
+        public async Task<ActionResult<IEnumerable<Tbusuario>>> GetTenicos()
+        {
+            IEnumerable<Tbusuario> model = await _service.GetTecnicos();
+            if (model.Count() > 0)
+                return Ok(model);
+            else
+                return NoContent();
+        }
+
         [HttpPost()]
         [Authorize]
         public async Task<ActionResult<Tbusuario>> Post(Tbusuario entity)

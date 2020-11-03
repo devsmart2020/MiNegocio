@@ -80,7 +80,7 @@
             this.dgvUsuario.AccessibleName = "Table";
             this.dgvUsuario.AllowDeleting = true;
             this.dgvUsuario.AllowFiltering = true;
-            this.dgvUsuario.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.dgvUsuario.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.AllCells;
             this.dgvUsuario.FilterRowPosition = Syncfusion.WinForms.DataGrid.Enums.RowPosition.FixedTop;
             this.dgvUsuario.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvUsuario.Location = new System.Drawing.Point(12, 392);
@@ -89,6 +89,7 @@
             this.dgvUsuario.Size = new System.Drawing.Size(722, 157);
             this.dgvUsuario.Style.BorderColor = System.Drawing.Color.DarkGray;
             this.dgvUsuario.TabIndex = 12;
+            this.dgvUsuario.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.dgvUsuario_CellDoubleClick);
             // 
             // btnActualizar
             // 
@@ -240,7 +241,7 @@
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.White;
-            this.txtDireccion.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtDireccion.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtDireccion.BorderColor = System.Drawing.Color.DimGray;
             this.txtDireccion.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -279,7 +280,7 @@
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.Color.White;
-            this.txtTelefono.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtTelefono.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtTelefono.BorderColor = System.Drawing.Color.DimGray;
             this.txtTelefono.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -329,7 +330,7 @@
             // txtApellido
             // 
             this.txtApellido.BackColor = System.Drawing.Color.White;
-            this.txtApellido.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtApellido.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtApellido.BorderColor = System.Drawing.Color.DimGray;
             this.txtApellido.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -368,7 +369,7 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.White;
-            this.txtNombre.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtNombre.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtNombre.BorderColor = System.Drawing.Color.DimGray;
             this.txtNombre.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -408,7 +409,7 @@
             // txtDocId
             // 
             this.txtDocId.BackColor = System.Drawing.Color.White;
-            this.txtDocId.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtDocId.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtDocId.BorderColor = System.Drawing.Color.DimGray;
             this.txtDocId.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDocId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -473,11 +474,10 @@
             // txtPass
             // 
             this.txtPass.BackColor = System.Drawing.Color.White;
-            this.txtPass.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtPass.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtPass.BorderColor = System.Drawing.Color.DimGray;
             this.txtPass.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPass.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPass.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtPass.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
             this.txtPass.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -513,11 +513,10 @@
             // txtUsuario
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.White;
-            this.txtUsuario.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtUsuario.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtUsuario.BorderColor = System.Drawing.Color.DimGray;
             this.txtUsuario.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtUsuario.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -590,13 +589,13 @@
             this.rbInactivo.Name = "rbInactivo";
             this.rbInactivo.Size = new System.Drawing.Size(65, 17);
             this.rbInactivo.TabIndex = 1;
-            this.rbInactivo.TabStop = true;
             this.rbInactivo.Text = "Inactivo";
             this.rbInactivo.UseVisualStyleBackColor = true;
             // 
             // rbActivo
             // 
             this.rbActivo.AutoSize = true;
+            this.rbActivo.Checked = true;
             this.rbActivo.Location = new System.Drawing.Point(27, 13);
             this.rbActivo.Name = "rbActivo";
             this.rbActivo.Size = new System.Drawing.Size(56, 17);

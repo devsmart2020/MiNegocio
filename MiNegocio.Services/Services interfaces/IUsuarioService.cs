@@ -9,6 +9,8 @@ namespace MiNegocio.Services.Services_interfaces
         Task<T> GetById(T entity);
         Task<IEnumerable<T>> GetListEntity(T entity);
         Task<IEnumerable<T>> GetTs();
+        Task<IEnumerable<T>> GetTecnicos();
+
         Task<bool> Post(T entity, bool isNewItem);
     }
 }

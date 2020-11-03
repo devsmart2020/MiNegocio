@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
             this.pbLoading = new System.Windows.Forms.PictureBox();
-            this.dgvOrden = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.btnBuscaEquipo = new Bunifu.Framework.UI.BunifuImageButton();
             this.label22 = new System.Windows.Forms.Label();
@@ -86,8 +85,10 @@
             this.pbLoadEquipo = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
             this.errorOrden = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorEquipo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbEstadoOrden = new Syncfusion.WinForms.ListView.SfComboBox();
+            this.btnBuscaClienteO = new Bunifu.Framework.UI.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrden)).BeginInit();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscaEquipo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEquipoOrden)).BeginInit();
@@ -115,6 +116,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLoadEquipo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorOrden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorEquipo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoOrden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscaClienteO)).BeginInit();
             this.SuspendLayout();
             // 
             // pbLoading
@@ -127,21 +130,6 @@
             this.pbLoading.TabIndex = 167;
             this.pbLoading.TabStop = false;
             this.pbLoading.Visible = false;
-            // 
-            // dgvOrden
-            // 
-            this.dgvOrden.AccessibleName = "Table";
-            this.dgvOrden.AllowDeleting = true;
-            this.dgvOrden.AllowFiltering = true;
-            this.dgvOrden.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.AllCells;
-            this.dgvOrden.FilterRowPosition = Syncfusion.WinForms.DataGrid.Enums.RowPosition.FixedTop;
-            this.dgvOrden.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvOrden.Location = new System.Drawing.Point(21, 471);
-            this.dgvOrden.Name = "dgvOrden";
-            this.dgvOrden.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
-            this.dgvOrden.Size = new System.Drawing.Size(851, 109);
-            this.dgvOrden.Style.BorderColor = System.Drawing.Color.DarkGray;
-            this.dgvOrden.TabIndex = 141;
             // 
             // groupBox8
             // 
@@ -199,7 +187,7 @@
             // txtEquipoOrden
             // 
             this.txtEquipoOrden.BackColor = System.Drawing.Color.White;
-            this.txtEquipoOrden.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtEquipoOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtEquipoOrden.BorderColor = System.Drawing.Color.DimGray;
             this.txtEquipoOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtEquipoOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -228,7 +216,7 @@
             // txtInfoMarca
             // 
             this.txtInfoMarca.BackColor = System.Drawing.Color.White;
-            this.txtInfoMarca.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtInfoMarca.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtInfoMarca.BorderColor = System.Drawing.Color.DimGray;
             this.txtInfoMarca.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtInfoMarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -257,7 +245,7 @@
             // txtInfoTipo
             // 
             this.txtInfoTipo.BackColor = System.Drawing.Color.White;
-            this.txtInfoTipo.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtInfoTipo.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtInfoTipo.BorderColor = System.Drawing.Color.DimGray;
             this.txtInfoTipo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtInfoTipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -365,11 +353,10 @@
             // txtDatoBloqueo
             // 
             this.txtDatoBloqueo.BackColor = System.Drawing.Color.White;
-            this.txtDatoBloqueo.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtDatoBloqueo.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtDatoBloqueo.BorderColor = System.Drawing.Color.DimGray;
             this.txtDatoBloqueo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDatoBloqueo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDatoBloqueo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDatoBloqueo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtDatoBloqueo.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
             this.txtDatoBloqueo.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -417,7 +404,7 @@
             // txtObsOrden
             // 
             this.txtObsOrden.BackColor = System.Drawing.Color.White;
-            this.txtObsOrden.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtObsOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtObsOrden.BorderColor = System.Drawing.Color.DimGray;
             this.txtObsOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtObsOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -444,7 +431,7 @@
             // txtDiagCliente
             // 
             this.txtDiagCliente.BackColor = System.Drawing.Color.White;
-            this.txtDiagCliente.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtDiagCliente.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtDiagCliente.BorderColor = System.Drawing.Color.DimGray;
             this.txtDiagCliente.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDiagCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -471,7 +458,7 @@
             // txtObsEquipo
             // 
             this.txtObsEquipo.BackColor = System.Drawing.Color.White;
-            this.txtObsEquipo.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtObsEquipo.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtObsEquipo.BorderColor = System.Drawing.Color.DimGray;
             this.txtObsEquipo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtObsEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -509,7 +496,7 @@
             // txtColor
             // 
             this.txtColor.BackColor = System.Drawing.Color.White;
-            this.txtColor.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtColor.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtColor.BorderColor = System.Drawing.Color.DimGray;
             this.txtColor.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -536,7 +523,7 @@
             // txtImei1
             // 
             this.txtImei1.BackColor = System.Drawing.Color.White;
-            this.txtImei1.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtImei1.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtImei1.BorderColor = System.Drawing.Color.DimGray;
             this.txtImei1.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtImei1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -563,7 +550,7 @@
             // txtSerial
             // 
             this.txtSerial.BackColor = System.Drawing.Color.White;
-            this.txtSerial.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtSerial.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtSerial.BorderColor = System.Drawing.Color.DimGray;
             this.txtSerial.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtSerial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -648,7 +635,7 @@
             // txtClienteOrden
             // 
             this.txtClienteOrden.BackColor = System.Drawing.Color.White;
-            this.txtClienteOrden.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtClienteOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtClienteOrden.BorderColor = System.Drawing.Color.DimGray;
             this.txtClienteOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtClienteOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -675,7 +662,7 @@
             // txtClienteEquipo
             // 
             this.txtClienteEquipo.BackColor = System.Drawing.Color.White;
-            this.txtClienteEquipo.BeforeTouchSize = new System.Drawing.Size(484, 23);
+            this.txtClienteEquipo.BeforeTouchSize = new System.Drawing.Size(181, 23);
             this.txtClienteEquipo.BorderColor = System.Drawing.Color.DimGray;
             this.txtClienteEquipo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtClienteEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -897,7 +884,7 @@
             this.btnActualizaOrden.ForeColor = System.Drawing.Color.White;
             this.btnActualizaOrden.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnActualizaOrden.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnActualizaOrden.Location = new System.Drawing.Point(746, 422);
+            this.btnActualizaOrden.Location = new System.Drawing.Point(465, 515);
             this.btnActualizaOrden.Name = "btnActualizaOrden";
             this.btnActualizaOrden.Size = new System.Drawing.Size(126, 35);
             this.btnActualizaOrden.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
@@ -927,7 +914,7 @@
             this.btnGuardarOrden.ForeColor = System.Drawing.Color.White;
             this.btnGuardarOrden.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnGuardarOrden.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnGuardarOrden.Location = new System.Drawing.Point(604, 422);
+            this.btnGuardarOrden.Location = new System.Drawing.Point(300, 515);
             this.btnGuardarOrden.Name = "btnGuardarOrden";
             this.btnGuardarOrden.Size = new System.Drawing.Size(126, 35);
             this.btnGuardarOrden.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
@@ -962,7 +949,7 @@
             this.pbLoadOrden.ForegroundImage = null;
             this.pbLoadOrden.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
             this.pbLoadOrden.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
-            this.pbLoadOrden.Location = new System.Drawing.Point(675, 461);
+            this.pbLoadOrden.Location = new System.Drawing.Point(370, 554);
             this.pbLoadOrden.MultipleColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(58))))),
@@ -971,7 +958,7 @@
             this.pbLoadOrden.Name = "pbLoadOrden";
             this.pbLoadOrden.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
             this.pbLoadOrden.SegmentWidth = 12;
-            this.pbLoadOrden.Size = new System.Drawing.Size(126, 6);
+            this.pbLoadOrden.Size = new System.Drawing.Size(150, 6);
             this.pbLoadOrden.TabIndex = 171;
             this.pbLoadOrden.TextStyle = Syncfusion.Windows.Forms.Tools.ProgressBarTextStyles.Custom;
             this.pbLoadOrden.ThemeName = "WaitingGradient";
@@ -1054,6 +1041,39 @@
             this.errorEquipo.ContainerControl = this;
             this.errorEquipo.Icon = ((System.Drawing.Icon)(resources.GetObject("errorEquipo.Icon")));
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label1.Location = new System.Drawing.Point(473, 416);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 147;
+            this.label1.Text = "Estado de Órden";
+            // 
+            // cmbEstadoOrden
+            // 
+            this.cmbEstadoOrden.Location = new System.Drawing.Point(476, 433);
+            this.cmbEstadoOrden.Name = "cmbEstadoOrden";
+            this.cmbEstadoOrden.Size = new System.Drawing.Size(181, 24);
+            this.cmbEstadoOrden.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbEstadoOrden.TabIndex = 168;
+            // 
+            // btnBuscaClienteO
+            // 
+            this.btnBuscaClienteO.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscaClienteO.Image = global::MiNegocio.Desktop.Properties.Resources.buscarBlackGrande;
+            this.btnBuscaClienteO.ImageActive = null;
+            this.btnBuscaClienteO.Location = new System.Drawing.Point(21, 286);
+            this.btnBuscaClienteO.Name = "btnBuscaClienteO";
+            this.btnBuscaClienteO.Size = new System.Drawing.Size(20, 20);
+            this.btnBuscaClienteO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnBuscaClienteO.TabIndex = 164;
+            this.btnBuscaClienteO.TabStop = false;
+            this.btnBuscaClienteO.Zoom = 20;
+            this.btnBuscaClienteO.Click += new System.EventHandler(this.btnBuscaCliente_Click);
+            // 
             // frmOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1066,11 +1086,11 @@
             this.Controls.Add(this.btnGuardarOrden);
             this.Controls.Add(this.pbLoadOrden);
             this.Controls.Add(this.cmbModelo);
+            this.Controls.Add(this.cmbEstadoOrden);
             this.Controls.Add(this.cmbTecnico);
             this.Controls.Add(this.cmbTipoE);
             this.Controls.Add(this.cmbMarca);
             this.Controls.Add(this.pbLoading);
-            this.Controls.Add(this.dgvOrden);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.gbSD);
             this.Controls.Add(this.gbSIM);
@@ -1078,6 +1098,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDatoBloqueo);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnBuscaClienteO);
             this.Controls.Add(this.btnBuscaCliente);
             this.Controls.Add(this.txtObsOrden);
             this.Controls.Add(this.txtDiagCliente);
@@ -1089,6 +1110,7 @@
             this.Controls.Add(this.btnAddTecnico);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblNomClienteEquipo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtClienteOrden);
@@ -1113,7 +1135,6 @@
             this.Text = "Orden";
             this.Shown += new System.EventHandler(this.frmOrden_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrden)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscaEquipo)).EndInit();
@@ -1144,6 +1165,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLoadEquipo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorOrden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorEquipo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoOrden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscaClienteO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1152,7 +1175,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbLoading;
-        private Syncfusion.WinForms.DataGrid.SfDataGrid dgvOrden;
         private System.Windows.Forms.GroupBox groupBox8;
         private Bunifu.Framework.UI.BunifuImageButton btnBuscaEquipo;
         private System.Windows.Forms.Label label22;
@@ -1207,5 +1229,8 @@
         private Syncfusion.Windows.Forms.Tools.ProgressBarAdv pbLoadEquipo;
         private System.Windows.Forms.ErrorProvider errorOrden;
         private System.Windows.Forms.ErrorProvider errorEquipo;
+        private Syncfusion.WinForms.ListView.SfComboBox cmbEstadoOrden;
+        private System.Windows.Forms.Label label1;
+        private Bunifu.Framework.UI.BunifuImageButton btnBuscaClienteO;
     }
 }

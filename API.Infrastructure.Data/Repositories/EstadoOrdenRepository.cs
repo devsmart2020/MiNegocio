@@ -44,7 +44,7 @@ namespace API.Infrastructure.Data.Repositories
         public async Task<IEnumerable<Tbestadoorden>> Get()
         {
             return await _context.Tbestadoorden
-                .OrderBy(x => x.EstadoOrden)
+                .OrderBy(x => x.IdEstadoOrden)
                 .ToListAsync();
         }
 

@@ -154,3 +154,4 @@ C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Masters.frmMasterEquipo.resources
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Masters.frmMasterUsuario.resources
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Masters.frmEquipoCliente.resources
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Masters.frmEquipoCliente.resources

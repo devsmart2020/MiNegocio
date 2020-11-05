@@ -117,6 +117,22 @@ namespace MiNegocio.ViewModels.ViewModels
             get => idCliente;
             set => SetProperty(ref idCliente, value);
         }
+        private string tipoEquipo;
+
+        public string TipoEquipo
+        {
+            get => tipoEquipo;
+            set => SetProperty(ref tipoEquipo, value);
+        }
+
+        private string marca;
+
+        public string Marca
+        {
+            get => marca;
+            set => SetProperty(ref marca, value);
+        }
+
         private int idModelo;
 
         public int IdModelo
@@ -124,6 +140,14 @@ namespace MiNegocio.ViewModels.ViewModels
             get => idModelo;
             set => SetProperty(ref idModelo, value);
         }
+        private string modelo;
+
+        public string Modelo
+        {
+            get => modelo;
+            set => SetProperty(ref modelo, value);
+        }
+
         private string serie;
 
         public string Serie
@@ -164,7 +188,22 @@ namespace MiNegocio.ViewModels.ViewModels
         public Tbequipo Equipo
         {
             get => equipo;
-            set => SetProperty(ref equipo, value);
+            set { if (SetProperty(ref equipo, value))
+                {
+                    IdEquipo = equipo.IdEquipo;
+                    Fecha = equipo.Fecha;
+                    IdCliente = equipo.IdCliente;
+                    TipoEquipo = equipo.TipoEquipo;
+                    Marca = equipo.Marca;
+                    IdModelo = equipo.IdModelo;
+                    Modelo = equipo.Modelo;
+                    Serie = equipo.Serie;
+                    Imei1 = equipo.Imei1;
+                    Imei2 = equipo.Imei2;
+                    Color = equipo.Color;
+                    Observacion = equipo.Observacion;
+                } 
+            }
         }
         private IEnumerable<Tbequipo> list;
 

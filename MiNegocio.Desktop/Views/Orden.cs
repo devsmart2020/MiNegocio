@@ -14,6 +14,8 @@ namespace MiNegocio.Desktop.Views
         private MsjOk _msjOk;
         private MsjFail _msjFail;
         private protected frmBuscarCliente _frmBuscaCliente;
+        private protected frmMasterEquipo _masterEquipo;
+        private protected frmEquipoCliente _frmEquipoCliente;      
         private protected ClienteVIewModel _clienteVm;
         private protected MarcaViewModel _marcaVm;
         private protected TipoEquipoViewModel _tipoEquipoVm;
@@ -64,9 +66,12 @@ namespace MiNegocio.Desktop.Views
             txtImei1.DataBindings.Add(Resources.BindingText, _equipoVm, "Imei1", false, DataSourceUpdateMode.OnPropertyChanged);
             txtObsEquipo.DataBindings.Add(Resources.BindingText, _equipoVm, "Observacion", false, DataSourceUpdateMode.OnPropertyChanged);
             txtColor.DataBindings.Add(Resources.BindingText, _equipoVm, "Color", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtInfoTipo.DataBindings.Add(Resources.BindingText, _equipoVm, "TipoEquipo", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtInfoMarca.DataBindings.Add(Resources.BindingText, _equipoVm, "Marca", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtInfoModelo.DataBindings.Add(Resources.BindingText, _equipoVm, "Modelo", false, DataSourceUpdateMode.OnPropertyChanged);
         }
         private void BindingOrden()
-        {    
+        {
             pbLoadOrden.DataBindings.Add(Resources.BindingVisible, _ordenVm, Resources.PropIsBusy, false, DataSourceUpdateMode.OnPropertyChanged);
             cmbEstadoOrden.DataBindings.Add(Resources.BindingDataSource, _estadoOrden, Resources.PropList, false, DataSourceUpdateMode.OnPropertyChanged);
             cmbEstadoOrden.DataBindings.Add(Resources.BindingSelectedValue, _ordenVm, Resources.CmbValueEstadoOrden, false, DataSourceUpdateMode.OnPropertyChanged);
@@ -110,15 +115,25 @@ namespace MiNegocio.Desktop.Views
         }
         private async Task GetEquiposCliente()
         {
+            _clienteVm.DocId = txtClienteOrden.Text.Trim();
             await _clienteVm.GetEquiposxClienteCmd();
             if (_clienteVm.EquiposxCliente.Any())
             {
-                using (frmEquipoCliente equipoCliente = new frmEquipoCliente(_clienteVm.EquiposxCliente))
+                using (_frmEquipoCliente = new frmEquipoCliente(_clienteVm.EquiposxCliente))
                 {
-                    equipoCliente.ShowDialog();
+                    _frmEquipoCliente.FormClosing += _frmEquipoCliente_FormClosing;
+                    txtDiagCliente.Focus();
+                    _frmEquipoCliente.ShowDialog();
                 }
             }
         }
+        private void FormEquipoClienteClosed()
+        {
+            if (_frmEquipoCliente.EquipoSeleccionado != null)
+            {
+                _equipoVm.Equipo = _frmEquipoCliente.EquipoSeleccionado;
+            }
+        }        
         private async Task GetOrdenes()
         {
             await _ordenVm.GetsCmd();
@@ -168,7 +183,7 @@ namespace MiNegocio.Desktop.Views
             _modeloVm.GetCmbModeloCmd();
             cmbModelo.Refresh();
         }
-        private void  CmbTecnico()
+        private void CmbTecnico()
         {
             cmbTecnico.DataSource = LoginViewModel.Tecnicos;
             cmbTecnico.ValueMember = Resources.CmbValueCliente;
@@ -213,6 +228,7 @@ namespace MiNegocio.Desktop.Views
         {
             if (ValidateOrden())
             {
+                _ordenVm.IdEquipo = _equipoVm.IdModelo;
                 await _ordenVm.PostCmd();
                 if (_ordenVm.IsSaved)
                 {
@@ -232,14 +248,15 @@ namespace MiNegocio.Desktop.Views
         }
         private void FormMasterEquipo()
         {
-            using (frmMasterEquipo masterEquipo = new frmMasterEquipo())
+            using (_masterEquipo = new frmMasterEquipo())
             {
-                masterEquipo.ShowDialog();
+                txtClienteOrden.Focus();
+                _masterEquipo.ShowDialog();
             }
-        }
-        private void FormBuscaCliente()
+        }     
+        private void FormBuscaCliente(string textBox)
         {
-            using (_frmBuscaCliente = new frmBuscarCliente(_clienteVm.List))
+            using (_frmBuscaCliente = new frmBuscarCliente(_clienteVm.List,textBox))
             {
                 _frmBuscaCliente.FormClosing += BuscarCliente_FormClosing;
                 txtClienteEquipo.Focus();
@@ -255,10 +272,10 @@ namespace MiNegocio.Desktop.Views
                 lblNomClienteEquipo.Text = $"{_frmBuscaCliente.ClienteSeleccionado.Nombres} {_frmBuscaCliente.ClienteSeleccionado.Apellidos}";
                 lblNomClienteOrden.Text = lblNomClienteEquipo.Text;
                 _clienteVm.DocId = txtClienteEquipo.Text;
-                await GetEquiposCliente();
-                SendKeys.Send("{Enter}");
+                await GetEquiposCliente();      
+                //SendKeys.Send("{Enter}");
             }
-        }       
+        }              
         #endregion
 
         #region Events
@@ -270,18 +287,23 @@ namespace MiNegocio.Desktop.Views
         {
             await FormBuscaClienteClose();
         }
+        private void _frmEquipoCliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormEquipoClienteClosed();
+        }
         private void btnAddMasterEquipo_Click(object sender, EventArgs e)
         {
             FormMasterEquipo();
         }
         private void btnBuscaCliente_Click(object sender, EventArgs e)
         {
-            FormBuscaCliente();
+            FormBuscaCliente(string.Empty);
         }
         private void txtClienteEquipo_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                FormBuscaCliente(txtClienteEquipo.Text);
                 txtSerial.Focus();
             }
         }
@@ -292,6 +314,13 @@ namespace MiNegocio.Desktop.Views
         private async void btnGuardaEquipo_Click(object sender, EventArgs e)
         {
             await PostEquipo();
+        }
+        private void txtClienteOrden_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {                 
+                 FormBuscaCliente(txtClienteOrden.Text);
+            }
         }
         private async void btnGuardarOrden_Click(object sender, EventArgs e)
         {
@@ -311,8 +340,9 @@ namespace MiNegocio.Desktop.Views
                 usuario.ShowDialog();
             }
         }
+
         #endregion
 
-
+       
     }
 }

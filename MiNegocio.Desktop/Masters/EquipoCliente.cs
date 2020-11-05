@@ -30,13 +30,27 @@ namespace MiNegocio.Desktop.Masters
                 dgvEquipos.Columns[9].Visible = false;
             }
         }
+        private void SelectedEquipo()
+        {
+            var equipo = dgvEquipos.SelectedItem;
+            EquipoSeleccionado = (Tbequipo)equipo;            
+            if (EquipoSeleccionado == null)
+            {
+                Close();
+            }
+            Close();
+        }
+
         #endregion
 
         #region Events
-
+        private void dgvEquipos_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+        {
+            SelectedEquipo();
+        }
         #endregion
 
-
+        public Tbequipo EquipoSeleccionado { get; set; }
 
     }
 }

@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrden));
             this.pbLoading = new System.Windows.Forms.PictureBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.gbEquipoSel = new System.Windows.Forms.GroupBox();
+            this.txtInfoModelo = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.btnBuscaEquipo = new Bunifu.Framework.UI.BunifuImageButton();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.txtEquipoOrden = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.txtInfoMarca = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.txtInfoTipo = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label17 = new System.Windows.Forms.Label();
@@ -89,9 +89,9 @@
             this.cmbEstadoOrden = new Syncfusion.WinForms.ListView.SfComboBox();
             this.btnBuscaClienteO = new Bunifu.Framework.UI.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
-            this.groupBox8.SuspendLayout();
+            this.gbEquipoSel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInfoModelo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscaEquipo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEquipoOrden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInfoMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInfoTipo)).BeginInit();
             this.gbSD.SuspendLayout();
@@ -131,23 +131,52 @@
             this.pbLoading.TabStop = false;
             this.pbLoading.Visible = false;
             // 
-            // groupBox8
+            // gbEquipoSel
             // 
-            this.groupBox8.Controls.Add(this.btnBuscaEquipo);
-            this.groupBox8.Controls.Add(this.label22);
-            this.groupBox8.Controls.Add(this.label23);
-            this.groupBox8.Controls.Add(this.txtEquipoOrden);
-            this.groupBox8.Controls.Add(this.txtInfoMarca);
-            this.groupBox8.Controls.Add(this.txtInfoTipo);
-            this.groupBox8.Controls.Add(this.label17);
-            this.groupBox8.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
-            this.groupBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.groupBox8.Location = new System.Drawing.Point(691, 38);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(181, 154);
-            this.groupBox8.TabIndex = 163;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "EquipoSeleccionado";
+            this.gbEquipoSel.Controls.Add(this.txtInfoModelo);
+            this.gbEquipoSel.Controls.Add(this.btnBuscaEquipo);
+            this.gbEquipoSel.Controls.Add(this.label22);
+            this.gbEquipoSel.Controls.Add(this.label23);
+            this.gbEquipoSel.Controls.Add(this.txtInfoMarca);
+            this.gbEquipoSel.Controls.Add(this.txtInfoTipo);
+            this.gbEquipoSel.Controls.Add(this.label17);
+            this.gbEquipoSel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.gbEquipoSel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.gbEquipoSel.Location = new System.Drawing.Point(691, 38);
+            this.gbEquipoSel.Name = "gbEquipoSel";
+            this.gbEquipoSel.Size = new System.Drawing.Size(181, 154);
+            this.gbEquipoSel.TabIndex = 163;
+            this.gbEquipoSel.TabStop = false;
+            this.gbEquipoSel.Text = "EquipoSeleccionado";
+            // 
+            // txtInfoModelo
+            // 
+            this.txtInfoModelo.BackColor = System.Drawing.Color.White;
+            this.txtInfoModelo.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtInfoModelo.BorderColor = System.Drawing.Color.DimGray;
+            this.txtInfoModelo.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
+            this.txtInfoModelo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtInfoModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtInfoModelo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtInfoModelo.Enabled = false;
+            this.txtInfoModelo.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.txtInfoModelo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtInfoModelo.ForeColor = System.Drawing.Color.Black;
+            this.txtInfoModelo.Location = new System.Drawing.Point(9, 125);
+            this.txtInfoModelo.MaxLength = 60;
+            this.txtInfoModelo.Metrocolor = System.Drawing.Color.Silver;
+            this.txtInfoModelo.Name = "txtInfoModelo";
+            this.txtInfoModelo.NearImage = global::MiNegocio.Desktop.Properties.Resources.Telefono;
+            this.txtInfoModelo.ReadOnly = true;
+            this.txtInfoModelo.Size = new System.Drawing.Size(166, 23);
+            this.txtInfoModelo.TabIndex = 41;
+            this.txtInfoModelo.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
+            this.txtInfoModelo.ThemeStyle.CornerRadius = 0;
+            this.txtInfoModelo.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.txtInfoModelo.ThemeStyle.DisabledBorderColor = System.Drawing.Color.DimGray;
+            this.txtInfoModelo.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtInfoModelo.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtInfoModelo.UseBorderColorOnFocus = true;
             // 
             // btnBuscaEquipo
             // 
@@ -161,6 +190,7 @@
             this.btnBuscaEquipo.TabIndex = 92;
             this.btnBuscaEquipo.TabStop = false;
             this.btnBuscaEquipo.Zoom = 20;
+            this.btnBuscaEquipo.Click += new System.EventHandler(this.btnBuscaCliente_Click);
             // 
             // label22
             // 
@@ -184,35 +214,6 @@
             this.label23.TabIndex = 97;
             this.label23.Text = "Modelo:";
             // 
-            // txtEquipoOrden
-            // 
-            this.txtEquipoOrden.BackColor = System.Drawing.Color.White;
-            this.txtEquipoOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
-            this.txtEquipoOrden.BorderColor = System.Drawing.Color.DimGray;
-            this.txtEquipoOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
-            this.txtEquipoOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEquipoOrden.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEquipoOrden.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtEquipoOrden.Enabled = false;
-            this.txtEquipoOrden.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
-            this.txtEquipoOrden.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtEquipoOrden.ForeColor = System.Drawing.Color.Black;
-            this.txtEquipoOrden.Location = new System.Drawing.Point(9, 125);
-            this.txtEquipoOrden.MaxLength = 10;
-            this.txtEquipoOrden.Metrocolor = System.Drawing.Color.Silver;
-            this.txtEquipoOrden.Name = "txtEquipoOrden";
-            this.txtEquipoOrden.NearImage = global::MiNegocio.Desktop.Properties.Resources.Telefono;
-            this.txtEquipoOrden.ReadOnly = true;
-            this.txtEquipoOrden.Size = new System.Drawing.Size(166, 23);
-            this.txtEquipoOrden.TabIndex = 41;
-            this.txtEquipoOrden.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
-            this.txtEquipoOrden.ThemeStyle.CornerRadius = 0;
-            this.txtEquipoOrden.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
-            this.txtEquipoOrden.ThemeStyle.DisabledBorderColor = System.Drawing.Color.DimGray;
-            this.txtEquipoOrden.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtEquipoOrden.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtEquipoOrden.UseBorderColorOnFocus = true;
-            // 
             // txtInfoMarca
             // 
             this.txtInfoMarca.BackColor = System.Drawing.Color.White;
@@ -227,7 +228,7 @@
             this.txtInfoMarca.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtInfoMarca.ForeColor = System.Drawing.Color.Black;
             this.txtInfoMarca.Location = new System.Drawing.Point(9, 82);
-            this.txtInfoMarca.MaxLength = 10;
+            this.txtInfoMarca.MaxLength = 60;
             this.txtInfoMarca.Metrocolor = System.Drawing.Color.Silver;
             this.txtInfoMarca.Name = "txtInfoMarca";
             this.txtInfoMarca.NearImage = global::MiNegocio.Desktop.Properties.Resources.Telefono;
@@ -256,7 +257,7 @@
             this.txtInfoTipo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtInfoTipo.ForeColor = System.Drawing.Color.Black;
             this.txtInfoTipo.Location = new System.Drawing.Point(9, 35);
-            this.txtInfoTipo.MaxLength = 10;
+            this.txtInfoTipo.MaxLength = 60;
             this.txtInfoTipo.Metrocolor = System.Drawing.Color.Silver;
             this.txtInfoTipo.Name = "txtInfoTipo";
             this.txtInfoTipo.NearImage = global::MiNegocio.Desktop.Properties.Resources.Telefono;
@@ -658,6 +659,7 @@
             this.txtClienteOrden.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtClienteOrden.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtClienteOrden.UseBorderColorOnFocus = true;
+            this.txtClienteOrden.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtClienteOrden_KeyUp);
             // 
             // txtClienteEquipo
             // 
@@ -1091,7 +1093,7 @@
             this.Controls.Add(this.cmbTipoE);
             this.Controls.Add(this.cmbMarca);
             this.Controls.Add(this.pbLoading);
-            this.Controls.Add(this.groupBox8);
+            this.Controls.Add(this.gbEquipoSel);
             this.Controls.Add(this.gbSD);
             this.Controls.Add(this.gbSIM);
             this.Controls.Add(this.label19);
@@ -1135,10 +1137,10 @@
             this.Text = "Orden";
             this.Shown += new System.EventHandler(this.frmOrden_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
+            this.gbEquipoSel.ResumeLayout(false);
+            this.gbEquipoSel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInfoModelo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscaEquipo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEquipoOrden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInfoMarca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInfoTipo)).EndInit();
             this.gbSD.ResumeLayout(false);
@@ -1175,11 +1177,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbLoading;
-        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox gbEquipoSel;
         private Bunifu.Framework.UI.BunifuImageButton btnBuscaEquipo;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtEquipoOrden;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtInfoModelo;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtInfoMarca;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtInfoTipo;
         private System.Windows.Forms.Label label17;

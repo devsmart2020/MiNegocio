@@ -10,13 +10,15 @@ namespace MiNegocio.Desktop.Masters
     {
         #region Members Variables
         private IEnumerable<Tbcliente> Clientes { get; set; }
+        private string DocId { get; set; }
         #endregion
 
         #region Constructor
-        public frmBuscarCliente(IEnumerable<Tbcliente> clientes)
+        public frmBuscarCliente(IEnumerable<Tbcliente> clientes, string docId)
         {
             InitializeComponent();
             Clientes = clientes;
+            DocId = docId;
         }
         #endregion
 
@@ -48,6 +50,10 @@ namespace MiNegocio.Desktop.Masters
         }
         private void Buscar()
         {
+            if (!string.IsNullOrEmpty(DocId))
+            {
+                txtBusca.Text = DocId;
+            }     
             string search = txtBusca.Text;
             if (string.IsNullOrEmpty(search))
             {

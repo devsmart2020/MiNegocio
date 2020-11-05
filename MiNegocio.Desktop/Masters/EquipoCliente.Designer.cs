@@ -50,6 +50,7 @@
             this.dgvEquipos.Size = new System.Drawing.Size(970, 353);
             this.dgvEquipos.Style.BorderColor = System.Drawing.Color.DarkGray;
             this.dgvEquipos.TabIndex = 13;
+            this.dgvEquipos.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.dgvEquipos_CellDoubleClick);
             // 
             // label10
             // 

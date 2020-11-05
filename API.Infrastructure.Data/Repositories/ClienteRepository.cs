@@ -105,7 +105,7 @@ namespace API.Infrastructure.Data.Repositories
                    {
                        IdEquipo = n.IdEquipo,
                        Fecha = n.Fecha,
-                       IdCliente = n.IdCliente,   
+                    
                        TipoEquipo = n.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
                        Marca = n.IdModeloNavigation.MarcaNavigation.Marca,
                        IdModelo = n.IdModelo,
@@ -118,6 +118,38 @@ namespace API.Infrastructure.Data.Repositories
                    })
                    .ToList()
                }).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Tbcliente>> RptOrdenxCliente(Tbcliente entity)
+        {
+            return await _context.Tbcliente
+                .Where(x => x.DocId.Equals(entity.DocId))
+                .Select(x => new Tbcliente
+                {
+                    DocId = x.DocId,
+                    Nombres = x.Nombres,
+                    Apellidos = x.Apellidos,
+                    Telefono = x.Telefono,
+                    Tborden = x.Tborden.Where(o => o.IdCliente.Equals(x.DocId))
+                    .Select(n => new Tborden
+                    {
+                        IdOrden = n.IdOrden,
+                        TipoEquipo = n.IdEquipoNavigation.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
+                        Marca = n.IdEquipoNavigation.IdModeloNavigation.MarcaNavigation.Marca,
+                        Equipo = n.IdEquipoNavigation.IdModeloNavigation.Modelo,
+                        IdCliente = n.IdCliente,
+                        FechaEntra = n.FechaEntra,
+                        FechaSale = n.FechaSale,                       
+                        MicroSd = n.MicroSd,
+                        Sim = n.Sim,
+                        DatosBloqueo = n.DatosBloqueo,
+                        DiagnosticoCliente = n.DiagnosticoCliente,
+                        DiagnosticoTecnico = n.DiagnosticoTecnico,
+                        Ubicacion = n.Ubicacion,
+                        IdUsuario = n.IdUsuario,
+                        IdEstadoOrden = n.IdEstadoOrden
+                    }).ToList()
+                }).ToListAsync();
         }
     }
 }

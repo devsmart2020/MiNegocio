@@ -3,6 +3,7 @@ using MiNegocio.Services.Data;
 using MiNegocio.Services.Properties;
 using MiNegocio.Services.Services_interfaces;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Threading.Tasks;
 
 namespace MiNegocio.Services.Services
@@ -44,6 +45,11 @@ namespace MiNegocio.Services.Services
         public async Task<IEnumerable<Tbcliente>> RptEquiposxCliente(Tbcliente entity)
         {
             return await _service.GetListEntity($"{controllerName}/RptEquipoCliente", entity);
+        }
+
+        public async Task<IEnumerable<Tbcliente>> RptOrdenxCliente(Tbcliente entity)
+        {
+            return await _service.GetListEntity($"{controllerName}/RptOrdenCliente", entity);
         }
     }
 }

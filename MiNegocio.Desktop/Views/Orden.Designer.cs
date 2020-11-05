@@ -88,6 +88,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbEstadoOrden = new Syncfusion.WinForms.ListView.SfComboBox();
             this.btnBuscaClienteO = new Bunifu.Framework.UI.BunifuImageButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnBuscaOrden = new Bunifu.Framework.UI.BunifuImageButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtBuscaOrden = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            this.btnBuscaClienteBo = new Bunifu.Framework.UI.BunifuImageButton();
+            this.lblNomClienteBo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.gbEquipoSel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtInfoModelo)).BeginInit();
@@ -118,6 +124,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorEquipo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoOrden)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscaClienteO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscaOrden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuscaOrden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscaClienteBo)).BeginInit();
             this.SuspendLayout();
             // 
             // pbLoading
@@ -231,7 +240,7 @@
             this.txtInfoMarca.MaxLength = 60;
             this.txtInfoMarca.Metrocolor = System.Drawing.Color.Silver;
             this.txtInfoMarca.Name = "txtInfoMarca";
-            this.txtInfoMarca.NearImage = global::MiNegocio.Desktop.Properties.Resources.Telefono;
+            this.txtInfoMarca.NearImage = global::MiNegocio.Desktop.Properties.Resources.devicesBlack;
             this.txtInfoMarca.ReadOnly = true;
             this.txtInfoMarca.Size = new System.Drawing.Size(166, 23);
             this.txtInfoMarca.TabIndex = 41;
@@ -260,7 +269,7 @@
             this.txtInfoTipo.MaxLength = 60;
             this.txtInfoTipo.Metrocolor = System.Drawing.Color.Silver;
             this.txtInfoTipo.Name = "txtInfoTipo";
-            this.txtInfoTipo.NearImage = global::MiNegocio.Desktop.Properties.Resources.Telefono;
+            this.txtInfoTipo.NearImage = global::MiNegocio.Desktop.Properties.Resources.DocId;
             this.txtInfoTipo.ReadOnly = true;
             this.txtInfoTipo.Size = new System.Drawing.Size(166, 23);
             this.txtInfoTipo.TabIndex = 41;
@@ -886,9 +895,9 @@
             this.btnActualizaOrden.ForeColor = System.Drawing.Color.White;
             this.btnActualizaOrden.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnActualizaOrden.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnActualizaOrden.Location = new System.Drawing.Point(465, 515);
+            this.btnActualizaOrden.Location = new System.Drawing.Point(740, 518);
             this.btnActualizaOrden.Name = "btnActualizaOrden";
-            this.btnActualizaOrden.Size = new System.Drawing.Size(126, 35);
+            this.btnActualizaOrden.Size = new System.Drawing.Size(132, 35);
             this.btnActualizaOrden.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
             this.btnActualizaOrden.Style.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnActualizaOrden.Style.DisabledForeColor = System.Drawing.Color.WhiteSmoke;
@@ -901,7 +910,7 @@
             this.btnActualizaOrden.Style.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
             this.btnActualizaOrden.Style.PressedForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnActualizaOrden.TabIndex = 170;
-            this.btnActualizaOrden.Text = "Actualizar";
+            this.btnActualizaOrden.Text = "Actualizar Órden";
             this.btnActualizaOrden.UseVisualStyleBackColor = false;
             this.btnActualizaOrden.Click += new System.EventHandler(this.btnActualizaOrden_Click);
             // 
@@ -916,9 +925,9 @@
             this.btnGuardarOrden.ForeColor = System.Drawing.Color.White;
             this.btnGuardarOrden.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnGuardarOrden.ImageSize = new System.Drawing.Size(18, 18);
-            this.btnGuardarOrden.Location = new System.Drawing.Point(300, 515);
+            this.btnGuardarOrden.Location = new System.Drawing.Point(740, 462);
             this.btnGuardarOrden.Name = "btnGuardarOrden";
-            this.btnGuardarOrden.Size = new System.Drawing.Size(126, 35);
+            this.btnGuardarOrden.Size = new System.Drawing.Size(132, 35);
             this.btnGuardarOrden.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(73)))));
             this.btnGuardarOrden.Style.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnGuardarOrden.Style.DisabledForeColor = System.Drawing.Color.WhiteSmoke;
@@ -951,7 +960,7 @@
             this.pbLoadOrden.ForegroundImage = null;
             this.pbLoadOrden.GradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
             this.pbLoadOrden.GradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
-            this.pbLoadOrden.Location = new System.Drawing.Point(370, 554);
+            this.pbLoadOrden.Location = new System.Drawing.Point(746, 556);
             this.pbLoadOrden.MultipleColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(58))))),
@@ -960,7 +969,7 @@
             this.pbLoadOrden.Name = "pbLoadOrden";
             this.pbLoadOrden.ProgressStyle = Syncfusion.Windows.Forms.Tools.ProgressBarStyles.WaitingGradient;
             this.pbLoadOrden.SegmentWidth = 12;
-            this.pbLoadOrden.Size = new System.Drawing.Size(150, 6);
+            this.pbLoadOrden.Size = new System.Drawing.Size(126, 6);
             this.pbLoadOrden.TabIndex = 171;
             this.pbLoadOrden.TextStyle = Syncfusion.Windows.Forms.Tools.ProgressBarTextStyles.Custom;
             this.pbLoadOrden.ThemeName = "WaitingGradient";
@@ -1076,12 +1085,102 @@
             this.btnBuscaClienteO.Zoom = 20;
             this.btnBuscaClienteO.Click += new System.EventHandler(this.btnBuscaCliente_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label3.Location = new System.Drawing.Point(18, 486);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(152, 17);
+            this.label3.TabIndex = 143;
+            this.label3.Text = "3.Búsqueda de Órdenes";
+            // 
+            // btnBuscaOrden
+            // 
+            this.btnBuscaOrden.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscaOrden.Image = global::MiNegocio.Desktop.Properties.Resources.buscarBlackGrande;
+            this.btnBuscaOrden.ImageActive = null;
+            this.btnBuscaOrden.Location = new System.Drawing.Point(235, 528);
+            this.btnBuscaOrden.Name = "btnBuscaOrden";
+            this.btnBuscaOrden.Size = new System.Drawing.Size(25, 25);
+            this.btnBuscaOrden.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnBuscaOrden.TabIndex = 164;
+            this.btnBuscaOrden.TabStop = false;
+            this.btnBuscaOrden.Zoom = 20;
+            this.btnBuscaOrden.Click += new System.EventHandler(this.btnBuscaOrden_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.label15.Location = new System.Drawing.Point(42, 514);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(101, 13);
+            this.label15.TabIndex = 153;
+            this.label15.Text = "N° Órden / Cliente";
+            // 
+            // txtBuscaOrden
+            // 
+            this.txtBuscaOrden.BackColor = System.Drawing.Color.White;
+            this.txtBuscaOrden.BeforeTouchSize = new System.Drawing.Size(181, 23);
+            this.txtBuscaOrden.BorderColor = System.Drawing.Color.DimGray;
+            this.txtBuscaOrden.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
+            this.txtBuscaOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscaOrden.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBuscaOrden.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txtBuscaOrden.FocusBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.txtBuscaOrden.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBuscaOrden.ForeColor = System.Drawing.Color.Black;
+            this.txtBuscaOrden.Location = new System.Drawing.Point(45, 530);
+            this.txtBuscaOrden.MaxLength = 10;
+            this.txtBuscaOrden.Metrocolor = System.Drawing.Color.Silver;
+            this.txtBuscaOrden.Name = "txtBuscaOrden";
+            this.txtBuscaOrden.NearImage = global::MiNegocio.Desktop.Properties.Resources.idFactura;
+            this.txtBuscaOrden.Size = new System.Drawing.Size(181, 23);
+            this.txtBuscaOrden.TabIndex = 132;
+            this.txtBuscaOrden.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
+            this.txtBuscaOrden.ThemeStyle.CornerRadius = 0;
+            this.txtBuscaOrden.ThemeStyle.DisabledBackColor = System.Drawing.Color.Transparent;
+            this.txtBuscaOrden.ThemeStyle.DisabledBorderColor = System.Drawing.Color.DimGray;
+            this.txtBuscaOrden.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBuscaOrden.ThemeStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBuscaOrden.UseBorderColorOnFocus = true;
+            // 
+            // btnBuscaClienteBo
+            // 
+            this.btnBuscaClienteBo.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscaClienteBo.Image = global::MiNegocio.Desktop.Properties.Resources.buscarBlackGrande;
+            this.btnBuscaClienteBo.ImageActive = null;
+            this.btnBuscaClienteBo.Location = new System.Drawing.Point(21, 533);
+            this.btnBuscaClienteBo.Name = "btnBuscaClienteBo";
+            this.btnBuscaClienteBo.Size = new System.Drawing.Size(20, 20);
+            this.btnBuscaClienteBo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnBuscaClienteBo.TabIndex = 164;
+            this.btnBuscaClienteBo.TabStop = false;
+            this.btnBuscaClienteBo.Zoom = 20;
+            this.btnBuscaClienteBo.Click += new System.EventHandler(this.btnBuscaCliente_Click);
+            // 
+            // lblNomClienteBo
+            // 
+            this.lblNomClienteBo.AutoSize = true;
+            this.lblNomClienteBo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomClienteBo.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblNomClienteBo.Location = new System.Drawing.Point(42, 556);
+            this.lblNomClienteBo.Name = "lblNomClienteBo";
+            this.lblNomClienteBo.Size = new System.Drawing.Size(14, 13);
+            this.lblNomClienteBo.TabIndex = 174;
+            this.lblNomClienteBo.Text = "C";
+            // 
             // frmOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(890, 590);
+            this.Controls.Add(this.lblNomClienteBo);
             this.Controls.Add(this.pbLoadEquipo);
             this.Controls.Add(this.btnGuardaEquipo);
             this.Controls.Add(this.btnActualizaOrden);
@@ -1100,6 +1199,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDatoBloqueo);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnBuscaOrden);
+            this.Controls.Add(this.btnBuscaClienteBo);
             this.Controls.Add(this.btnBuscaClienteO);
             this.Controls.Add(this.btnBuscaCliente);
             this.Controls.Add(this.txtObsOrden);
@@ -1115,11 +1216,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtBuscaOrden);
             this.Controls.Add(this.txtClienteOrden);
             this.Controls.Add(this.txtClienteEquipo);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label13);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label10);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.btnAddMasterEquipo);
@@ -1169,6 +1273,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorEquipo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoOrden)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBuscaClienteO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscaOrden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuscaOrden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBuscaClienteBo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1234,5 +1341,11 @@
         private Syncfusion.WinForms.ListView.SfComboBox cmbEstadoOrden;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuImageButton btnBuscaClienteO;
+        private Bunifu.Framework.UI.BunifuImageButton btnBuscaOrden;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtBuscaOrden;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label15;
+        private Bunifu.Framework.UI.BunifuImageButton btnBuscaClienteBo;
+        private System.Windows.Forms.Label lblNomClienteBo;
     }
 }

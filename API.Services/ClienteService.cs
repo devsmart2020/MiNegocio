@@ -49,5 +49,10 @@ namespace API.Services
         {
             return await _repository.RptEquiposxCliente(entity);
         }
+
+        public async Task<IEnumerable<Tbcliente>> RptOrdenxCliente(Tbcliente entity)
+        {
+            return await _repository.RptOrdenxCliente(entity);
+        }
     }
 }

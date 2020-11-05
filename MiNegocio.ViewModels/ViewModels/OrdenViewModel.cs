@@ -44,6 +44,7 @@ namespace MiNegocio.ViewModels.ViewModels
             IsBusy = true;
             Tborden _orden = new Tborden()
             {
+                IdOrden = IdOrden,
                 FechaEntra = FechaEntra,
                 FechaRevision = FechaRevisa,
                 FechaSale = FechaSale,
@@ -89,9 +90,9 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsBusy = false;
             }
         }
-      
+
         private void Clear()
-        {
+        {            
             IdCliente = string.Empty;
             IdEquipo = default;
             IdEstadoOrden = default;
@@ -216,7 +217,21 @@ namespace MiNegocio.ViewModels.ViewModels
         public Tborden Orden
         {
             get => orden;
-            set => SetProperty(ref orden, value);
+            set
+            {
+                if (SetProperty(ref orden, value))
+                {
+                    IdOrden = orden.IdOrden;
+                    IdCliente = orden.IdCliente;
+                    DiagCliente = orden.DiagnosticoCliente;
+                    DatoBloqueo = orden.DatosBloqueo;
+                    DiagTecnico = orden.DiagnosticoTecnico;
+                    Sim = (sbyte)orden.Sim;
+                    MicroSD = (sbyte)orden.MicroSd;
+                    IdEstadoOrden = orden.IdEstadoOrden;
+                    IsEnabled = false;
+                }
+            }
         }
         private IEnumerable<Tborden> list;
 

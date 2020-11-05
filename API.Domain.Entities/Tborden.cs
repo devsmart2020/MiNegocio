@@ -17,6 +17,9 @@ namespace API.Domain.Entities
         public DateTime FechaSale { get; set; }
         public string IdCliente { get; set; }
         public int IdEquipo { get; set; }
+        public string TipoEquipo { get; set; }
+        public string Marca { get; set; }
+        public string Equipo { get; set; }
         public int IdEstadoOrden { get; set; }
         public sbyte? MicroSd { get; set; }
         public sbyte? Sim { get; set; }

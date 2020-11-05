@@ -454,6 +454,16 @@ namespace MiNegocio.Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap devicesBlack {
+            get {
+                object obj = ResourceManager.GetObject("devicesBlack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DocId {
             get {
                 object obj = ResourceManager.GetObject("DocId", resourceCulture);

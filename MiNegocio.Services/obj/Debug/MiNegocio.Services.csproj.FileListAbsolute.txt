@@ -53,3 +53,11 @@ C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Microsof
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Microsoft.IdentityModel.Logging.xml
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Microsoft.IdentityModel.Tokens.xml
 C:\Users\john.tobon\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Services\bin\Debug\System.IdentityModel.Tokens.Jwt.xml

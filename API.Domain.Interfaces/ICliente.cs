@@ -12,5 +12,6 @@ namespace API.Domain.Interfaces
         Task<T> Post(T entity);
         Task<T> Put(T entity);
         Task<IEnumerable<T>> RptEquiposxCliente(T entity);
+        Task<IEnumerable<T>> RptOrdenxCliente(T entity);
     }
 }

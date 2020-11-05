@@ -92,6 +92,26 @@ namespace MiNegocio.API.Controllers
                 return BadRequest();
             }
         }
+        [HttpPost("RptOrdenCliente")]
+        public async Task<ActionResult<IEnumerable<Tbcliente>>> RptOrdenxCliente(Tbcliente entity)
+        {
+            if (entity != null)
+            {
+                IEnumerable<Tbcliente> tbclientes = await _service.RptOrdenxCliente(entity);
+                if (tbclientes.Any())
+                {
+                    return Ok(tbclientes);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
 
         [HttpPut()]
         public async Task<IActionResult> Put(Tbcliente entity)

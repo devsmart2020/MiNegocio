@@ -15,6 +15,7 @@ namespace MiNegocio.Desktop.Views
         private MsjFail _msjFail;
         private protected frmBuscarCliente _frmBuscaCliente;
         private protected frmMasterEquipo _masterEquipo;
+        private protected frmBuscarOrden _frmBuscarOrden;
         private protected frmEquipoCliente _frmEquipoCliente;      
         private protected ClienteVIewModel _clienteVm;
         private protected MarcaViewModel _marcaVm;
@@ -35,7 +36,7 @@ namespace MiNegocio.Desktop.Views
             _modeloVm = new ModeloViewModel();
             _equipoVm = new EquipoViewModel();
             _ordenVm = new OrdenViewModel();
-            _estadoOrden = new EstadoOrdenViewModel();
+            _estadoOrden = new EstadoOrdenViewModel();            
             BindingEquipo();
             BindingOrden();
         }
@@ -72,6 +73,7 @@ namespace MiNegocio.Desktop.Views
         }
         private void BindingOrden()
         {
+            btnGuardarOrden.DataBindings.Add(Resources.BindingEnabled, _ordenVm, Resources.PropIsEnabled, false, DataSourceUpdateMode.OnPropertyChanged);
             pbLoadOrden.DataBindings.Add(Resources.BindingVisible, _ordenVm, Resources.PropIsBusy, false, DataSourceUpdateMode.OnPropertyChanged);
             cmbEstadoOrden.DataBindings.Add(Resources.BindingDataSource, _estadoOrden, Resources.PropList, false, DataSourceUpdateMode.OnPropertyChanged);
             cmbEstadoOrden.DataBindings.Add(Resources.BindingSelectedValue, _ordenVm, Resources.CmbValueEstadoOrden, false, DataSourceUpdateMode.OnPropertyChanged);
@@ -82,7 +84,7 @@ namespace MiNegocio.Desktop.Views
             chkSDSi.DataBindings.Add(Resources.BindingChecked, _ordenVm, "MicroSD", false, DataSourceUpdateMode.OnPropertyChanged);
             chkSimSi.DataBindings.Add(Resources.BindingChecked, _ordenVm, "Sim", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbTecnico.DataBindings.Add(Resources.BindingSelectedValue, _ordenVm, "IdTecnico", false, DataSourceUpdateMode.OnPropertyChanged);
-
+            txtBuscaOrden.DataBindings.Add(Resources.BindingText, _clienteVm, "DocId", false, DataSourceUpdateMode.OnPropertyChanged);
         }
         private bool ValidateOrden()
         {
@@ -270,12 +272,43 @@ namespace MiNegocio.Desktop.Views
                 txtClienteEquipo.Text = _frmBuscaCliente.ClienteSeleccionado.DocId;
                 _ordenVm.IdCliente = txtClienteEquipo.Text;
                 lblNomClienteEquipo.Text = $"{_frmBuscaCliente.ClienteSeleccionado.Nombres} {_frmBuscaCliente.ClienteSeleccionado.Apellidos}";
-                lblNomClienteOrden.Text = lblNomClienteEquipo.Text;
+                lblNomClienteOrden.Text = lblNomClienteEquipo.Text;                
                 _clienteVm.DocId = txtClienteEquipo.Text;
+                txtBuscaOrden.Text = txtClienteEquipo.Text;
+                lblNomClienteBo.Text = lblNomClienteEquipo.Text;
                 await GetEquiposCliente();      
                 //SendKeys.Send("{Enter}");
             }
         }              
+        private async Task GetOrdenxCliente()
+        {
+            if (!string.IsNullOrEmpty(txtBuscaOrden.Text))
+            {
+                await _clienteVm.GetOrdenxClienteCmd();
+                if (_clienteVm.OrdenxCliente.Any())
+                {
+                    using (_frmBuscarOrden = new frmBuscarOrden(_clienteVm.OrdenxCliente))
+                    {
+                        _frmBuscarOrden.FormClosing += _frmBuscarOrden_FormClosing;
+                        _frmBuscarOrden.ShowDialog();
+                    }
+                }
+            }
+        }
+        private void FormBuscaOrdenClosed()
+        {
+            if (_frmBuscarOrden.OrdenSeleccionada != null)
+            {
+                _ordenVm.Orden = _frmBuscarOrden.OrdenSeleccionada;
+                _ordenVm.IdOrden = _frmBuscarOrden.OrdenSeleccionada.IdOrden;
+
+            }
+        }
+        private void _frmBuscarOrden_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormBuscaOrdenClosed();
+               
+        }
         #endregion
 
         #region Events
@@ -340,9 +373,13 @@ namespace MiNegocio.Desktop.Views
                 usuario.ShowDialog();
             }
         }
+        private async void btnBuscaOrden_Click(object sender, EventArgs e)
+        {
+            await GetOrdenxCliente();
+        }
 
         #endregion
 
-       
+
     }
 }

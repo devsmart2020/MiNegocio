@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace API.Services.Interfaces
 {
     public interface IClienteService<T> where T : class
-    { 
+    {
         Task<bool> Delete(T entity);
         Task<bool> Exists(T entity);
         Task<T> GetById(T entity);

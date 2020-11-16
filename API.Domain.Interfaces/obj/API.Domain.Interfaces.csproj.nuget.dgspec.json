@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {}
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {}
   },
   "projects": {
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj",
         "projectName": "API.Domain.Entities",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\obj\\",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -60,20 +60,20 @@
         }
       }
     },
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
         "projectName": "API.Domain.Interfaces",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\obj\\",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -87,8 +87,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
               }
             }
           }

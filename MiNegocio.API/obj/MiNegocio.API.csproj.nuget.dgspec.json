@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj": {}
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj",
-        "projectName": "API.Domain.Entities",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\obj\\",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj",
+        "projectName": "API.Domain.DTOs",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -60,20 +60,76 @@
         }
       }
     },
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
-        "projectName": "API.Domain.Interfaces",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\obj\\",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj",
+        "projectName": "API.Domain.Entities",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
+        "projectName": "API.Domain.Interfaces",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -87,8 +143,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
               }
             }
           }
@@ -120,20 +176,20 @@
         }
       }
     },
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj",
         "projectName": "API.Infrastructure.Data",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\obj\\",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -147,11 +203,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj"
               },
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+              },
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
               }
             }
           }
@@ -165,6 +224,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.9, )"
@@ -177,7 +240,7 @@
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[3.2.3, )"
+              "version": "[3.2.4, )"
             }
           },
           "imports": [
@@ -199,20 +262,20 @@
         }
       }
     },
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj",
         "projectName": "API.Services.Interfaces",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\obj\\",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -226,8 +289,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
               }
             }
           }
@@ -259,20 +322,20 @@
         }
       }
     },
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj",
         "projectName": "API.Services",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\obj\\",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -286,14 +349,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj"
               },
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
               },
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
               }
             }
           }
@@ -325,20 +388,20 @@
         }
       }
     },
-    "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj": {
+    "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
+        "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
         "projectName": "MiNegocio.API",
-        "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
-        "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\obj\\",
+        "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
+        "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -352,20 +415,20 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj"
               },
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
               },
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj"
               },
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
               },
-              "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj": {
-                "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj"
+              "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj": {
+                "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj"
               }
             }
           }
@@ -379,6 +442,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[3.1.9, )"

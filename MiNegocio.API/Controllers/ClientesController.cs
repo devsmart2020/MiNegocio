@@ -1,5 +1,6 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Services.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,15 @@ namespace MiNegocio.API.Controllers
     [ApiController]
     public class ClientesController : ControllerBase
     {
-        private readonly IClienteService<Tbcliente> _service;
+        private readonly IClienteService<ClienteDto> _service;
 
-        public ClientesController(IClienteService<Tbcliente> service)
+        public ClientesController(IClienteService<ClienteDto> service)
         {
             _service = service;
         }
 
         [HttpDelete()]
-        public async Task<ActionResult<Tbcliente>> Delete(Tbcliente entity)
+        public async Task<ActionResult<ClienteDto>> Delete(ClienteDto entity)
         {
             if (entity != null)
             {
@@ -32,22 +33,22 @@ namespace MiNegocio.API.Controllers
             {
                 return BadRequest();
             }
-        }      
+        }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tbcliente>>> Get()
+        public async Task<ActionResult<IEnumerable<ClienteDto>>> Get()
         {
-            IEnumerable<Tbcliente> tbclientes = await _service.Get();
-            if (tbclientes.Count() > 0)
-                return Ok(tbclientes);
+            IEnumerable<ClienteDto> ClienteDtos = await _service.Get();
+            if (ClienteDtos.Count() > 0)
+                return Ok(ClienteDtos);
             else
                 return NoContent();
         }
 
         [HttpPost("GetById")]
-        public async Task<ActionResult<Tbcliente>> GetById(Tbcliente entity)
+        public async Task<ActionResult<ClienteDto>> GetById(ClienteDto entity)
         {
-            Tbcliente cliente = await _service.GetById(entity);
+            ClienteDto cliente = await _service.GetById(entity);
 
             if (cliente != null)
                 return Ok(cliente);
@@ -56,11 +57,11 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost()]
-        public async Task<ActionResult<Tbcliente>> Post(Tbcliente entity)
+        public async Task<ActionResult<ClienteDto>> Post(ClienteDto entity)
         {
             if (entity != null && ModelState.IsValid)
             {
-                Tbcliente cliente = await _service.Post(entity);
+                ClienteDto cliente = await _service.Post(entity);
                 if (cliente != null)
                     return Ok(cliente);
                 else
@@ -73,11 +74,11 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost("RptEquipoCliente")]
-        public async Task<ActionResult<IEnumerable<Tbcliente>>> RptEquiposxCliente(Tbcliente entity)
+        public async Task<ActionResult<IEnumerable<ClienteDto>>> RptEquiposxCliente(ClienteDto entity)
         {
             if (entity != null)
             {
-                IEnumerable<Tbcliente> equipoClientes = await _service.RptEquiposxCliente(entity);
+                IEnumerable<ClienteDto> equipoClientes = await _service.RptEquiposxCliente(entity);
                 if (equipoClientes.Any())
                 {
                     return Ok(equipoClientes);
@@ -93,14 +94,14 @@ namespace MiNegocio.API.Controllers
             }
         }
         [HttpPost("RptOrdenCliente")]
-        public async Task<ActionResult<IEnumerable<Tbcliente>>> RptOrdenxCliente(Tbcliente entity)
+        public async Task<ActionResult<IEnumerable<object>>> RptOrdenxCliente(ClienteDto entity)
         {
             if (entity != null)
             {
-                IEnumerable<Tbcliente> tbclientes = await _service.RptOrdenxCliente(entity);
-                if (tbclientes.Any())
+                IEnumerable<object> ClienteDtos = await _service.RptOrdenxCliente(entity);
+                if (ClienteDtos.Any())
                 {
-                    return Ok(tbclientes);
+                    return Ok(ClienteDtos);
                 }
                 else
                 {
@@ -114,7 +115,7 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPut()]
-        public async Task<IActionResult> Put(Tbcliente entity)
+        public async Task<IActionResult> Put(ClienteDto entity)
         {
             if (!string.IsNullOrEmpty(entity.DocId))
             {

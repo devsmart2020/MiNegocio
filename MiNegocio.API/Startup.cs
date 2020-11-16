@@ -13,6 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Text;
+using AutoMapper;
+using System;
+using API.Domain.DTOs;
 
 namespace MiNegocio.API
 {
@@ -28,6 +31,8 @@ namespace MiNegocio.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             //Configuarcion del servicio autenticación JWT
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -49,7 +54,7 @@ namespace MiNegocio.API
             options.UseMySql(Configuration.GetConnectionString("prueba")));
 
             services.AddTransient<ICliente<Tbcliente>, ClienteRepository>();
-            services.AddTransient<IClienteService<Tbcliente>, ClienteService>();
+            services.AddTransient<IClienteService<ClienteDto>, ClienteService>();
             services.AddTransient<ICompra<Tbcompra>, CompraRepository>();
             services.AddTransient<ICompraService<Tbcompra>, CompraService>();
             services.AddTransient<IConcepto<Tbconcepto>, ConceptoRepository>();

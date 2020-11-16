@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,12 @@ namespace API.Infrastructure.Data.Repositories
     public class ClienteRepository : ICliente<Tbcliente>
     {
         private readonly soport43_minegocioContext _context;
+        private readonly IMapper _mapper;
 
-        public ClienteRepository(soport43_minegocioContext context)
+        public ClienteRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<bool> Delete(Tbcliente entity)
@@ -42,9 +46,10 @@ namespace API.Infrastructure.Data.Repositories
 
         public async Task<IEnumerable<Tbcliente>> Get()
         {
-            return await _context.Tbcliente
+              IEnumerable<Tbcliente> query =  await _context.Tbcliente
                 .OrderBy(x => x.Nombres)
                 .ToListAsync();
+            return  _mapper.Map<ClienteDto>(query);
         }
 
         public async Task<Tbcliente> GetById(Tbcliente entity)
@@ -105,7 +110,7 @@ namespace API.Infrastructure.Data.Repositories
                    {
                        IdEquipo = n.IdEquipo,
                        Fecha = n.Fecha,
-                    
+
                        TipoEquipo = n.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
                        Marca = n.IdModeloNavigation.MarcaNavigation.Marca,
                        IdModelo = n.IdModelo,
@@ -123,33 +128,33 @@ namespace API.Infrastructure.Data.Repositories
         public async Task<IEnumerable<Tbcliente>> RptOrdenxCliente(Tbcliente entity)
         {
             return await _context.Tbcliente
-                .Where(x => x.DocId.Equals(entity.DocId))
-                .Select(x => new Tbcliente
+            .Where(x => x.DocId.Equals(entity.DocId))
+            .Select(x => new Tbcliente
+            {
+                DocId = x.DocId,
+                Nombres = x.Nombres,
+                Apellidos = x.Apellidos,
+                Telefono = x.Telefono,
+                Tborden = x.Tborden.Where(o => o.IdCliente.Equals(x.DocId))
+                .Select(n => new Tborden
                 {
-                    DocId = x.DocId,
-                    Nombres = x.Nombres,
-                    Apellidos = x.Apellidos,
-                    Telefono = x.Telefono,
-                    Tborden = x.Tborden.Where(o => o.IdCliente.Equals(x.DocId))
-                    .Select(n => new Tborden
-                    {
-                        IdOrden = n.IdOrden,
-                        TipoEquipo = n.IdEquipoNavigation.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
-                        Marca = n.IdEquipoNavigation.IdModeloNavigation.MarcaNavigation.Marca,
-                        Equipo = n.IdEquipoNavigation.IdModeloNavigation.Modelo,
-                        IdCliente = n.IdCliente,
-                        FechaEntra = n.FechaEntra,
-                        FechaSale = n.FechaSale,                       
-                        MicroSd = n.MicroSd,
-                        Sim = n.Sim,
-                        DatosBloqueo = n.DatosBloqueo,
-                        DiagnosticoCliente = n.DiagnosticoCliente,
-                        DiagnosticoTecnico = n.DiagnosticoTecnico,
-                        Ubicacion = n.Ubicacion,
-                        IdUsuario = n.IdUsuario,
-                        IdEstadoOrden = n.IdEstadoOrden
-                    }).ToList()
-                }).ToListAsync();
+                    IdOrden = n.IdOrden,
+                    //TipoEquipo = n.IdEquipoNavigation.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
+                    //Marca = n.IdEquipoNavigation.IdModeloNavigation.MarcaNavigation.Marca,
+                    //Equipo = n.IdEquipoNavigation.IdModeloNavigation.Modelo,
+                    IdCliente = n.IdCliente,
+                    FechaEntra = n.FechaEntra,
+                    FechaSale = n.FechaSale,
+                    MicroSd = n.MicroSd,
+                    Sim = n.Sim,
+                    DatosBloqueo = n.DatosBloqueo,
+                    DiagnosticoCliente = n.DiagnosticoCliente,
+                    DiagnosticoTecnico = n.DiagnosticoTecnico,
+                    Ubicacion = n.Ubicacion,
+                    IdUsuario = n.IdUsuario,
+                    IdEstadoOrden = n.IdEstadoOrden
+                }).ToList()
+            }).ToListAsync();
         }
     }
 }

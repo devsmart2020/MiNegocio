@@ -184,3 +184,7 @@ C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\Micr
 C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\devsm\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Domain.DTOs.dll
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.API\bin\Debug\netcoreapp3.1\API.Domain.DTOs.pdb

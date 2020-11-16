@@ -191,3 +191,4 @@ C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desk
 C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Views.frmServicio.resources
 C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Views.frmVenta.resources
 C:\Users\devsm\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Masters.frmBuscarOrden.resources
+C:\Users\Administrador\source\repos\MiNegocio\MiNegocio.Desktop\obj\Debug\MiNegocio.Desktop.Masters.frmBuscarOrden.resources

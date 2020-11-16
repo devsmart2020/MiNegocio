@@ -33,17 +33,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiNegocio.Services", "MiNeg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiNegocio.Models", "MiNegocio.Models\MiNegocio.Models.csproj", "{DA02B3D0-B0C4-4500-B870-6F3575A82426}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiNegocio.API", "MiNegocio.API\MiNegocio.API.csproj", "{6E51658F-04BE-47E5-87B6-5BFB0D2EED6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiNegocio.API", "MiNegocio.API\MiNegocio.API.csproj", "{6E51658F-04BE-47E5-87B6-5BFB0D2EED6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Domain.Entities", "API.Domain.Entities\API.Domain.Entities.csproj", "{B168811C-8CD1-4B5E-B784-38CDF4E8506A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Domain.Entities", "API.Domain.Entities\API.Domain.Entities.csproj", "{B168811C-8CD1-4B5E-B784-38CDF4E8506A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Domain.Interfaces", "API.Domain.Interfaces\API.Domain.Interfaces.csproj", "{5CE1D1B7-FE65-4EF0-B4C0-EEEC51340A53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Domain.Interfaces", "API.Domain.Interfaces\API.Domain.Interfaces.csproj", "{5CE1D1B7-FE65-4EF0-B4C0-EEEC51340A53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Services.Interfaces", "API.Services.Interfaces\API.Services.Interfaces.csproj", "{DD53A20B-F41D-4D58-9A4F-37D52759CAD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Services.Interfaces", "API.Services.Interfaces\API.Services.Interfaces.csproj", "{DD53A20B-F41D-4D58-9A4F-37D52759CAD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Services", "API.Services\API.Services.csproj", "{3ACF8779-FF8E-4D18-85AB-0DC22990F410}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Services", "API.Services\API.Services.csproj", "{3ACF8779-FF8E-4D18-85AB-0DC22990F410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Infrastructure.Data", "API.Infrastructure.Data\API.Infrastructure.Data.csproj", "{F9379B9A-737F-47C5-8558-ED75CD6FCC7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Infrastructure.Data", "API.Infrastructure.Data\API.Infrastructure.Data.csproj", "{F9379B9A-737F-47C5-8558-ED75CD6FCC7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Domain.DTOs", "API.Domain.DTOs\API.Domain.DTOs.csproj", "{BA459372-B0FE-491C-A2E9-8538D8BFE9B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,10 @@ Global
 		{F9379B9A-737F-47C5-8558-ED75CD6FCC7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9379B9A-737F-47C5-8558-ED75CD6FCC7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9379B9A-737F-47C5-8558-ED75CD6FCC7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA459372-B0FE-491C-A2E9-8538D8BFE9B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA459372-B0FE-491C-A2E9-8538D8BFE9B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA459372-B0FE-491C-A2E9-8538D8BFE9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA459372-B0FE-491C-A2E9-8538D8BFE9B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +121,7 @@ Global
 		{DD53A20B-F41D-4D58-9A4F-37D52759CAD3} = {659F98C8-0431-4FEF-B748-FC24D530E2AF}
 		{3ACF8779-FF8E-4D18-85AB-0DC22990F410} = {14F4042F-1ED4-4E08-8F83-BF20A116213E}
 		{F9379B9A-737F-47C5-8558-ED75CD6FCC7E} = {0804E62D-41A4-4F4D-B2A1-7D964D20831B}
+		{BA459372-B0FE-491C-A2E9-8538D8BFE9B9} = {6FA6F384-5857-4DBB-A47C-715A3FFA64F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A114396F-91FA-457F-A017-7986E43441B8}

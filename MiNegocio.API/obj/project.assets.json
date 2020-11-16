@@ -2,6 +2,33 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "AutoMapper/10.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Reflection.Emit": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/8.1.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "[10.1.0, 11.0.0)",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Options": "3.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.9": {
         "type": "package",
         "dependencies": {
@@ -329,7 +356,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Pomelo.EntityFrameworkCore.MySql/3.2.3": {
+      "Pomelo.EntityFrameworkCore.MySql/3.2.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "[3.1.8, 5.0.0)",
@@ -397,6 +424,15 @@
           "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
+      "System.Reflection.Emit/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
       "System.Security.Cryptography.Cng/4.5.0": {
         "type": "package",
         "compile": {
@@ -410,6 +446,16 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "API.Domain.DTOs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/API.Domain.DTOs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/API.Domain.DTOs.dll": {}
         }
       },
       "API.Domain.Entities/1.0.0": {
@@ -439,10 +485,12 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "API.Domain.DTOs": "1.0.0",
           "API.Domain.Entities": "1.0.0",
           "API.Domain.Interfaces": "1.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.0",
           "Microsoft.EntityFrameworkCore": "3.1.9",
-          "Pomelo.EntityFrameworkCore.MySql": "3.2.3"
+          "Pomelo.EntityFrameworkCore.MySql": "3.2.4"
         },
         "compile": {
           "bin/placeholder/API.Infrastructure.Data.dll": {}
@@ -455,7 +503,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "API.Domain.Entities": "1.0.0",
+          "API.Domain.DTOs": "1.0.0",
           "API.Domain.Interfaces": "1.0.0",
           "API.Services.Interfaces": "1.0.0"
         },
@@ -482,6 +530,35 @@
     }
   },
   "libraries": {
+    "AutoMapper/10.1.0": {
+      "sha512": "qxn9+PpQJD53PAUHGXW3HTcq6Rxbv3Pyq/jTcc60ZYwOygyqUfHIY3HBChKbDwtTHdlwlQqJeJ1ckVcaoytxxw==",
+      "type": "package",
+      "path": "automapper/10.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "automapper.10.1.0.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/net461/AutoMapper.dll",
+        "lib/net461/AutoMapper.xml",
+        "lib/netstandard2.0/AutoMapper.dll",
+        "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/8.1.0": {
+      "sha512": "dQyGCAYcHbGuimVvCMu4Ea2S1oYOlgO9XfVdClmY5wgygJMZoS57emPzH0qNfknmtzMm4QbDO9i237W5IDjU1A==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/8.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.9": {
       "sha512": "6f61m1Rj5qne88CsfuyzRIE9dih7K0e3J3I3A4d9nyPcWhjz+0UUCYGocLHhYihVahxDIifK6Jn2m1LWD8/XEg==",
       "type": "package",
@@ -1093,16 +1170,16 @@
         "newtonsoft.json.nuspec"
       ]
     },
-    "Pomelo.EntityFrameworkCore.MySql/3.2.3": {
-      "sha512": "1K2qyZ9F+d5oJCKNBapB86/7QnoCk3DvS8dGc7wmMwrv5034x2bqNE9j0uNoc9u4tfGeLNTo9fSOTTTy69UxOw==",
+    "Pomelo.EntityFrameworkCore.MySql/3.2.4": {
+      "sha512": "6UOPWyL2qIsRCnN880YXA6rACpqVV6GE+H3vR4KJytjigWKFp+aiRDwJRSorwZ9ntHu+RDBcXGjmaShj0mBmYA==",
       "type": "package",
-      "path": "pomelo.entityframeworkcore.mysql/3.2.3",
+      "path": "pomelo.entityframeworkcore.mysql/3.2.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Pomelo.EntityFrameworkCore.MySql.dll",
-        "pomelo.entityframeworkcore.mysql.3.2.3.nupkg.sha512",
+        "pomelo.entityframeworkcore.mysql.3.2.4.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
@@ -1280,6 +1357,60 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
+    "System.Reflection.Emit/4.7.0": {
+      "sha512": "VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
+      "type": "package",
+      "path": "system.reflection.emit/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.Reflection.Emit.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.1/System.Reflection.Emit.dll",
+        "lib/netstandard1.1/System.Reflection.Emit.xml",
+        "lib/netstandard1.3/System.Reflection.Emit.dll",
+        "lib/netstandard2.0/System.Reflection.Emit.dll",
+        "lib/netstandard2.0/System.Reflection.Emit.xml",
+        "lib/netstandard2.1/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.1/System.Reflection.Emit.dll",
+        "ref/netstandard1.1/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/de/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/es/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/fr/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/it/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/ja/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/ko/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/ru/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/zh-hans/System.Reflection.Emit.xml",
+        "ref/netstandard1.1/zh-hant/System.Reflection.Emit.xml",
+        "ref/netstandard2.0/System.Reflection.Emit.dll",
+        "ref/netstandard2.0/System.Reflection.Emit.xml",
+        "ref/netstandard2.1/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/aot/lib/netcore50/System.Reflection.Emit.dll",
+        "runtimes/aot/lib/netcore50/System.Reflection.Emit.xml",
+        "system.reflection.emit.4.7.0.nupkg.sha512",
+        "system.reflection.emit.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Security.Cryptography.Cng/4.5.0": {
       "sha512": "WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
       "type": "package",
@@ -1343,6 +1474,11 @@
         "version.txt"
       ]
     },
+    "API.Domain.DTOs/1.0.0": {
+      "type": "project",
+      "path": "../API.Domain.DTOs/API.Domain.DTOs.csproj",
+      "msbuildProject": "../API.Domain.DTOs/API.Domain.DTOs.csproj"
+    },
     "API.Domain.Entities/1.0.0": {
       "type": "project",
       "path": "../API.Domain.Entities/API.Domain.Entities.csproj",
@@ -1371,34 +1507,35 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "API.Domain.Entities >= 1.0.0",
+      "API.Domain.DTOs >= 1.0.0",
       "API.Domain.Interfaces >= 1.0.0",
       "API.Infrastructure.Data >= 1.0.0",
       "API.Services >= 1.0.0",
       "API.Services.Interfaces >= 1.0.0",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.9",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.9",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.10.9"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\devsm\\.nuget\\packages\\": {},
+    "C:\\Users\\Administrador\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
+      "projectUniqueName": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
       "projectName": "MiNegocio.API",
-      "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
-      "packagesPath": "C:\\Users\\devsm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\MiNegocio.API\\obj\\",
+      "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\MiNegocio.API.csproj",
+      "packagesPath": "C:\\Users\\Administrador\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\MiNegocio.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\devsm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrador\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1412,20 +1549,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj": {
-              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Entities\\API.Domain.Entities.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.DTOs\\API.Domain.DTOs.csproj"
             },
-            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Domain.Interfaces\\API.Domain.Interfaces.csproj"
             },
-            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj": {
-              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Infrastructure.Data\\API.Infrastructure.Data.csproj"
             },
-            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services.Interfaces\\API.Services.Interfaces.csproj"
             },
-            "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj": {
-              "projectPath": "C:\\Users\\devsm\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj"
+            "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj": {
+              "projectPath": "C:\\Users\\Administrador\\source\\repos\\MiNegocio\\API.Services\\API.Services.csproj"
             }
           }
         }
@@ -1439,6 +1576,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[8.1.0, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[3.1.9, )"

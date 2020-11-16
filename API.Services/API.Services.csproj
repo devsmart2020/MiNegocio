@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\API.Domain.Entities\API.Domain.Entities.csproj" />
+    <ProjectReference Include="..\API.Domain.DTOs\API.Domain.DTOs.csproj" />
     <ProjectReference Include="..\API.Domain.Interfaces\API.Domain.Interfaces.csproj" />
     <ProjectReference Include="..\API.Services.Interfaces\API.Services.Interfaces.csproj" />
   </ItemGroup>

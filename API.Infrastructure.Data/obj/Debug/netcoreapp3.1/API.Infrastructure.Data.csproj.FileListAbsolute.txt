@@ -14,7 +14,6 @@ C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\
 C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.runtimeconfig.json
 C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.runtimeconfig.dev.json
 C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.genruntimeconfig.cache
-C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.csproj.CoreCompileInputs.cache
 C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.deps.json
 C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.runtimeconfig.json
 C:\Users\devsm\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Infrastructure.Data.runtimeconfig.dev.json
@@ -49,3 +48,6 @@ C:\Users\john.tobon\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\net
 C:\Users\john.tobon\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.dll
 C:\Users\john.tobon\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.pdb
 C:\Users\john.tobon\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.genruntimeconfig.cache
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Domain.DTOs.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\bin\Debug\netcoreapp3.1\API.Domain.DTOs.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Infrastructure.Data\obj\Debug\netcoreapp3.1\API.Infrastructure.Data.csproj.CoreCompileInputs.cache

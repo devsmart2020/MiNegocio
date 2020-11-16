@@ -8,12 +8,17 @@
     ".NETCoreApp,Version=v3.1": {
       "API.Services/1.0.0": {
         "dependencies": {
-          "API.Domain.Entities": "1.0.0",
+          "API.Domain.DTOs": "1.0.0",
           "API.Domain.Interfaces": "1.0.0",
           "API.Services.Interfaces": "1.0.0"
         },
         "runtime": {
           "API.Services.dll": {}
+        }
+      },
+      "API.Domain.DTOs/1.0.0": {
+        "runtime": {
+          "API.Domain.DTOs.dll": {}
         }
       },
       "API.Domain.Entities/1.0.0": {
@@ -41,6 +46,11 @@
   },
   "libraries": {
     "API.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "API.Domain.DTOs/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

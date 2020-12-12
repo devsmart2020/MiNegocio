@@ -9,8 +9,7 @@ namespace MiNegocio.Services.Services_interfaces
         Task<T> GetById(T entity);
         Task<IEnumerable<T>> GetListEntity(T entity);
         Task<IEnumerable<T>> GetTs();
-        Task<IEnumerable<T>> GetTecnicos();
-
+        Task<IEnumerable<T>> GetTecnicos(bool isDbQuery, string dbPath, string jsonName);
         Task<bool> Post(T entity, bool isNewItem);
     }
 }

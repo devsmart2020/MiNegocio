@@ -10,7 +10,7 @@ namespace MiNegocio.ViewModels.ViewModels
     public class PerfilViewModel : BaseViewModel.BaseViewModel
     {
         #region Members Variables
-        private readonly IPerfilService<Tbperfil> _service;
+        private readonly IPerfilService<PerfilDTO> _service;
         #endregion
 
         #region Constructor
@@ -54,16 +54,16 @@ namespace MiNegocio.ViewModels.ViewModels
             get => nombre;
             set => SetProperty(ref nombre, value);
         }
-        private Tbperfil perfil;
+        private PerfilDTO perfil;
 
-        public Tbperfil Perfil
+        public PerfilDTO Perfil
         {
             get => perfil;
             set => SetProperty(ref perfil, value);
         }
-        private IEnumerable<Tbperfil> list;
+        private IEnumerable<PerfilDTO> list;
 
-        public IEnumerable<Tbperfil> List
+        public IEnumerable<PerfilDTO> List
         {
             get => list;
             set => SetProperty(ref list, value);

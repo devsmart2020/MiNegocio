@@ -1,4 +1,4 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Domain.Interfaces;
 using API.Services.Interfaces;
 using System.Collections.Generic;
@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class InventarioFijoService : IInventarioFijoService<Tbinventariofijo>
+    public class InventarioFijoService : IInventarioFijoService<InventarioFijoDTO>
     {
-        private readonly IInventarioFijo<Tbinventariofijo> _repository;
+        private readonly IInventarioFijo<InventarioFijoDTO> _repository;
 
-        public InventarioFijoService(IInventarioFijo<Tbinventariofijo> repository)
+        public InventarioFijoService(IInventarioFijo<InventarioFijoDTO> repository)
         {
             _repository = repository;
         }
-        public async  Task<bool> Delete(Tbinventariofijo entity)
+        public async Task<bool> Delete(InventarioFijoDTO entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(Tbinventariofijo entity)
+        public async Task<bool> Exists(InventarioFijoDTO entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<Tbinventariofijo> GetById(Tbinventariofijo entity)
+        public async Task<InventarioFijoDTO> GetById(InventarioFijoDTO entity)
         {
             return await _repository.GetById(entity);
         }
 
-        public async Task<IEnumerable<Tbinventariofijo>>Get()
+        public async Task<IEnumerable<InventarioFijoDTO>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<Tbinventariofijo> Post(Tbinventariofijo entity)
+        public async Task<bool> Post(InventarioFijoDTO entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<Tbinventariofijo> Put(Tbinventariofijo entity)
+        public async Task<bool> Put(InventarioFijoDTO entity)
         {
             return await _repository.Put(entity);
         }

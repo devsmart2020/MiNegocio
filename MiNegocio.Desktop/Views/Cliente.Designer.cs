@@ -57,6 +57,8 @@
             this.dpFcha = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             this.btnGuardar = new Syncfusion.WinForms.Controls.SfButton();
             this.btnActualizar = new Syncfusion.WinForms.Controls.SfButton();
+            this.btnExportPDF = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnExportExcel = new Bunifu.Framework.UI.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtDocId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtApellido)).BeginInit();
@@ -69,6 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportPDF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportExcel)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -86,7 +90,7 @@
             // txtDocId
             // 
             this.txtDocId.BackColor = System.Drawing.Color.White;
-            this.txtDocId.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtDocId.BeforeTouchSize = new System.Drawing.Size(149, 25);
             this.txtDocId.BorderColor = System.Drawing.Color.DimGray;
             this.txtDocId.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDocId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -128,7 +132,7 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.White;
-            this.txtNombre.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtNombre.BeforeTouchSize = new System.Drawing.Size(149, 25);
             this.txtNombre.BorderColor = System.Drawing.Color.DimGray;
             this.txtNombre.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -168,7 +172,7 @@
             // txtApellido
             // 
             this.txtApellido.BackColor = System.Drawing.Color.White;
-            this.txtApellido.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtApellido.BeforeTouchSize = new System.Drawing.Size(149, 25);
             this.txtApellido.BorderColor = System.Drawing.Color.DimGray;
             this.txtApellido.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -219,7 +223,7 @@
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.Color.White;
-            this.txtTelefono.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtTelefono.BeforeTouchSize = new System.Drawing.Size(149, 25);
             this.txtTelefono.BorderColor = System.Drawing.Color.DimGray;
             this.txtTelefono.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -258,7 +262,7 @@
             // txtTelAlterno
             // 
             this.txtTelAlterno.BackColor = System.Drawing.Color.White;
-            this.txtTelAlterno.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtTelAlterno.BeforeTouchSize = new System.Drawing.Size(149, 25);
             this.txtTelAlterno.BorderColor = System.Drawing.Color.DimGray;
             this.txtTelAlterno.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtTelAlterno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -297,7 +301,7 @@
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtEmail.BeforeTouchSize = new System.Drawing.Size(149, 25);
             this.txtEmail.BorderColor = System.Drawing.Color.DimGray;
             this.txtEmail.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -336,7 +340,7 @@
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.White;
-            this.txtDireccion.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtDireccion.BeforeTouchSize = new System.Drawing.Size(149, 25);
             this.txtDireccion.BorderColor = System.Drawing.Color.DimGray;
             this.txtDireccion.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -387,7 +391,7 @@
             // txtBuscar
             // 
             this.txtBuscar.BackColor = System.Drawing.Color.White;
-            this.txtBuscar.BeforeTouchSize = new System.Drawing.Size(200, 23);
+            this.txtBuscar.BeforeTouchSize = new System.Drawing.Size(149, 25);
             this.txtBuscar.BorderColor = System.Drawing.Color.DimGray;
             this.txtBuscar.BorderSides = System.Windows.Forms.Border3DSide.Bottom;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -580,12 +584,44 @@
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // btnExportPDF
+            // 
+            this.btnExportPDF.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnExportPDF.BackColor = System.Drawing.Color.Transparent;
+            this.btnExportPDF.Image = global::MiNegocio.Desktop.Properties.Resources.pdf;
+            this.btnExportPDF.ImageActive = null;
+            this.btnExportPDF.Location = new System.Drawing.Point(848, 283);
+            this.btnExportPDF.Name = "btnExportPDF";
+            this.btnExportPDF.Size = new System.Drawing.Size(30, 30);
+            this.btnExportPDF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnExportPDF.TabIndex = 173;
+            this.btnExportPDF.TabStop = false;
+            this.btnExportPDF.Zoom = 20;
+            this.btnExportPDF.Click += new System.EventHandler(this.btnExportPDF_Click);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnExportExcel.BackColor = System.Drawing.Color.Transparent;
+            this.btnExportExcel.Image = global::MiNegocio.Desktop.Properties.Resources.excel;
+            this.btnExportExcel.ImageActive = null;
+            this.btnExportExcel.Location = new System.Drawing.Point(803, 283);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(30, 30);
+            this.btnExportExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnExportExcel.TabIndex = 173;
+            this.btnExportExcel.TabStop = false;
+            this.btnExportExcel.Zoom = 20;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(890, 590);
+            this.Controls.Add(this.btnExportExcel);
+            this.Controls.Add(this.btnExportPDF);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label13);
@@ -631,6 +667,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportPDF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportExcel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -665,5 +703,7 @@
         private Syncfusion.WinForms.Input.SfDateTimeEdit dpFcha;
         private Syncfusion.WinForms.Controls.SfButton btnGuardar;
         private Syncfusion.WinForms.Controls.SfButton btnActualizar;
+        private Bunifu.Framework.UI.BunifuImageButton btnExportExcel;
+        private Bunifu.Framework.UI.BunifuImageButton btnExportPDF;
     }
 }

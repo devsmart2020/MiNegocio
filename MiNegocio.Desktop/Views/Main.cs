@@ -11,7 +11,7 @@ namespace MiNegocio.Desktop.Views
         #endregion
 
         #region Constructor
-        public frmMain(Tbusuario usuario)
+        public frmMain(UsuarioDTO usuario)
         {
             if (usuario != null)
             {

@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,81 +10,65 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class MarcaRepository : IMarca<Tbmarca>
+    public class MarcaRepository : IMarca<MarcaDTO>
     {
         private readonly soport43_minegocioContext _context;
+        private readonly IMapper _mapper;
 
-        public MarcaRepository(soport43_minegocioContext context)
+        public MarcaRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbmarca entity)
+        public async Task<bool> Delete(MarcaDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbmarca.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbmarca.SingleOrDefaultAsync(x => x.IdMarca == entity.IdMarca);
+            if (model == null)
                 return false;
-            }
+            _context.Tbmarca.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbmarca entity)
+        public async Task<bool> Exists(MarcaDTO entity)
         {
             return await _context.Tbmarca.AnyAsync(e => e.IdMarca == entity.IdMarca);
-
         }
 
-        public async Task<IEnumerable<Tbmarca>> Get()
+        public async Task<IEnumerable<MarcaDTO>> Get()
         {
-            return await _context.Tbmarca
-                .OrderBy(x => x.Marca)
-                .ToListAsync();
+            return _mapper.Map<IEnumerable<MarcaDTO>>(await _context.Tbmarca.ToListAsync());
         }
 
-        public async Task<Tbmarca> GetById(Tbmarca entity)
+        public async Task<MarcaDTO> GetById(MarcaDTO entity)
         {
-            return await _context.Tbmarca
-                .Where(x => x.IdMarca == entity.IdMarca)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbmarca.Where(x => x.IdMarca == entity.IdMarca).FirstOrDefaultAsync();
+            return _mapper.Map<MarcaDTO>(model);
         }
 
-        public async Task<Tbmarca> Post(Tbmarca entity)
+        public async Task<bool> Post(MarcaDTO entity)
         {
-            await _context.Tbmarca.AddAsync(entity);
+            var model = _mapper.Map<Tbmarca>(entity);
+            _context.Tbmarca.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbmarca> Put(Tbmarca entity)
+        public async Task<bool> Put(MarcaDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbmarca>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

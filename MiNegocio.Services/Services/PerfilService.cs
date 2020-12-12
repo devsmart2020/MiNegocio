@@ -7,37 +7,37 @@ using System.Threading.Tasks;
 
 namespace MiNegocio.Services.Services
 {
-    public class PerfilService : IPerfilService<Tbperfil>
+    public class PerfilService : IPerfilService<PerfilDTO>
     {
         private protected readonly string controllerName = Resources.PerfilController;
-        private readonly IRestService<Tbperfil> _service;
+        private readonly IRestService<PerfilDTO> _service;
 
         public PerfilService()
         {
-            _service = new RestService<Tbperfil>();
+            _service = new RestService<PerfilDTO>();
         }
 
-        public async Task<bool> Delete(Tbperfil entity)
+        public async Task<bool> Delete(PerfilDTO entity)
         {
             return await _service.Delete(entity.IdPerfil);
         }
 
-        public async Task<Tbperfil> GetById(Tbperfil entity)
+        public async Task<PerfilDTO> GetById(PerfilDTO entity)
         {
             return await _service.GetById(controllerName, entity);
         }
 
-        public async Task<IEnumerable<Tbperfil>> GetListEntity(Tbperfil entity)
+        public async Task<IEnumerable<PerfilDTO>> GetListEntity(PerfilDTO entity)
         {
             return await _service.GetListEntity(controllerName, entity);
         }
 
-        public async Task<IEnumerable<Tbperfil>> GetTs()
+        public async Task<IEnumerable<PerfilDTO>> GetTs()
         {
             return await _service.GetTs(controllerName);
         }
 
-        public async Task<bool> Post(Tbperfil entity, bool isNewItem)
+        public async Task<bool> Post(PerfilDTO entity, bool isNewItem)
         {
             return await _service.Post(controllerName, entity, isNewItem);
         }

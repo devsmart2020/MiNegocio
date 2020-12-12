@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MiNegocio.API.Controllers
 {
@@ -11,15 +11,14 @@ namespace MiNegocio.API.Controllers
     [ApiController]
     public class VentaAnuladasController : ControllerBase
     {
-        private readonly IVentaAnuladaService<Tbventaanulada> _service;
+        private readonly IVentaAnuladaService<VentaAnuladaDTO> _service;
 
-        public VentaAnuladasController(IVentaAnuladaService<Tbventaanulada> service)
+        public VentaAnuladasController(IVentaAnuladaService<VentaAnuladaDTO> service)
         {
             _service = service;
         }
-
         [HttpDelete()]
-        public async Task<ActionResult<Tbventaanulada>> Delete(Tbventaanulada entity)
+        public async Task<IActionResult> Delete(VentaAnuladaDTO entity)
         {
             if (entity != null)
             {
@@ -28,16 +27,14 @@ namespace MiNegocio.API.Controllers
                 else
                     return Conflict();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
+
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tbventaanulada>>> Get()
+        public async Task<IActionResult> Get()
         {
-            IEnumerable<Tbventaanulada> model = await _service.Get();
+            IEnumerable<VentaAnuladaDTO> model = await _service.Get();
             if (model.Count() > 0)
                 return Ok(model);
             else
@@ -45,9 +42,9 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost("GetById")]
-        public async Task<ActionResult<Tbventaanulada>> GetById(Tbventaanulada entity)
+        public async Task<IActionResult> GetById(VentaAnuladaDTO entity)
         {
-            Tbventaanulada model = await _service.GetById(entity);
+            VentaAnuladaDTO model = await _service.GetById(entity);
 
             if (model != null)
                 return Ok(model);
@@ -56,37 +53,29 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost()]
-        public async Task<ActionResult<Tbventaanulada>> Post(Tbventaanulada entity)
+        public async Task<IActionResult> Post(VentaAnuladaDTO entity)
         {
             if (entity != null && ModelState.IsValid)
-            {
-                Tbventaanulada model = await _service.Post(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Post(entity))
+                    return Ok(entity);
                 else
                     return Conflict();
-            }
             else
-            {
                 return BadRequest();
-            }
+
         }
 
         [HttpPut()]
-        public async Task<IActionResult> Put(Tbventaanulada entity)
+        public async Task<IActionResult> Put(VentaAnuladaDTO entity)
         {
-            if (!string.IsNullOrEmpty(entity.IdUsuario))
+            if (ModelState.IsValid && entity != null)
             {
-                var model = await _service.Put(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Put(entity))
+                    return Ok(entity);
                 else
                     return NotFound();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,81 +10,64 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class VentaRepository : IVenta<Tbventa>
+    public class VentaRepository : IVenta<VentaDTO>
     {
         private readonly soport43_minegocioContext _context;
-
-        public VentaRepository(soport43_minegocioContext context)
+        private readonly IMapper _mapper;
+        public VentaRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbventa entity)
+        public async Task<bool> Delete(VentaDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbventa.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbventa.SingleOrDefaultAsync(x => x.IdVenta == entity.IdVenta);
+            if (model == null)
                 return false;
-            }
+            _context.Tbventa.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbventa entity)
+        public async Task<bool> Exists(VentaDTO entity)
         {
             return await _context.Tbventa.AnyAsync(e => e.IdVenta == entity.IdVenta);
-
         }
 
-        public async Task<IEnumerable<Tbventa>> Get()
+        public async Task<IEnumerable<VentaDTO>> Get()
         {
-            return await _context.Tbventa
-                .OrderBy(x => x.IdVenta)
-                .ToListAsync();
+            return _mapper.Map<IEnumerable<VentaDTO>>(await _context.Tbventa.ToListAsync());
         }
 
-        public async Task<Tbventa> GetById(Tbventa entity)
+        public async Task<VentaDTO> GetById(VentaDTO entity)
         {
-            return await _context.Tbventa
-                .Where(x => x.IdVenta == entity.IdVenta)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbventa.Where(x => x.IdVenta == entity.IdVenta).FirstOrDefaultAsync();
+            return _mapper.Map<VentaDTO>(model);
         }
 
-        public async Task<Tbventa> Post(Tbventa entity)
+        public async Task<bool> Post(VentaDTO entity)
         {
-            await _context.Tbventa.AddAsync(entity);
+            var model = _mapper.Map<Tbventa>(entity);
+            _context.Tbventa.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbventa> Put(Tbventa entity)
+        public async Task<bool> Put(VentaDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbventa>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

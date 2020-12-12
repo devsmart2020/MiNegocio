@@ -1,6 +1,7 @@
 ﻿using MiNegocio.Models.Models;
 using MiNegocio.Services.Data;
 using MiNegocio.Services.Services;
+using MiNegocio.ViewModels.Helpers;
 using MiNegocio.ViewModels.Properties;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace MiNegocio.ViewModels.ViewModels
             {
                 List = await _service.GetTs();
                 if (List == null)
-                    Msj = RestService<Tbusuario>.ErrorRestService;
+                    Msj = RestService<UsuarioDTO>.ErrorRestService;
             }
             catch (Exception ex)
             {
@@ -45,7 +46,7 @@ namespace MiNegocio.ViewModels.ViewModels
         private async Task Post()
         {
             IsBusy = true;
-            Tbusuario _usuario = new Tbusuario()
+            UsuarioDTO _usuario = new UsuarioDTO()
             {
                 DocId = DocId.Trim(),
                 Nombres = Nombres,
@@ -77,7 +78,7 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
                 else
                 {
-                    Msj = RestService<Tbcliente>.ErrorRestService;
+                    Msj = RestService<ClienteDTO>.ErrorRestService;
                 }
             }
             catch (Exception ex)
@@ -89,6 +90,39 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsEnabled = true;
                 IsBusy = false;
             }
+        }
+        private async Task GetTecnicos()
+        {
+            IsBusy = true;
+            try
+            {
+                if (IsDbQuery)
+                {
+                    Tecnicos = await _service.GetTecnicos(IsDbQuery, LocalDataRepository.Path, Resources.JsonTecnicos);
+                    if (Tecnicos == null)
+                    {
+                        Msj = RestService<UsuarioDTO>.ErrorRestService;
+                    }
+                    else
+                    {
+                        LocalDataRepository.RoutesPath();
+                        LocalDataRepository.CreateJsonData(tecnicos, Resources.JsonTecnicos);
+                    }
+                }
+                else
+                {                   
+                    Tecnicos = await _service.GetTecnicos(IsDbQuery, LocalDataRepository.Path, Resources.JsonTecnicos);
+                }               
+            }
+            catch (Exception ex)
+            {
+                Msj = ex.Message;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+
         }
         public void Clear()
         {
@@ -183,9 +217,9 @@ namespace MiNegocio.ViewModels.ViewModels
             set => SetProperty(ref pass, value);
         }
 
-        private Tbusuario usuario;
+        private UsuarioDTO usuario;
 
-        public Tbusuario Usuario
+        public UsuarioDTO Usuario
         {
             get => usuario;
             set
@@ -205,14 +239,20 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
             }
         }
-        private IEnumerable<Tbusuario> list;
+        private IEnumerable<UsuarioDTO> list;
 
-        public IEnumerable<Tbusuario> List
+        public IEnumerable<UsuarioDTO> List
         {
             get => list;
             set => SetProperty(ref list, value);  
-        }       
+        }
+        private IEnumerable<UsuarioDTO> tecnicos;
 
+        public IEnumerable<UsuarioDTO> Tecnicos
+        {
+            get => tecnicos;
+            set => SetProperty(ref tecnicos, value);
+        }
         private bool isSaved;
 
         public bool IsSaved
@@ -231,6 +271,10 @@ namespace MiNegocio.ViewModels.ViewModels
         public async Task PostCmd()
         {
             await Post();
+        }
+        public async Task GetTecnicosCmd()
+        {
+            await GetTecnicos();
         }
         #endregion
     }

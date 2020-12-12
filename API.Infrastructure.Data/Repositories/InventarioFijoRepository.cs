@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,81 +10,65 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class InventarioFijoRepository : IInventarioFijo<Tbinventariofijo>
+    public class InventarioFijoRepository : IInventarioFijo<InventarioFijoDTO>
     {
         private readonly soport43_minegocioContext _context;
+        private readonly IMapper _mapper;
 
-        public InventarioFijoRepository(soport43_minegocioContext context)
+        public InventarioFijoRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbinventariofijo entity)
+        public async Task<bool> Delete(InventarioFijoDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbinventariofijo.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbinventariofijo.SingleOrDefaultAsync(x => x.IdProducto == entity.IdProducto);
+            if (model == null)
                 return false;
-            }
+            _context.Tbinventariofijo.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbinventariofijo entity)
+        public async Task<bool> Exists(InventarioFijoDTO entity)
         {
             return await _context.Tbinventariofijo.AnyAsync(e => e.IdProducto == entity.IdProducto);
-
         }
 
-        public async Task<IEnumerable<Tbinventariofijo>> Get()
+        public async Task<IEnumerable<InventarioFijoDTO>> Get()
         {
-            return await _context.Tbinventariofijo
-                .OrderBy(x => x.Nombre)
-                .ToListAsync();
+            return _mapper.Map<IEnumerable<InventarioFijoDTO>>(await _context.Tbinventariofijo.ToListAsync());
         }
 
-        public async Task<Tbinventariofijo> GetById(Tbinventariofijo entity)
+        public async Task<InventarioFijoDTO> GetById(InventarioFijoDTO entity)
         {
-            return await _context.Tbinventariofijo
-                .Where(x => x.IdProducto == entity.IdProducto)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbinventariofijo.Where(x => x.IdProducto == entity.IdProducto).FirstOrDefaultAsync();
+            return _mapper.Map<InventarioFijoDTO>(model);
         }
 
-        public async Task<Tbinventariofijo> Post(Tbinventariofijo entity)
+        public async Task<bool> Post(InventarioFijoDTO entity)
         {
-            await _context.Tbinventariofijo.AddAsync(entity);
+            var model = _mapper.Map<Tbinventariofijo>(entity);
+            _context.Tbinventariofijo.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbinventariofijo> Put(Tbinventariofijo entity)
+        public async Task<bool> Put(InventarioFijoDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbinventariofijo>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

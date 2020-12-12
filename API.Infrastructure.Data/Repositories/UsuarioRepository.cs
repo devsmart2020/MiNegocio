@@ -1,104 +1,91 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class UsuarioRepository : IUsuario<Tbusuario>
+    public class UsuarioRepository : IUsuario<UsuarioDTO>
     {
         private readonly soport43_minegocioContext _context;
-
-        public UsuarioRepository(soport43_minegocioContext context)
+        private readonly IMapper _mapper;
+        public UsuarioRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbusuario entity)
+        public async Task<bool> Delete(UsuarioDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbusuario.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbusuario.SingleOrDefaultAsync(x => x.DocId == entity.DocId);
+            if (model == null)
                 return false;
-            }
+            _context.Tbusuario.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbusuario entity)
+        public async Task<bool> Exists(UsuarioDTO entity)
         {
             return await _context.Tbusuario.AnyAsync(e => e.DocId == entity.DocId);
-
         }
 
-        public async Task<IEnumerable<Tbusuario>> Get()
+        public async Task<IEnumerable<UsuarioDTO>> Get()
         {
-            return await _context.Tbusuario                
-                .OrderBy(x => x.Nombres)
-                .ToListAsync();
+            return _mapper.Map<IEnumerable<UsuarioDTO>>(await _context.Tbusuario.ToListAsync());
         }
 
-        public async Task<Tbusuario> GetById(Tbusuario entity)
+        public async Task<UsuarioDTO> GetById(UsuarioDTO entity)
         {
-            return await _context.Tbusuario
-                .Where(x => x.DocId == entity.DocId)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbusuario.Where(x => x.DocId == entity.DocId).FirstOrDefaultAsync();
+            return _mapper.Map<UsuarioDTO>(model);
         }
 
-        public async Task<IEnumerable<Tbusuario>> GetTecnicos()
+        public async Task<IEnumerable<UsuarioDTO>> GetTecnicos()
         {
-            return await _context.Tbusuario
-                .Where(x => x.IdPerfilNavigation.Perfil.Equals("TÉCNICO"))
-                .OrderBy(x => x.Nombres)
-                .ToListAsync();
+            var model = await _context.Tbusuario
+                .Where(x => x.IdPerfilNavigation.Perfil.Equals("TÉCNICO")).Select(t => new UsuarioDTO
+                {
+                    DocId = t.DocId,
+                    Nombres = t.Nombres,
+                    Apellidos = t.Apellidos,
+                    NomCompleto = $"{t.Nombres} {t.Apellidos}",
+                    Direccion = t.Direccion,
+                    Telefono = t.Telefono,
+                    User = t.User,
+                    IdPerfil = t.IdPerfil,
+                    Estado = t.Estado
+                }).ToListAsync();
+            return _mapper.Map<IEnumerable<UsuarioDTO>>(model);
         }
 
-        public async Task<Tbusuario> Login(Tbusuario entity)
+        public async Task<bool> Post(UsuarioDTO entity)
         {
-            return await _context.Tbusuario
-                .Where(x => x.User.Equals(entity.User) && x.Pass.Equals(entity.Pass))
-                .FirstOrDefaultAsync();
-        }
-
-        public async Task<Tbusuario> Post(Tbusuario entity)
-        {
-            await _context.Tbusuario.AddAsync(entity);
+            var model = _mapper.Map<Tbusuario>(entity);
+            _context.Tbusuario.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbusuario> Put(Tbusuario entity)
+        public async Task<bool> Put(UsuarioDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbusuario>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

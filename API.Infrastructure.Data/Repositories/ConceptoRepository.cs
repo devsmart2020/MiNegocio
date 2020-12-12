@@ -1,87 +1,73 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class ConceptoRepository : IConcepto<Tbconcepto>
+    public class ConceptoRepository : IConcepto<ConceptoDTO>
     {
         private readonly soport43_minegocioContext _context;
+        private readonly IMapper _mapper;
 
-        public ConceptoRepository(soport43_minegocioContext context)
+        public ConceptoRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
-        public async Task<bool> Delete(Tbconcepto entity)
+        public async Task<bool> Delete(ConceptoDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbconcepto.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbconcepto.SingleOrDefaultAsync(x => x.IdConcepto == entity.IdConcepto);
+            if (model == null)
                 return false;
-            }
+            _context.Tbconcepto.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbconcepto entity)
+        public async Task<bool> Exists(ConceptoDTO entity)
         {
             return await _context.Tbconcepto.AnyAsync(e => e.IdConcepto == entity.IdConcepto);
         }
 
-        public async Task<IEnumerable<Tbconcepto>> Get()
+        public async Task<IEnumerable<ConceptoDTO>> Get()
         {
-            return await _context.Tbconcepto
-               .OrderBy(x => x.Concepto)
-               .ToListAsync();
+            return _mapper.Map<IEnumerable<ConceptoDTO>>(await _context.Tbconcepto.ToListAsync());
         }
 
-        public async Task<Tbconcepto> GetById(Tbconcepto entity)
+        public async Task<ConceptoDTO> GetById(ConceptoDTO entity)
         {
-            return await _context.Tbconcepto
-                .Where(x => x.IdConcepto == entity.IdConcepto)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbconcepto.Where(x => x.IdConcepto == entity.IdConcepto).FirstOrDefaultAsync();
+            return _mapper.Map<ConceptoDTO>(model);
         }
 
-        public async Task<Tbconcepto> Post(Tbconcepto entity)
+        public async Task<bool> Post(ConceptoDTO entity)
         {
-            await _context.Tbconcepto.AddAsync(entity);
+            var model = _mapper.Map<Tbconcepto>(entity);
+            _context.Tbconcepto.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbconcepto> Put(Tbconcepto entity)
+        public async Task<bool> Put(ConceptoDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbconcepto>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

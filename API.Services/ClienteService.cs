@@ -6,55 +6,52 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class ClienteService : IClienteService<ClienteDto>
+    public class ClienteService : IClienteService<ClienteDTO>
     {
-        private readonly ICliente<ClienteDto> _repository;
-
-
-
-        public ClienteService(ICliente<ClienteDto> repository)
+        private readonly ICliente<ClienteDTO> _repository;
+        public ClienteService(ICliente<ClienteDTO> repository)
         {
             _repository = repository;
         }
 
-        public async Task<bool> Delete(ClienteDto entity)
+        public async Task<bool> Delete(ClienteDTO entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(ClienteDto entity)
+        public async Task<bool> Exists(ClienteDTO entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<ClienteDto> GetById(ClienteDto entity)
-        {
-            return await _repository.GetById(entity);
-        }
-
-        public async Task<IEnumerable<ClienteDto>> Get()
+        public async Task<IEnumerable<ClienteDTO>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<ClienteDto> Post(ClienteDto entity)
+        public async Task<ClienteDTO> GetById(ClienteDTO entity)
+        {
+            return await _repository.GetById(entity);
+        }
+
+        public async Task<bool> Post(ClienteDTO entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<ClienteDto> Put(ClienteDto entity)
+        public async Task<bool> Put(ClienteDTO entity)
         {
             return await _repository.Put(entity);
         }
 
-        public async Task<IEnumerable<ClienteDto>> RptEquiposxCliente(ClienteDto entity)
+        public async Task<IEnumerable<ClienteDTO>> RptEquiposxCliente(ClienteDTO entity)
         {
             return await _repository.RptEquiposxCliente(entity);
         }
 
-        public async Task<IEnumerable<ClienteDto>> RptOrdenxCliente(ClienteDto entity)
+        public async Task<IEnumerable<ClienteDTO>> RptOrdenxCliente(ClienteDTO entity)
         {
             return await _repository.RptOrdenxCliente(entity);
-        }
+        }        
     }
 }

@@ -2,6 +2,7 @@
 using MiNegocio.Services.Data;
 using MiNegocio.Services.Services;
 using MiNegocio.Services.Services_interfaces;
+using MiNegocio.ViewModels.Helpers;
 using MiNegocio.ViewModels.Properties;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace MiNegocio.ViewModels.ViewModels
     public class EquipoViewModel : BaseViewModel.BaseViewModel
     {
         #region Members Variables
-        private protected readonly IEquipoService<Tbequipo> _service;
+        private protected readonly IEquipoService<EquipoDTO> _service;
         #endregion
 
         #region Constructor
@@ -28,7 +29,16 @@ namespace MiNegocio.ViewModels.ViewModels
             IsBusy = true;
             try
             {
-                List = await _service.GetTs();
+                List = await _service.GetTs(IsDbQuery, LocalDataRepository.Path, Resources.JsonEquipos);
+                if (List == null)
+                {
+                    Msj = RestService<EquipoDTO>.ErrorRestService;
+                }
+                else
+                {
+                    LocalDataRepository.RoutesPath();
+                    LocalDataRepository.CreateJsonData(list, Resources.JsonEquipos);
+                }
             }
             catch (Exception ex)
             {
@@ -42,7 +52,7 @@ namespace MiNegocio.ViewModels.ViewModels
         private async Task Post()
         {
             IsBusy = true;
-            Tbequipo _equipo = new Tbequipo()
+            EquipoDTO _equipo = new EquipoDTO()
             {
                Fecha = DateTime.Now,
                IdCliente = IdCliente.Trim(),
@@ -58,6 +68,8 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsSaved = await _service.Post(_equipo, IsNewItem);
                 if (IsSaved)
                 {
+                    IsDbQuery = true;
+                    await Gets();
                     if (IsNewItem)
                     {
                         Msj = Resources.MsjSaveOk;
@@ -70,7 +82,7 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
                 else
                 {
-                    Msj = RestService<Tbequipo>.ErrorRestService;
+                    Msj = RestService<EquipoDTO>.ErrorRestService;
                 }
             }
             catch (Exception ex)
@@ -117,12 +129,28 @@ namespace MiNegocio.ViewModels.ViewModels
             get => idCliente;
             set => SetProperty(ref idCliente, value);
         }
+        private int idTipoEquipo;
+
+        public int IdTipoEquipo
+        {
+            get => idTipoEquipo;
+            set => SetProperty(ref idTipoEquipo, value);
+        }
+
         private string tipoEquipo;
 
         public string TipoEquipo
         {
             get => tipoEquipo;
             set => SetProperty(ref tipoEquipo, value);
+        }
+
+        private int idMarca;
+
+        public int IdMarca
+        {
+            get => idMarca;
+            set => SetProperty(ref idMarca, value);
         }
 
         private string marca;
@@ -183,9 +211,9 @@ namespace MiNegocio.ViewModels.ViewModels
             get => observacion;
             set => SetProperty(ref observacion, value);
         }
-        private Tbequipo equipo;
+        private EquipoDTO equipo;
 
-        public Tbequipo Equipo
+        public EquipoDTO Equipo
         {
             get => equipo;
             set { if (SetProperty(ref equipo, value))
@@ -193,7 +221,9 @@ namespace MiNegocio.ViewModels.ViewModels
                     IdEquipo = equipo.IdEquipo;
                     Fecha = equipo.Fecha;
                     IdCliente = equipo.IdCliente;
+                    IdTipoEquipo = equipo.IdTipoEquipo;
                     TipoEquipo = equipo.TipoEquipo;
+                    IdMarca = equipo.IdMarca;
                     Marca = equipo.Marca;
                     IdModelo = equipo.IdModelo;
                     Modelo = equipo.Modelo;
@@ -205,9 +235,9 @@ namespace MiNegocio.ViewModels.ViewModels
                 } 
             }
         }
-        private IEnumerable<Tbequipo> list;
+        private IEnumerable<EquipoDTO> list;
 
-        public IEnumerable<Tbequipo> List
+        public IEnumerable<EquipoDTO> List
         {
             get => list;
             set => SetProperty(ref list, value);
@@ -226,6 +256,8 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             await Post();
         }
+        public async Task GetsCmd() => await Gets();
+            
         #endregion
     }
 }

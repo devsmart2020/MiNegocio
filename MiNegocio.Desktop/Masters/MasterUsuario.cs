@@ -155,7 +155,7 @@ namespace MiNegocio.Desktop.Masters
         private void Selected()
         {
             var usuario = dgvUsuario.SelectedItem;
-            _usuarioVm.Usuario = (Tbusuario)usuario;
+            _usuarioVm.Usuario = (UsuarioDTO)usuario;
         }
         private async Task Post()
         {

@@ -1,6 +1,9 @@
 ﻿using MiNegocio.Models.Models;
+using MiNegocio.Services.Data;
 using MiNegocio.Services.Services;
 using MiNegocio.Services.Services_interfaces;
+using MiNegocio.ViewModels.Helpers;
+using MiNegocio.ViewModels.Properties;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,7 +13,7 @@ namespace MiNegocio.ViewModels.ViewModels
     public class EstadoOrdenViewModel : BaseViewModel.BaseViewModel
     {
         #region Members Variables
-        private readonly IEstadoOrdenService<Tbestadoorden> _service;
+        private readonly IEstadoOrdenService<EstadoOrdenDTO> _service;
         #endregion
 
         #region Constructor
@@ -26,7 +29,16 @@ namespace MiNegocio.ViewModels.ViewModels
             IsBusy = true;
             try
             {
-                List = await _service.GetTs();
+                List = await _service.GetTs(IsDbQuery, LocalDataRepository.Path, Resources.JsonEstadoOrden);
+                if (List == null)
+                {
+                    Msj = RestService<EstadoOrdenDTO>.ErrorRestService;
+                }
+                else
+                {
+                    LocalDataRepository.RoutesPath();
+                    LocalDataRepository.CreateJsonData(list, Resources.JsonEstadoOrden);
+                }
             }
             catch (Exception ex)
             {
@@ -54,9 +66,9 @@ namespace MiNegocio.ViewModels.ViewModels
             get => nombre;
             set => SetProperty(ref nombre, value);
         }
-        private IEnumerable<Tbestadoorden> list;
+        private IEnumerable<EstadoOrdenDTO> list;
 
-        public IEnumerable<Tbestadoorden> List
+        public IEnumerable<EstadoOrdenDTO> List
         {
             get => list;
             set => SetProperty(ref list, value);

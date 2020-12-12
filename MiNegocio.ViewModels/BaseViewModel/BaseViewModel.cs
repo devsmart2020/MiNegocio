@@ -42,6 +42,13 @@ namespace MiNegocio.ViewModels.BaseViewModel
             get { return isNewItem; }
             set { isNewItem = value; }
         }
+        private bool isDbQuery;
+
+        public bool IsDbQuery
+        {
+            get => isDbQuery;
+            set => SetProperty(ref isDbQuery, value);
+        }
         protected bool SetProperty<T>(ref T backingStore, T value, 
             [CallerMemberName] string propertyName = "", 
             Action onChanged = null)

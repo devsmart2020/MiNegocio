@@ -10,11 +10,11 @@ namespace MiNegocio.Desktop.Masters
     {
         #region Members Variables
         private protected ClienteVIewModel _clienteVm;
-        private IEnumerable<Tborden> Ordenes { get; set; }
+        private IEnumerable<OrdenDTO> Ordenes { get; set; }
         #endregion
 
         #region Constructor
-        public frmBuscarOrden(IEnumerable<Tborden> ordenes)
+        public frmBuscarOrden(IEnumerable<OrdenDTO> ordenes)
         {
             InitializeComponent();
             _clienteVm = new ClienteVIewModel();
@@ -29,25 +29,25 @@ namespace MiNegocio.Desktop.Masters
             dgvOrden.DataSource = Ordenes;
             if (Ordenes != null)
             {
-                dgvOrden.Columns[2].Visible = false;
-                dgvOrden.Columns[3].Visible = false;
-                dgvOrden.Columns[4].Visible = false;
-                dgvOrden.Columns[5].Visible = false;
-                dgvOrden.Columns[9].Visible = false;
-                dgvOrden.Columns[10].Visible = false;
-                dgvOrden.Columns[11].Visible = false;
-                dgvOrden.Columns[16].Visible = false;
-                dgvOrden.Columns[17].Visible = false;
-                dgvOrden.Columns[18].Visible = false;
-                dgvOrden.Columns[0].ShowFilterRowOptions = false;
-                dgvOrden.Columns[1].ShowFilterRowOptions = false;
-                dgvOrden.Columns[6].ShowFilterRowOptions = false;
-                dgvOrden.Columns[7].ShowFilterRowOptions = false;
-                dgvOrden.Columns[8].ShowFilterRowOptions = false;
-                dgvOrden.Columns[12].ShowFilterRowOptions = false;
-                dgvOrden.Columns[13].ShowFilterRowOptions = false;
-                dgvOrden.Columns[14].ShowFilterRowOptions = false;
-                dgvOrden.Columns[15].ShowFilterRowOptions = false;                
+                //dgvOrden.Columns[2].Visible = false;
+                //dgvOrden.Columns[3].Visible = false;
+                //dgvOrden.Columns[4].Visible = false;
+                //dgvOrden.Columns[5].Visible = false;
+                //dgvOrden.Columns[9].Visible = false;
+                //dgvOrden.Columns[10].Visible = false;
+                //dgvOrden.Columns[11].Visible = false;
+                //dgvOrden.Columns[16].Visible = false;
+                //dgvOrden.Columns[17].Visible = false;
+                //dgvOrden.Columns[18].Visible = false;
+                //dgvOrden.Columns[0].ShowFilterRowOptions = false;
+                //dgvOrden.Columns[1].ShowFilterRowOptions = false;
+                //dgvOrden.Columns[6].ShowFilterRowOptions = false;
+                //dgvOrden.Columns[7].ShowFilterRowOptions = false;
+                //dgvOrden.Columns[8].ShowFilterRowOptions = false;
+                //dgvOrden.Columns[12].ShowFilterRowOptions = false;
+                //dgvOrden.Columns[13].ShowFilterRowOptions = false;
+                //dgvOrden.Columns[14].ShowFilterRowOptions = false;
+                //dgvOrden.Columns[15].ShowFilterRowOptions = false;                
             }
             //Search
             dgvOrden.SearchController.AllowFiltering = true;
@@ -67,7 +67,7 @@ namespace MiNegocio.Desktop.Masters
         private void SelectedOrden()
         {
             var orden = dgvOrden.SelectedItem;
-            OrdenSeleccionada = (Tborden)orden;
+            OrdenSeleccionada = (OrdenDTO)orden;
             if (OrdenSeleccionada == null)
             {
                 Close();
@@ -82,7 +82,7 @@ namespace MiNegocio.Desktop.Masters
             Buscar();
         }
         #endregion
-        public Tborden OrdenSeleccionada { get; set; }
+        public OrdenDTO OrdenSeleccionada { get; set; }
 
         private void dgvOrden_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
         {

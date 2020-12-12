@@ -1,27 +1,27 @@
-﻿using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MiNegocio.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
-    {       
+    {
         // TRAEMOS EL OBJETO DE CONFIGURACIÓN (appsettings.json)
         // MEDIANTE INYECCIÓN DE DEPENDENCIAS.
         private readonly IConfiguration _configuration;
-        private readonly IUsuarioService<Tbusuario> _service;
+        private readonly ILoginService<UsuarioDTO> _service;
 
-        public LoginController(IConfiguration configuration, IUsuarioService<Tbusuario> service)
+        public LoginController(IConfiguration configuration, ILoginService<UsuarioDTO> service)
         {
             _configuration = configuration;
             _service = service;
@@ -29,9 +29,9 @@ namespace MiNegocio.API.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(Tbusuario usuario)
+        public async Task<IActionResult> Login(UsuarioDTO usuario)
         {
-            var userInfo = await AutenticarUsuarioAsync(usuario);          
+            var userInfo = await AutenticarUsuarioAsync(usuario);
             if (userInfo != null)
             {
                 if (userInfo.IdPerfil == 2)
@@ -39,10 +39,8 @@ namespace MiNegocio.API.Controllers
                     userInfo.Token = GenerarTokenJWT(userInfo);
                     return Ok(userInfo);
                 }
-                else
-                {
-                    return Ok(userInfo);
-                }
+                else                
+                    return Ok(userInfo);                
             }
             else
             {
@@ -50,12 +48,12 @@ namespace MiNegocio.API.Controllers
             }
         }
 
-        private async Task<Tbusuario> AutenticarUsuarioAsync(Tbusuario entity)
+        private async Task<UsuarioDTO> AutenticarUsuarioAsync(UsuarioDTO entity)
         {
-            return await _service.Login(entity);            
+            return await _service.GetUsuario(entity);
         }
 
-        private string GenerarTokenJWT(Tbusuario entity)
+        private string GenerarTokenJWT(UsuarioDTO entity)
         {
             // CREAMOS EL HEADER //
             var _symmetricSecurityKey = new SymmetricSecurityKey(
@@ -79,11 +77,11 @@ namespace MiNegocio.API.Controllers
             var _Payload = new JwtPayload
                 (
                     issuer: _configuration["JWT:Issuer"],
-                    audience:_configuration["JWT:Audience"],
-                    claims:_Claims,
+                    audience: _configuration["JWT:Audience"],
+                    claims: _Claims,
                     notBefore: DateTime.Now,
                     //Expira a las 24Hrs
-                    expires:DateTime.Now.AddHours(1)
+                    expires: DateTime.Now.AddHours(1)
                 );
 
             // GENERAMOS EL TOKEN //

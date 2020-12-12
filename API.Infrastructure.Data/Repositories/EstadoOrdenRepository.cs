@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,81 +10,67 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class EstadoOrdenRepository : IEstadoOrden<Tbestadoorden>
+
+    public class EstadoOrdenRepository : IEstadoOrden<EstadoOrdenDTO>
     {
         private readonly soport43_minegocioContext _context;
+        private readonly IMapper _mapper;
 
-        public EstadoOrdenRepository(soport43_minegocioContext context)
+        public EstadoOrdenRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbestadoorden entity)
+        public async Task<bool> Delete(EstadoOrdenDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbestadoorden.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbestadoorden.SingleOrDefaultAsync(x => x.IdEstadoOrden == entity.IdEstadoOrden);
+            if (model == null)
                 return false;
-            }
+            _context.Tbestadoorden.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbestadoorden entity)
+        public async Task<bool> Exists(EstadoOrdenDTO entity)
         {
             return await _context.Tbestadoorden.AnyAsync(e => e.IdEstadoOrden == entity.IdEstadoOrden);
-
         }
 
-        public async Task<IEnumerable<Tbestadoorden>> Get()
+        public async Task<IEnumerable<EstadoOrdenDTO>> Get()
         {
-            return await _context.Tbestadoorden
-                .OrderBy(x => x.IdEstadoOrden)
-                .ToListAsync();
+            return _mapper.Map<IEnumerable<EstadoOrdenDTO>>(await _context.Tbestadoorden.ToListAsync());
         }
 
-        public async Task<Tbestadoorden> GetById(Tbestadoorden entity)
+        public async Task<EstadoOrdenDTO> GetById(EstadoOrdenDTO entity)
         {
-            return await _context.Tbestadoorden
-                .Where(x => x.IdEstadoOrden == entity.IdEstadoOrden)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbestadoorden.Where(x => x.IdEstadoOrden == entity.IdEstadoOrden).FirstOrDefaultAsync();
+            return _mapper.Map<EstadoOrdenDTO>(model);
         }
 
-        public async Task<Tbestadoorden> Post(Tbestadoorden entity)
+        public async Task<bool> Post(EstadoOrdenDTO entity)
         {
-            await _context.Tbestadoorden.AddAsync(entity);
+            var model = _mapper.Map<Tbestadoorden>(entity);
+            _context.Tbestadoorden.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbestadoorden> Put(Tbestadoorden entity)
+        public async Task<bool> Put(EstadoOrdenDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbestadoorden>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
+
     }
 }

@@ -2,6 +2,7 @@
 using MiNegocio.Services.Data;
 using MiNegocio.Services.Services;
 using MiNegocio.Services.Services_interfaces;
+using MiNegocio.ViewModels.Helpers;
 using MiNegocio.ViewModels.Properties;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace MiNegocio.ViewModels.ViewModels
     public class ModeloViewModel : BaseViewModel.BaseViewModel
     {
         #region Members Variables
-        private readonly IModeloService<Tbmodelo> _service;
+        private readonly IModeloService<ModeloDTO> _service;
         #endregion
 
         #region Constructor
@@ -29,7 +30,16 @@ namespace MiNegocio.ViewModels.ViewModels
             IsBusy = true;
             try
             {
-                List = await _service.GetTs();
+                List = await _service.GetTs(IsDbQuery, LocalDataRepository.Path, Resources.JsonModelos);
+                if (List == null)
+                {
+                    Msj = RestService<ModeloDTO>.ErrorRestService;
+                }
+                else
+                {
+                    LocalDataRepository.RoutesPath();
+                    LocalDataRepository.CreateJsonData(list, Resources.JsonModelos);
+                }
             }
             catch (Exception ex)
             {
@@ -48,7 +58,7 @@ namespace MiNegocio.ViewModels.ViewModels
         private async Task Post()
         {
             IsBusy = true;
-            Tbmodelo _modelo = new Tbmodelo()
+            ModeloDTO _modelo = new ModeloDTO()
             {
                 IdModelo = IdModelo,
                 Modelo = Nombre,
@@ -71,7 +81,7 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
                 else
                 {
-                    Msj = RestService<Tbmodelo>.ErrorRestService;
+                    Msj = RestService<ModeloDTO>.ErrorRestService;
                 }
             }
             catch (Exception ex)
@@ -115,9 +125,9 @@ namespace MiNegocio.ViewModels.ViewModels
             get => idTipoEquipo;
             set => SetProperty(ref idTipoEquipo, value);
         }
-        private Tbmodelo modelo;
+        private ModeloDTO modelo;
 
-        public Tbmodelo Modelo
+        public ModeloDTO Modelo
         {
             get => modelo;
             set
@@ -132,16 +142,16 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
             }
         }
-        private IEnumerable<Tbmodelo> list;
+        private IEnumerable<ModeloDTO> list;
 
-        public IEnumerable<Tbmodelo> List
+        public IEnumerable<ModeloDTO> List
         {
             get => list;
             set => SetProperty(ref list, value);
         }
-        private IEnumerable<Tbmodelo> cmbModelo;
+        private IEnumerable<ModeloDTO> cmbModelo;
 
-        public IEnumerable<Tbmodelo> CmbModelo
+        public IEnumerable<ModeloDTO> CmbModelo
         {
             get => cmbModelo;
             set => SetProperty(ref cmbModelo, value);

@@ -1,4 +1,4 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Domain.Interfaces;
 using API.Services.Interfaces;
 using System.Collections.Generic;
@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class VentaService : IVentaService<Tbventa>
+    public class VentaService : IVentaService<VentaDTO>
     {
-        private readonly IVenta<Tbventa> _repository;
+        private readonly IVenta<VentaDTO> _repository;
 
-        public VentaService(IVenta<Tbventa> repository)
+        public VentaService(IVenta<VentaDTO> repository)
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(Tbventa entity)
+        public async Task<bool> Delete(VentaDTO entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(Tbventa entity)
+        public async Task<bool> Exists(VentaDTO entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<IEnumerable<Tbventa>> Get()
+        public async Task<IEnumerable<VentaDTO>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<Tbventa> GetById(Tbventa entity)
+        public async Task<VentaDTO> GetById(VentaDTO entity)
         {
             return await _repository.GetById(entity);
         }
 
-        public async  Task<Tbventa> Post(Tbventa entity)
+        public async Task<bool> Post(VentaDTO entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<Tbventa> Put(Tbventa entity)
+        public async Task<bool> Put(VentaDTO entity)
         {
             return await _repository.Put(entity);
         }

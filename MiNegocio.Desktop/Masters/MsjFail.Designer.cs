@@ -53,23 +53,25 @@
             // btnClose
             // 
             this.btnClose.AccessibleName = "Button";
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(32)))), ((int)(((byte)(80)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.btnClose.Location = new System.Drawing.Point(22, 233);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(243, 40);
-            this.btnClose.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.btnClose.Style.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(32)))), ((int)(((byte)(80)))));
             this.btnClose.Style.DisabledBackColor = System.Drawing.Color.Gray;
             this.btnClose.Style.DisabledForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnClose.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(70)))), ((int)(((byte)(0)))));
+            this.btnClose.Style.FocusedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(32)))), ((int)(((byte)(80)))));
             this.btnClose.Style.FocusedForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnClose.Style.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnClose.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(0)))));
+            this.btnClose.Style.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(12)))), ((int)(((byte)(54)))));
             this.btnClose.Style.HoverForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnClose.Style.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(72)))));
+            this.btnClose.Style.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(32)))), ((int)(((byte)(80)))));
             this.btnClose.Style.PressedForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnClose.TabIndex = 17;
             this.btnClose.Text = "OK";
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblDetail

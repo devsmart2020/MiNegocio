@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,79 +10,64 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class EstadoCompraRepository : IEstadoCompra<Tbestadocompra>
+    public class EstadoCompraRepository : IEstadoCompra<EstadoCompraDTO>
     {
         private readonly soport43_minegocioContext _context;
+        private readonly IMapper _mapper;
 
-        public EstadoCompraRepository(soport43_minegocioContext context)
+        public EstadoCompraRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
-        public async Task<bool> Delete(Tbestadocompra entity)
+        public async Task<bool> Delete(EstadoCompraDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbestadocompra.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbcompra.SingleOrDefaultAsync(x => x.IdEstadoCompra == entity.IdEstadoCompra);
+            if (model == null)
                 return false;
-            }
+            _context.Tbcompra.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbestadocompra entity)
+        public async Task<bool> Exists(EstadoCompraDTO entity)
         {
-            return await _context.Tbestadocompra.AnyAsync(e => e.IdEstadoCompra == entity.IdEstadoCompra);
+            return await _context.Tbcompra.AnyAsync(e => e.IdEstadoCompra == entity.IdEstadoCompra);
         }
 
-        public async Task<IEnumerable<Tbestadocompra>> Get()
+        public async Task<IEnumerable<EstadoCompraDTO>> Get()
         {
-            return await _context.Tbestadocompra
-               .OrderBy(x => x.IdEstadoCompra)
-               .ToListAsync();
+            return _mapper.Map<IEnumerable<EstadoCompraDTO>>(await _context.Tbcompra.ToListAsync());
         }
 
-        public async Task<Tbestadocompra> GetById(Tbestadocompra entity)
+        public async Task<EstadoCompraDTO> GetById(EstadoCompraDTO entity)
         {
-            return await _context.Tbestadocompra
-                .Where(x => x.IdEstadoCompra == entity.IdEstadoCompra)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbcompra.Where(x => x.IdEstadoCompra == entity.IdEstadoCompra).FirstOrDefaultAsync();
+            return _mapper.Map<EstadoCompraDTO>(model);
         }
 
-        public async Task<Tbestadocompra> Post(Tbestadocompra entity)
+        public async Task<bool> Post(EstadoCompraDTO entity)
         {
-            await _context.Tbestadocompra.AddAsync(entity);
+            var model = _mapper.Map<Tbcompra>(entity);
+            _context.Tbcompra.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbestadocompra> Put(Tbestadocompra entity)
+        public async Task<bool> Put(EstadoCompraDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbcompra>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

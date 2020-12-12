@@ -1,4 +1,4 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Domain.Interfaces;
 using API.Services.Interfaces;
 using System.Collections.Generic;
@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class EgresoService : IEgresoService<Tbegreso>
+    public class EgresoService : IEgresoService<EgresoDTO>
     {
-        private readonly IEgreso<Tbegreso> _repository;
+        private readonly IEgreso<EgresoDTO> _repository;
 
-        public EgresoService(IEgreso<Tbegreso> repository)
+        public EgresoService(IEgreso<EgresoDTO> repository)
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(Tbegreso entity)
+        public async Task<bool> Delete(EgresoDTO entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(Tbegreso entity)
+        public async Task<bool> Exists(EgresoDTO entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<Tbegreso> GetById(Tbegreso entity)
+        public async Task<EgresoDTO> GetById(EgresoDTO entity)
         {
             return await _repository.GetById(entity);
         }
 
-        public async Task<IEnumerable<Tbegreso>>Get()
+        public async Task<IEnumerable<EgresoDTO>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<Tbegreso> Post(Tbegreso entity)
+        public async Task<bool> Post(EgresoDTO entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<Tbegreso> Put(Tbegreso entity)
+        public async Task<bool> Put(EgresoDTO entity)
         {
             return await _repository.Put(entity);
         }

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MiNegocio.API.Controllers
 {
@@ -11,15 +11,15 @@ namespace MiNegocio.API.Controllers
     [ApiController]
     public class ComprasController : ControllerBase
     {
-        private readonly ICompraService<Tbcompra> _service;
+        private readonly ICompraService<CompraDTO> _service;
 
-        public ComprasController(ICompraService<Tbcompra> service)
+        public ComprasController(ICompraService<CompraDTO> service)
         {
             _service = service;
         }
 
         [HttpDelete()]
-        public async Task<ActionResult<Tbcompra>> Delete(Tbcompra entity)
+        public async Task<IActionResult> Delete(CompraDTO entity)
         {
             if (entity != null)
             {
@@ -28,16 +28,14 @@ namespace MiNegocio.API.Controllers
                 else
                     return Conflict();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
+
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tbcompra>>> Get()
+        public async Task<IActionResult> Get()
         {
-            IEnumerable<Tbcompra> model = await _service.Get();
+            IEnumerable<CompraDTO> model = await _service.Get();
             if (model.Count() > 0)
                 return Ok(model);
             else
@@ -45,9 +43,9 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost("GetById")]
-        public async Task<ActionResult<Tbcompra>> GetById(Tbcompra entity)
+        public async Task<IActionResult> GetById(CompraDTO entity)
         {
-            Tbcompra model = await _service.GetById(entity);
+            CompraDTO model = await _service.GetById(entity);
 
             if (model != null)
                 return Ok(model);
@@ -56,37 +54,29 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost()]
-        public async Task<ActionResult<Tbcompra>> Post(Tbcompra entity)
+        public async Task<IActionResult> Post(CompraDTO entity)
         {
             if (entity != null && ModelState.IsValid)
-            {
-                Tbcompra model = await _service.Post(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Post(entity))
+                    return Ok(entity);
                 else
                     return Conflict();
-            }
             else
-            {
                 return BadRequest();
-            }
+
         }
 
         [HttpPut()]
-        public async Task<IActionResult> Put(Tbcompra entity)
+        public async Task<IActionResult> Put(CompraDTO entity)
         {
             if (!string.IsNullOrEmpty(entity.IdUsuario))
-            {
-                var model = await _service.Put(entity);
-                if (model != null)
-                    return Ok(model);
+            {               
+                if (await _service.Put(entity))
+                    return Ok(entity);
                 else
                     return NotFound();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
         }
     }
 }

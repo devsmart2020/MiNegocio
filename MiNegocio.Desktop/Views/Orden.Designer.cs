@@ -874,7 +874,7 @@
             this.cmbModelo.Style.EditorStyle.BackColor = System.Drawing.Color.White;
             this.cmbModelo.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cmbModelo.TabIndex = 168;
-            this.cmbModelo.DropDownOpening += new System.EventHandler<Syncfusion.WinForms.ListView.Events.DropDownOpeningEventArgs>(this.cmbModelo_DropDownOpening);
+            this.cmbModelo.DropDownOpened += new System.EventHandler(this.cmbModelo_DropDownOpened);
             // 
             // cmbTecnico
             // 
@@ -1138,7 +1138,7 @@
             this.txtBuscaOrden.MaxLength = 10;
             this.txtBuscaOrden.Metrocolor = System.Drawing.Color.Silver;
             this.txtBuscaOrden.Name = "txtBuscaOrden";
-            this.txtBuscaOrden.NearImage = global::MiNegocio.Desktop.Properties.Resources.idFactura;
+            this.txtBuscaOrden.NearImage = global::MiNegocio.Desktop.Properties.Resources.UserIcon;
             this.txtBuscaOrden.Size = new System.Drawing.Size(181, 23);
             this.txtBuscaOrden.TabIndex = 132;
             this.txtBuscaOrden.ThemeStyle.BackColor = System.Drawing.Color.Transparent;

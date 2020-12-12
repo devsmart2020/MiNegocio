@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Domain.DTOs;
 using API.Domain.Entities;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -11,15 +12,15 @@ namespace MiNegocio.API.Controllers
     [ApiController]
     public class FormaPagosController : ControllerBase
     {
-        private readonly IFormaPagoService<Tbformapago> _service;
+        private readonly IFormaPagoService<FormaPagoDTO> _service;
 
-        public FormaPagosController(IFormaPagoService<Tbformapago> service)
+        public FormaPagosController(IFormaPagoService<FormaPagoDTO> service)
         {
             _service = service;
         }
 
         [HttpDelete()]
-        public async Task<ActionResult<Tbformapago>> Delete(Tbformapago entity)
+        public async Task<IActionResult> Delete(FormaPagoDTO entity)
         {
             if (entity != null)
             {
@@ -28,16 +29,14 @@ namespace MiNegocio.API.Controllers
                 else
                     return Conflict();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
+
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tbformapago>>> Get()
+        public async Task<IActionResult> Get()
         {
-            IEnumerable<Tbformapago> model = await _service.Get();
+            IEnumerable<FormaPagoDTO> model = await _service.Get();
             if (model.Count() > 0)
                 return Ok(model);
             else
@@ -45,9 +44,9 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost("GetById")]
-        public async Task<ActionResult<Tbformapago>> GetById(Tbformapago entity)
+        public async Task<IActionResult> GetById(FormaPagoDTO entity)
         {
-            Tbformapago model = await _service.GetById(entity);
+            FormaPagoDTO model = await _service.GetById(entity);
 
             if (model != null)
                 return Ok(model);
@@ -56,37 +55,29 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost()]
-        public async Task<ActionResult<Tbformapago>> Post(Tbformapago entity)
+        public async Task<IActionResult> Post(FormaPagoDTO entity)
         {
             if (entity != null && ModelState.IsValid)
-            {
-                Tbformapago model = await _service.Post(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Post(entity))
+                    return Ok(entity);
                 else
                     return Conflict();
-            }
             else
-            {
                 return BadRequest();
-            }
+
         }
 
         [HttpPut()]
-        public async Task<IActionResult> Put(Tbformapago entity)
+        public async Task<IActionResult> Put(FormaPagoDTO entity)
         {
-            if (!string.IsNullOrEmpty(entity.FormaPago))
+            if (ModelState.IsValid && entity != null)
             {
-                var model = await _service.Put(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Put(entity))
+                    return Ok(entity);
                 else
                     return NotFound();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
         }
     }
 }

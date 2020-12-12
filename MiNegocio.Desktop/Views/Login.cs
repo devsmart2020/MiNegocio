@@ -94,8 +94,9 @@ namespace MiNegocio.Desktop.Views
                 await Login();
             }
         }
+
         #endregion
 
-
+       
     }
 }

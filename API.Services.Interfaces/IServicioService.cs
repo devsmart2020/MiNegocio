@@ -9,7 +9,7 @@ namespace API.Services.Interfaces
         Task<bool> Exists(T entity);
         Task<T> GetById(T entity);
         Task<IEnumerable<T>> Get();
-        Task<T> Post(T entity);
-        Task<T> Put(T entity);
+        Task<bool> Post(T entity);
+        Task<bool> Put(T entity);
     }
 }

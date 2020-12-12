@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="HelperEntities\" />
+    <Compile Remove="HelperEntities\**" />
+    <EmbeddedResource Remove="HelperEntities\**" />
+    <None Remove="HelperEntities\**" />
   </ItemGroup>
 
 </Project>

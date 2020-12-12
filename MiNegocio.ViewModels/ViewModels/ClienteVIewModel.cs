@@ -2,6 +2,7 @@
 using MiNegocio.Services.Data;
 using MiNegocio.Services.Services;
 using MiNegocio.Services.Services_interfaces;
+using MiNegocio.ViewModels.Helpers;
 using MiNegocio.ViewModels.Properties;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace MiNegocio.ViewModels.ViewModels
     public class ClienteVIewModel : BaseViewModel.BaseViewModel
     {
         #region Members Variables
-        private readonly IClienteService<Tbcliente> _service;
+        private readonly IClienteService<ClienteDTO> _service;
         #endregion 
 
         #region Constructor
@@ -30,11 +31,11 @@ namespace MiNegocio.ViewModels.ViewModels
             {
                 Cliente = List.Where(x => x.DocId.Equals(DocId) || x.Nombres.Equals(Nombres))
                     .FirstOrDefault();
-                if (Cliente != null)                
-                    IsEnabled = false;                
-                else               
+                if (Cliente != null)
+                    IsEnabled = false;
+                else
                     IsEnabled = true;
-                
+
             }
             catch (Exception ex)
             {
@@ -46,7 +47,16 @@ namespace MiNegocio.ViewModels.ViewModels
             IsBusy = true;
             try
             {
-                List = await _service.GetTs();               
+                List = await _service.GetTs(IsDbQuery, LocalDataRepository.Path, Resources.JsonClientes);
+                if (List == null)
+                {
+                    Msj = RestService<ClienteDTO>.ErrorRestService;
+                }
+                else
+                {
+                    LocalDataRepository.RoutesPath();
+                    LocalDataRepository.CreateJsonData(list, Resources.JsonClientes);
+                }
             }
             catch (Exception ex)
             {
@@ -61,7 +71,7 @@ namespace MiNegocio.ViewModels.ViewModels
         private async Task Post()
         {
             IsBusy = true;
-            Tbcliente _cliente = new Tbcliente()
+            ClienteDTO _cliente = new ClienteDTO()
             {
                 DocId = DocId.Trim(),
                 Nombres = Nombres,
@@ -78,21 +88,17 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsSaved = await _service.Post(_cliente, IsNewItem);
                 if (IsSaved)
                 {
+                    IsDbQuery = true;
+                    await GetClientes();
                     Clear();
                     if (IsNewItem)
-                    {
                         Msj = Resources.MsjSaveOk;
-
-                    }
                     else
-                    {
                         Msj = Resources.MsjUpdateOk;
-
-                    }
                 }
                 else
                 {
-                    Msj = RestService<Tbcliente>.ErrorRestService;
+                    Msj = RestService<ClienteDTO>.ErrorRestService;
                 }
             }
             catch (Exception ex)
@@ -108,7 +114,7 @@ namespace MiNegocio.ViewModels.ViewModels
         private async Task GetEquiposxCliente()
         {
             IsBusy = true;
-            Tbcliente _cliente = new Tbcliente()
+            ClienteDTO _cliente = new ClienteDTO()
             {
                 DocId = DocId
             };
@@ -117,8 +123,8 @@ namespace MiNegocio.ViewModels.ViewModels
                 var query = await _service.RptEquiposxCliente(_cliente);
                 foreach (var item in query)
                 {
-                   var equipos = item.Tbequipo.ToList();
-                   EquiposxCliente = equipos;
+                    var equipos = item.Tbequipo.ToList();
+                    EquiposxCliente = equipos;
                 }
             }
             catch (Exception ex)
@@ -130,33 +136,7 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsBusy = false;
             }
         }
-        private async Task GetOrdenxCliente()
-        {
-            IsBusy = true;
-            Tbcliente _cliente = new Tbcliente()
-            {
-                DocId = DocId
-            };
-            try
-            {
-                if (!string.IsNullOrEmpty(_cliente.DocId))
-                {
-                   var query = await _service.RptOrdenxCliente(_cliente);
-                    foreach (var item in query)
-                    {
-                        var ordenes = item.Tborden.ToList();
-                        OrdenxCliente = ordenes;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Msj = ex.Message;
-            }finally
-            {
-                IsBusy = false;
-            }
-        }
+      
         private void Clear()
         {
             DocId = string.Empty;
@@ -235,9 +215,9 @@ namespace MiNegocio.ViewModels.ViewModels
             get => fecha;
             set => SetProperty(ref fecha, value);
         }
-        private Tbcliente cliente;
+        private ClienteDTO cliente;
 
-        public Tbcliente Cliente
+        public ClienteDTO Cliente
         {
             get => cliente;
             set
@@ -257,27 +237,20 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
             }
         }
-        private IEnumerable<Tbcliente> list;
+        private IEnumerable<ClienteDTO> list;
 
-        public IEnumerable<Tbcliente> List
+        public IEnumerable<ClienteDTO> List
         {
             get => list;
             set => SetProperty(ref list, value);
         }
-        private IEnumerable<Tbequipo> equiposxCliente;
+        private IEnumerable<EquipoDTO> equiposxCliente;
 
-        public IEnumerable<Tbequipo> EquiposxCliente
+        public IEnumerable<EquipoDTO> EquiposxCliente
         {
             get => equiposxCliente;
             set => SetProperty(ref equiposxCliente, value);
-        }
-        private IEnumerable<Tborden> ordenxCliente;
-
-        public IEnumerable<Tborden> OrdenxCliente
-        {
-            get => ordenxCliente;
-            set => SetProperty(ref ordenxCliente, value);
-        }
+        }     
 
         private bool isSaved;
 
@@ -305,11 +278,7 @@ namespace MiNegocio.ViewModels.ViewModels
         public async Task GetEquiposxClienteCmd()
         {
             await GetEquiposxCliente();
-        }
-        public async Task GetOrdenxClienteCmd()
-        {
-            await GetOrdenxCliente();
-        }
+        }      
         #endregion
     }
 }

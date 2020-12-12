@@ -1,11 +1,9 @@
-﻿using System;
+﻿using API.Domain.DTOs;
+using API.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Domain.Entities;
-using API.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace MiNegocio.API.Controllers
 {
@@ -13,15 +11,15 @@ namespace MiNegocio.API.Controllers
     [ApiController]
     public class EgresosController : ControllerBase
     {
-        private readonly IEgresoService<Tbegreso> _service;
+        private readonly IEgresoService<EgresoDTO> _service;
 
-        public EgresosController(IEgresoService<Tbegreso> service)
+        public EgresosController(IEgresoService<EgresoDTO> service)
         {
             _service = service;
         }
 
         [HttpDelete()]
-        public async Task<ActionResult<Tbegreso>> Delete(Tbegreso entity)
+        public async Task<IActionResult> Delete(EgresoDTO entity)
         {
             if (entity != null)
             {
@@ -30,16 +28,14 @@ namespace MiNegocio.API.Controllers
                 else
                     return Conflict();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
+
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tbegreso>>> Get()
+        public async Task<IActionResult> Get()
         {
-            IEnumerable<Tbegreso> model = await _service.Get();
+            IEnumerable<EgresoDTO> model = await _service.Get();
             if (model.Count() > 0)
                 return Ok(model);
             else
@@ -47,9 +43,9 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost("GetById")]
-        public async Task<ActionResult<Tbegreso>> GetById(Tbegreso entity)
+        public async Task<IActionResult> GetById(EgresoDTO entity)
         {
-            Tbegreso model = await _service.GetById(entity);
+            EgresoDTO model = await _service.GetById(entity);
 
             if (model != null)
                 return Ok(model);
@@ -58,37 +54,31 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost()]
-        public async Task<ActionResult<Tbegreso>> Post(Tbegreso entity)
+        public async Task<IActionResult> Post(EgresoDTO entity)
         {
             if (entity != null && ModelState.IsValid)
-            {
-                Tbegreso model = await _service.Post(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Post(entity))
+                    return Ok(entity);
                 else
                     return Conflict();
-            }
             else
-            {
                 return BadRequest();
-            }
+
         }
 
         [HttpPut()]
-        public async Task<IActionResult> Put(Tbegreso entity)
+        public async Task<IActionResult> Put(EgresoDTO entity)
         {
-            if (!string.IsNullOrEmpty(entity.IdUsuario))
+            if (ModelState.IsValid && entity != null)
             {
-                var model = await _service.Put(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Put(entity))
+                    return Ok(entity);
                 else
                     return NotFound();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
         }
+
+
     }
 }

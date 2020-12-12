@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MiNegocio.API.Controllers
 {
@@ -12,16 +12,16 @@ namespace MiNegocio.API.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly IUsuarioService<Tbusuario> _service;
+        private readonly IUsuarioService<UsuarioDTO> _service;
 
-        public UsuariosController(IUsuarioService<Tbusuario> service)
+        public UsuariosController(IUsuarioService<UsuarioDTO> service)
         {
             _service = service;
         }
 
         [HttpDelete()]
         [Authorize]
-        public async Task<ActionResult<Tbusuario>> Delete(Tbusuario entity)
+        public async Task<ActionResult<UsuarioDTO>> Delete(UsuarioDTO entity)
         {
             if (entity != null)
             {
@@ -30,17 +30,15 @@ namespace MiNegocio.API.Controllers
                 else
                     return Conflict();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
+
         }
 
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<Tbusuario>>> Get()
+        public async Task<ActionResult<IEnumerable<UsuarioDTO>>> Get()
         {
-            IEnumerable<Tbusuario> model = await _service.Get();
+            IEnumerable<UsuarioDTO> model = await _service.Get();
             if (model.Count() > 0)
                 return Ok(model);
             else
@@ -49,9 +47,9 @@ namespace MiNegocio.API.Controllers
 
         [HttpPost("GetById")]
         [Authorize]
-        public async Task<ActionResult<Tbusuario>> GetById(Tbusuario entity)
+        public async Task<ActionResult<UsuarioDTO>> GetById(UsuarioDTO entity)
         {
-            Tbusuario model = await _service.GetById(entity);
+            UsuarioDTO model = await _service.GetById(entity);
 
             if (model != null)
                 return Ok(model);
@@ -59,50 +57,42 @@ namespace MiNegocio.API.Controllers
                 return NotFound();
         }
 
-        [HttpGet("GetTecnicos")]
-        public async Task<ActionResult<IEnumerable<Tbusuario>>> GetTenicos()
-        {
-            IEnumerable<Tbusuario> model = await _service.GetTecnicos();
-            if (model.Count() > 0)
-                return Ok(model);
-            else
-                return NoContent();
-        }
-
         [HttpPost()]
         [Authorize]
-        public async Task<ActionResult<Tbusuario>> Post(Tbusuario entity)
+        public async Task<IActionResult> Post(UsuarioDTO entity)
         {
             if (entity != null && ModelState.IsValid)
-            {
-                Tbusuario model = await _service.Post(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Post(entity))
+                    return Ok(entity);
                 else
                     return Conflict();
-            }
             else
-            {
                 return BadRequest();
-            }
+
         }
 
         [HttpPut()]
         [Authorize]
-        public async Task<IActionResult> Put(Tbusuario entity)
+        public async Task<IActionResult> Put(UsuarioDTO entity)
         {
             if (!string.IsNullOrEmpty(entity.DocId))
             {
-                var model = await _service.Put(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Put(entity))
+                    return Ok(entity);
                 else
                     return NotFound();
             }
+            return BadRequest();
+        }
+
+        [HttpGet("Tecnicos")]
+        public async Task<IActionResult> GetTecnicos()
+        {
+            IEnumerable<UsuarioDTO> tecnicos = await _service.GetTecnicos();
+            if (tecnicos.Any())
+                return Ok(tecnicos);
             else
-            {
-                return BadRequest();
-            }
+                return NoContent();
         }
     }
 }

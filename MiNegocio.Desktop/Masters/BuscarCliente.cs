@@ -9,12 +9,12 @@ namespace MiNegocio.Desktop.Masters
     public partial class frmBuscarCliente : Form
     {
         #region Members Variables
-        private IEnumerable<Tbcliente> Clientes { get; set; }
+        private IEnumerable<ClienteDTO> Clientes { get; set; }
         private string DocId { get; set; }
         #endregion
 
         #region Constructor
-        public frmBuscarCliente(IEnumerable<Tbcliente> clientes, string docId)
+        public frmBuscarCliente(IEnumerable<ClienteDTO> clientes, string docId)
         {
             InitializeComponent();
             Clientes = clientes;
@@ -69,6 +69,8 @@ namespace MiNegocio.Desktop.Masters
         private void frmBuscarCliente_Shown(object sender, System.EventArgs e)
         {
             GetClientes();
+            SendKeys.Send("{A}");
+            
         }
         private void txtBusca_TextChanged(object sender, System.EventArgs e)
         {
@@ -77,7 +79,7 @@ namespace MiNegocio.Desktop.Masters
         private void dgvCliente_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
         {
             var cliente = dgvCliente.SelectedItem;
-            ClienteSeleccionado = (Tbcliente)cliente;
+            ClienteSeleccionado = (ClienteDTO)cliente;
             if (ClienteSeleccionado == null)
             {
                 Close();
@@ -85,7 +87,7 @@ namespace MiNegocio.Desktop.Masters
             Close();
         }
         #endregion
-        public Tbcliente ClienteSeleccionado { get; set; }
+        public ClienteDTO ClienteSeleccionado { get; set; }
 
       
     }

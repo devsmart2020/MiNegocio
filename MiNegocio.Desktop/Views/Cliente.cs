@@ -108,7 +108,7 @@ namespace MiNegocio.Desktop.Views
         private void SelectedCliente()
         {
             var cliente = dgvCliente.SelectedItem;
-            _clienteVm.Cliente = (Tbcliente)cliente;
+            _clienteVm.Cliente = (ClienteDTO)cliente;
         }
         private async Task Post()
         {
@@ -185,6 +185,14 @@ namespace MiNegocio.Desktop.Views
         {
             _clienteVm.IsNewItem = false;
             await Post();
+        }
+        private async void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            await DataHelper.ExportExcel(dgvCliente);
+        }
+        private async void btnExportPDF_Click(object sender, EventArgs e)
+        {
+            await DataHelper.ExportPDF(dgvCliente);
         }
         #endregion
 

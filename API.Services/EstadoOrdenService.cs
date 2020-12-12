@@ -1,4 +1,4 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Domain.Interfaces;
 using API.Services.Interfaces;
 using System.Collections.Generic;
@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class EstadoOrdenService : IEstadoOrdenService<Tbestadoorden>
+    public class EstadoOrdenService : IEstadoOrdenService<EstadoOrdenDTO>
     {
-        private readonly IEstadoOrden<Tbestadoorden> _repository;
+        private readonly IEstadoOrden<EstadoOrdenDTO> _repository;
 
-        public EstadoOrdenService(IEstadoOrden<Tbestadoorden> repository)
+        public EstadoOrdenService(IEstadoOrden<EstadoOrdenDTO> repository)
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(Tbestadoorden entity)
+        public async Task<bool> Delete(EstadoOrdenDTO entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(Tbestadoorden entity)
+        public async Task<bool> Exists(EstadoOrdenDTO entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<Tbestadoorden> GetById(Tbestadoorden entity)
+        public async Task<EstadoOrdenDTO> GetById(EstadoOrdenDTO entity)
         {
             return await _repository.GetById(entity);
         }
 
-        public async Task<IEnumerable<Tbestadoorden>>Get()
+        public async Task<IEnumerable<EstadoOrdenDTO>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<Tbestadoorden> Post(Tbestadoorden entity)
+        public async Task<bool> Post(EstadoOrdenDTO entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<Tbestadoorden> Put(Tbestadoorden entity)
+        public async Task<bool> Put(EstadoOrdenDTO entity)
         {
             return await _repository.Put(entity);
         }

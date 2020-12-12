@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace MiNegocio.Services.Services
 {
-    public class LoginService : ILoginService<Tbusuario>
+    public class LoginService : ILoginService<UsuarioDTO>
     {
-        private readonly IRestService<Tbusuario> _service;
+        private readonly IRestService<UsuarioDTO> _service;
         private readonly string controllerName = Resources.LoginController;
 
         public LoginService()
         {
-            _service = new RestService<Tbusuario>();
+            _service = new RestService<UsuarioDTO>();
         }
 
-        public  async Task<Tbusuario>Login(Tbusuario entity)
+        public  async Task<UsuarioDTO>Login(UsuarioDTO entity)
         {
             return await _service.Login(controllerName, entity);
         }

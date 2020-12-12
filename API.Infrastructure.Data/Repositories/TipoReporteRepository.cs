@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,81 +10,64 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class TipoReporteRepository : ITipoReporte<Tbtiporeporte>
+    public class TipoReporteRepository : ITipoReporte<TipoReporteDTO>
     {
         private readonly soport43_minegocioContext _context;
-
-        public TipoReporteRepository(soport43_minegocioContext context)
+        private readonly IMapper _mapper;
+        public TipoReporteRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbtiporeporte entity)
+        public async Task<bool> Delete(TipoReporteDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbtiporeporte.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbtiporeporte.SingleOrDefaultAsync(x => x.IdTipoReporte == entity.IdTipoReporte);
+            if (model == null)
                 return false;
-            }
+            _context.Tbtiporeporte.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbtiporeporte entity)
+        public async Task<bool> Exists(TipoReporteDTO entity)
         {
             return await _context.Tbtiporeporte.AnyAsync(e => e.IdTipoReporte == entity.IdTipoReporte);
-
         }
 
-        public async Task<IEnumerable<Tbtiporeporte>> Get()
+        public async Task<IEnumerable<TipoReporteDTO>> Get()
         {
-            return await _context.Tbtiporeporte
-                .OrderBy(x => x.Nombre)
-                .ToListAsync();
+            return _mapper.Map<IEnumerable<TipoReporteDTO>>(await _context.Tbtiporeporte.ToListAsync());
         }
 
-        public async Task<Tbtiporeporte> GetById(Tbtiporeporte entity)
+        public async Task<TipoReporteDTO> GetById(TipoReporteDTO entity)
         {
-            return await _context.Tbtiporeporte
-                .Where(x => x.IdTipoReporte == entity.IdTipoReporte)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbtiporeporte.Where(x => x.IdTipoReporte == entity.IdTipoReporte).FirstOrDefaultAsync();
+            return _mapper.Map<TipoReporteDTO>(model);
         }
 
-        public async Task<Tbtiporeporte> Post(Tbtiporeporte entity)
+        public async Task<bool> Post(TipoReporteDTO entity)
         {
-            await _context.Tbtiporeporte.AddAsync(entity);
+            var model = _mapper.Map<Tbtiporeporte>(entity);
+            _context.Tbtiporeporte.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbtiporeporte> Put(Tbtiporeporte entity)
+        public async Task<bool> Put(TipoReporteDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbtiporeporte>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class ClienteRepository : ICliente<Tbcliente>
+    public class ClienteRepository : ICliente<ClienteDTO>
     {
         private readonly soport43_minegocioContext _context;
         private readonly IMapper _mapper;
@@ -21,79 +21,62 @@ namespace API.Infrastructure.Data.Repositories
             _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbcliente entity)
+        public async Task<bool> Delete(ClienteDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbcliente.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbcliente.SingleOrDefaultAsync(x => x.DocId == entity.DocId);
+            if (model == null)
                 return false;
-            }
+            _context.Tbcliente.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbcliente entity)
+        public async Task<bool> Exists(ClienteDTO entity)
         {
             return await _context.Tbcliente.AnyAsync(e => e.DocId == entity.DocId);
         }
 
-        public async Task<IEnumerable<Tbcliente>> Get()
+        public async Task<IEnumerable<ClienteDTO>> Get()
         {
-              IEnumerable<Tbcliente> query =  await _context.Tbcliente
-                .OrderBy(x => x.Nombres)
-                .ToListAsync();
-            return  _mapper.Map<ClienteDto>(query);
+            return _mapper.Map<IEnumerable<ClienteDTO>>(await _context.Tbcliente.ToListAsync());
         }
 
-        public async Task<Tbcliente> GetById(Tbcliente entity)
+        public async Task<ClienteDTO> GetById(ClienteDTO entity)
         {
-            return await _context.Tbcliente
-                .Where(x => x.DocId == entity.DocId)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbcliente.Where(x => x.DocId == entity.DocId).FirstOrDefaultAsync();
+            return _mapper.Map<ClienteDTO>(model);
         }
 
-        public async Task<Tbcliente> Post(Tbcliente entity)
+        public async Task<bool> Post(ClienteDTO entity)
         {
-            await _context.Tbcliente.AddAsync(entity);
+            var model = _mapper.Map<Tbcliente>(entity);
+            _context.Tbcliente.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbcliente> Put(Tbcliente entity)
+        public async Task<bool> Put(ClienteDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbcliente>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<IEnumerable<Tbcliente>> RptEquiposxCliente(Tbcliente entity)
+        public async Task<IEnumerable<ClienteDTO>> RptEquiposxCliente(ClienteDTO entity)
         {
-            return await _context.Tbcliente
+
+            var model = await _context.Tbcliente
                .Where(x => x.DocId.Equals(entity.DocId))
-               .Select(x => new Tbcliente
+               .Select(x => new ClienteDTO
                {
                    DocId = x.DocId,
                    Nombres = x.Nombres,
@@ -106,42 +89,44 @@ namespace API.Infrastructure.Data.Repositories
                    CodRecuperacion = x.CodRecuperacion,
                    Fecha = x.Fecha,
                    Tbequipo = x.Tbequipo.Where(e => e.IdCliente.Equals(x.DocId))
-                   .Select(n => new Tbequipo
+                   .Select(n => new EquipoDTO
                    {
                        IdEquipo = n.IdEquipo,
                        Fecha = n.Fecha,
-
+                       IdTipoEquipo = n.IdModeloNavigation.TipoEquipoNavigation.IdTipoEquipo,
                        TipoEquipo = n.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
+                       IdMarca = n.IdModeloNavigation.Marca,
                        Marca = n.IdModeloNavigation.MarcaNavigation.Marca,
-                       IdModelo = n.IdModelo,
+                       IdModelo = n.IdModelo,                     
                        Modelo = n.IdModeloNavigation.Modelo,
                        Serie = n.Serie,
                        Imei1 = n.Imei1,
                        Imei2 = n.Imei2,
                        Color = n.Color,
                        Observacion = n.Observacion
-                   })
-                   .ToList()
+                   }).ToList()
                }).ToListAsync();
+            return _mapper.Map<IEnumerable<ClienteDTO>>(model);
         }
 
-        public async Task<IEnumerable<Tbcliente>> RptOrdenxCliente(Tbcliente entity)
+        public async Task<IEnumerable<ClienteDTO>> RptOrdenxCliente(ClienteDTO entity)
         {
-            return await _context.Tbcliente
+            var model = await _context.Tbcliente
             .Where(x => x.DocId.Equals(entity.DocId))
-            .Select(x => new Tbcliente
+            .Select(x => new ClienteDTO
             {
                 DocId = x.DocId,
                 Nombres = x.Nombres,
                 Apellidos = x.Apellidos,
                 Telefono = x.Telefono,
                 Tborden = x.Tborden.Where(o => o.IdCliente.Equals(x.DocId))
-                .Select(n => new Tborden
+                .Select(n => new OrdenDTO
                 {
                     IdOrden = n.IdOrden,
-                    //TipoEquipo = n.IdEquipoNavigation.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,
-                    //Marca = n.IdEquipoNavigation.IdModeloNavigation.MarcaNavigation.Marca,
-                    //Equipo = n.IdEquipoNavigation.IdModeloNavigation.Modelo,
+                    IdTipoEquipo = n.IdEquipoNavigation.IdModeloNavigation.TipoEquipoNavigation.IdTipoEquipo,
+                    TipoEquipo = n.IdEquipoNavigation.IdModeloNavigation.TipoEquipoNavigation.TipoEquipo,                    
+                    Marca = n.IdEquipoNavigation.IdModeloNavigation.MarcaNavigation.Marca,
+                    Equipo = n.IdEquipoNavigation.IdModeloNavigation.Modelo,
                     IdCliente = n.IdCliente,
                     FechaEntra = n.FechaEntra,
                     FechaSale = n.FechaSale,
@@ -155,6 +140,7 @@ namespace API.Infrastructure.Data.Repositories
                     IdEstadoOrden = n.IdEstadoOrden
                 }).ToList()
             }).ToListAsync();
+            return _mapper.Map<IEnumerable<ClienteDTO>>(model);
         }
     }
 }

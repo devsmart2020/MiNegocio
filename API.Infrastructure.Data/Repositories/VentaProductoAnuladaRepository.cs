@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,81 +10,64 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class VentaProductoAnuladaRepository : IVentaProductoAnulada<Tbventaproductoanulada>
+    public class VentaProductoAnuladaRepository : IVentaProductoAnulada<VentaProductoAnuladaDTO>
     {
         private readonly soport43_minegocioContext _context;
-
-        public VentaProductoAnuladaRepository(soport43_minegocioContext context)
+        private readonly IMapper _mapper;
+        public VentaProductoAnuladaRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbventaproductoanulada entity)
+        public async Task<bool> Delete(VentaProductoAnuladaDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbventaproductoanulada.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbventaproductoanulada.SingleOrDefaultAsync(x => x.IdVenta == entity.IdVenta);
+            if (model == null)
                 return false;
-            }
+            _context.Tbventaproductoanulada.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbventaproductoanulada entity)
+        public async Task<bool> Exists(VentaProductoAnuladaDTO entity)
         {
             return await _context.Tbventaproductoanulada.AnyAsync(e => e.IdVenta == entity.IdVenta);
-
         }
 
-        public async Task<IEnumerable<Tbventaproductoanulada>> Get()
+        public async Task<IEnumerable<VentaProductoAnuladaDTO>> Get()
         {
-            return await _context.Tbventaproductoanulada
-                .OrderBy(x => x.IdVenta)
-                .ToListAsync();
+            return _mapper.Map<IEnumerable<VentaProductoAnuladaDTO>>(await _context.Tbventaproductoanulada.ToListAsync());
         }
 
-        public async Task<Tbventaproductoanulada> GetById(Tbventaproductoanulada entity)
+        public async Task<VentaProductoAnuladaDTO> GetById(VentaProductoAnuladaDTO entity)
         {
-            return await _context.Tbventaproductoanulada
-                .Where(x => x.IdVenta == entity.IdVenta)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbventaproductoanulada.Where(x => x.IdVenta == entity.IdVenta).FirstOrDefaultAsync();
+            return _mapper.Map<VentaProductoAnuladaDTO>(model);
         }
 
-        public async Task<Tbventaproductoanulada> Post(Tbventaproductoanulada entity)
+        public async Task<bool> Post(VentaProductoAnuladaDTO entity)
         {
-            await _context.Tbventaproductoanulada.AddAsync(entity);
+            var model = _mapper.Map<Tbventaproductoanulada>(entity);
+            _context.Tbventaproductoanulada.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbventaproductoanulada> Put(Tbventaproductoanulada entity)
+        public async Task<bool> Put(VentaProductoAnuladaDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbventaproductoanulada>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

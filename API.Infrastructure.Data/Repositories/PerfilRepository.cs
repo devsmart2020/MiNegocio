@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,81 +10,64 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class PerfilRepository : IPerfil<Tbperfil>
+    public class PerfilRepository : IPerfil<PerfilDTO>
     {
         private readonly soport43_minegocioContext _context;
-
-        public PerfilRepository(soport43_minegocioContext context)
+        private readonly IMapper _mapper;
+        public PerfilRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbperfil entity)
+        public async Task<bool> Delete(PerfilDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbperfil.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbperfil.SingleOrDefaultAsync(x => x.IdPerfil == entity.IdPerfil);
+            if (model == null)
                 return false;
-            }
+            _context.Tbperfil.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbperfil entity)
+        public async Task<bool> Exists(PerfilDTO entity)
         {
             return await _context.Tbperfil.AnyAsync(e => e.IdPerfil == entity.IdPerfil);
-
         }
 
-        public async Task<IEnumerable<Tbperfil>> Get()
+        public async Task<IEnumerable<PerfilDTO>> Get()
         {
-            return await _context.Tbperfil
-                .OrderBy(x => x.Perfil)
-                .ToListAsync();
+            return _mapper.Map<IEnumerable<PerfilDTO>>(await _context.Tbperfil.ToListAsync());
         }
 
-        public async Task<Tbperfil> GetById(Tbperfil entity)
+        public async Task<PerfilDTO> GetById(PerfilDTO entity)
         {
-            return await _context.Tbperfil
-                .Where(x => x.IdPerfil == entity.IdPerfil)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbperfil.Where(x => x.IdPerfil == entity.IdPerfil).FirstOrDefaultAsync();
+            return _mapper.Map<PerfilDTO>(model);
         }
 
-        public async Task<Tbperfil> Post(Tbperfil entity)
+        public async Task<bool> Post(PerfilDTO entity)
         {
-            await _context.Tbperfil.AddAsync(entity);
+            var model = _mapper.Map<Tbperfil>(entity);
+            _context.Tbperfil.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbperfil> Put(Tbperfil entity)
+        public async Task<bool> Put(PerfilDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbperfil>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

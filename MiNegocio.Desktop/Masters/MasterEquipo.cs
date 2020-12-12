@@ -101,7 +101,7 @@ namespace MiNegocio.Desktop.Masters
         private void SelectedTE()
         {
             var tipoEquipo = dgvTipoEquipo.SelectedItem;
-            _tipoEquipoVm.TipoEquipo = (Tbtipoequipo)tipoEquipo;
+            _tipoEquipoVm.TipoEquipo = (TipoEquipoDTO)tipoEquipo;
         }
         private async Task PostTE()
         {
@@ -159,7 +159,7 @@ namespace MiNegocio.Desktop.Masters
         private void SelectedMarca()
         {
             var marca = dgvMarca.SelectedItem;
-            _marcaVm.Marca = (Tbmarca)marca;
+            _marcaVm.Marca = (MarcaDTO)marca;
         }
         private async Task PostMarca()
         {
@@ -215,7 +215,7 @@ namespace MiNegocio.Desktop.Masters
         private void SelectedModelo()
         {
             var modelo = dgvModelo.SelectedItem;
-            _modeloVm.Modelo = (Tbmodelo)modelo;
+            _modeloVm.Modelo = (ModeloDTO)modelo;
         }
         private async Task PostModelo()
         {

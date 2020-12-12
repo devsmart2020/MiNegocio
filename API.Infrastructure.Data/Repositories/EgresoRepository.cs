@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,81 +10,65 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class EgresoRepository : IEgreso<Tbegreso>
+    public class EgresoRepository : IEgreso<EgresoDTO>
     {
         private readonly soport43_minegocioContext _context;
+        private readonly IMapper _mapper;
 
-        public EgresoRepository(soport43_minegocioContext context)
+        public EgresoRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbegreso entity)
+        public async Task<bool> Delete(EgresoDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbegreso.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbegreso.SingleOrDefaultAsync(x => x.IdEgreso == entity.IdEgreso);
+            if (model == null)
                 return false;
-            }
+            _context.Tbegreso.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbegreso entity)
+        public async Task<bool> Exists(EgresoDTO entity)
         {
             return await _context.Tbegreso.AnyAsync(e => e.IdEgreso == entity.IdEgreso);
-
         }
 
-        public async Task<IEnumerable<Tbegreso>> Get()
+        public async Task<IEnumerable<EgresoDTO>> Get()
         {
-            return await _context.Tbegreso
-               .OrderBy(x => x.Fecha)
-               .ToListAsync();
+            return _mapper.Map<IEnumerable<EgresoDTO>>(await _context.Tbegreso.ToListAsync());
         }
 
-        public async Task<Tbegreso> GetById(Tbegreso entity)
+        public async Task<EgresoDTO> GetById(EgresoDTO entity)
         {
-            return await _context.Tbegreso
-                .Where(x => x.IdEgreso == entity.IdEgreso)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbegreso.Where(x => x.IdEgreso == entity.IdEgreso).FirstOrDefaultAsync();
+            return _mapper.Map<EgresoDTO>(model);
         }
 
-        public async Task<Tbegreso> Post(Tbegreso entity)
+        public async Task<bool> Post(EgresoDTO entity)
         {
-            await _context.Tbegreso.AddAsync(entity);
+            var model = _mapper.Map<Tbegreso>(entity);
+            _context.Tbegreso.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbegreso> Put(Tbegreso entity)
+        public async Task<bool> Put(EgresoDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbegreso>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

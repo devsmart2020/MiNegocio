@@ -12,8 +12,8 @@ namespace MiNegocio.ViewModels.ViewModels
     public class LoginViewModel : BaseViewModel.BaseViewModel
     {
         #region Members Variables
-        private readonly ILoginService<Tbusuario> _service;
-        private readonly IUsuarioService<Tbusuario> _usuarioService;
+        private readonly ILoginService<UsuarioDTO> _service;
+        private readonly IUsuarioService<UsuarioDTO> _usuarioService;
         #endregion
 
         #region Constructor
@@ -29,7 +29,7 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             IsBusy = true;
             IsEnabled = false;
-            Tbusuario usuario = new Tbusuario()
+            UsuarioDTO usuario = new UsuarioDTO()
             {
                 User = User,
                 Pass = Pass,
@@ -38,20 +38,19 @@ namespace MiNegocio.ViewModels.ViewModels
             {
                 if (usuario != null)
                 {
-                    Tecnicos = await _usuarioService.GetTecnicos();
                     Usuario = await _service.Login(usuario);
                     if (Usuario != null)
                     {                             
                         IsLogued = true;
                         UserLogued = Usuario;
-                        RestService<Tbusuario>.Token = Usuario.Token;
+                        RestService<UsuarioDTO>.Token = Usuario.Token;
                         Msj = $"{Resources.MsjLoginSucess} {Usuario.Nombres} {Usuario.Apellidos}";
                     }
                     else
                     {
                         IsLogued = false;
                         Pass = string.Empty;
-                        Msj = RestService<Tbusuario>.ErrorRestService;
+                        Msj = RestService<UsuarioDTO>.ErrorRestService;
                     }
                 }
                 else
@@ -99,9 +98,9 @@ namespace MiNegocio.ViewModels.ViewModels
             get => token;
             set => SetProperty(ref token, value);
         }
-        private Tbusuario usuario;
+        private UsuarioDTO usuario;
 
-        public Tbusuario Usuario
+        public UsuarioDTO Usuario
         {
             get => usuario;
             set => SetProperty(ref usuario, value);
@@ -120,8 +119,8 @@ namespace MiNegocio.ViewModels.ViewModels
         {
             await Login();
         }
-        public static Tbusuario UserLogued { get; set; }
-        public static IEnumerable<Tbusuario> Tecnicos { get; set; }
+        public static UsuarioDTO UserLogued { get; set; }
+        public static IEnumerable<UsuarioDTO> Tecnicos { get; set; }
         #endregion
     }
 }

@@ -7,11 +7,11 @@ namespace MiNegocio.Desktop.Masters
     public partial class frmEquipoCliente : Form
     {
         #region Members Variables
-        private IEnumerable<Tbequipo> Equipos { get; set; }
+        private IEnumerable<EquipoDTO> Equipos { get; set; }
         #endregion
 
         #region Constructor
-        public frmEquipoCliente(IEnumerable<Tbequipo> equipos)
+        public frmEquipoCliente(IEnumerable<EquipoDTO> equipos)
         {
             InitializeComponent();
             Equipos = equipos;
@@ -33,7 +33,7 @@ namespace MiNegocio.Desktop.Masters
         private void SelectedEquipo()
         {
             var equipo = dgvEquipos.SelectedItem;
-            EquipoSeleccionado = (Tbequipo)equipo;            
+            EquipoSeleccionado = (EquipoDTO)equipo;            
             if (EquipoSeleccionado == null)
             {
                 Close();
@@ -50,7 +50,7 @@ namespace MiNegocio.Desktop.Masters
         }
         #endregion
 
-        public Tbequipo EquipoSeleccionado { get; set; }
+        public EquipoDTO EquipoSeleccionado { get; set; }
 
     }
 }

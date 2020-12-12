@@ -2,9 +2,11 @@
 using MiNegocio.Services.Data;
 using MiNegocio.Services.Services;
 using MiNegocio.Services.Services_interfaces;
+using MiNegocio.ViewModels.Helpers;
 using MiNegocio.ViewModels.Properties;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MiNegocio.ViewModels.ViewModels
@@ -12,7 +14,7 @@ namespace MiNegocio.ViewModels.ViewModels
     public class OrdenViewModel : BaseViewModel.BaseViewModel
     {
         #region Members Variables
-        private readonly IOrdenService<Tborden> _service;
+        private readonly IOrdenService<OrdenDTO> _service;
         #endregion
 
         #region Constructor
@@ -28,7 +30,53 @@ namespace MiNegocio.ViewModels.ViewModels
             IsBusy = true;
             try
             {
-                List = await _service.GetTs();
+                if (IsDbQuery)
+                {
+                    List = await _service.GetTs(IsDbQuery, LocalDataRepository.Path, Resources.JsonOrdenes);
+                    if (List == null)
+                    {
+                        Msj = RestService<EquipoDTO>.ErrorRestService;
+                    }
+                    else
+                    {
+                        LocalDataRepository.RoutesPath();
+                        LocalDataRepository.CreateJsonData(list, Resources.JsonOrdenes);
+                    }
+                }
+                else
+                {
+                    List = await _service.GetTs(IsDbQuery, LocalDataRepository.Path, Resources.JsonOrdenes);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Msj = ex.Message;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+        private async Task GetOrdenxCliente()
+        {
+
+            IsBusy = true;
+            try
+            {
+                if (!string.IsNullOrEmpty(IdCliente))
+                {
+                    OrdenxCliente = List.Where(x => x.IdCliente.Equals(IdCliente)).ToList();
+                    if (OrdenxCliente.Count() == 0)
+                    {
+                        Msj = "No hay órdenes";
+                    }
+                    else if (OrdenxCliente == null)
+                    {
+                        Msj = "Valo null";
+                    }                 
+                }
+                await Task.Delay(1);
             }
             catch (Exception ex)
             {
@@ -42,7 +90,7 @@ namespace MiNegocio.ViewModels.ViewModels
         private async Task Post()
         {
             IsBusy = true;
-            Tborden _orden = new Tborden()
+            OrdenDTO _orden = new OrdenDTO()
             {
                 IdOrden = IdOrden,
                 FechaEntra = FechaEntra,
@@ -65,6 +113,8 @@ namespace MiNegocio.ViewModels.ViewModels
                 IsSaved = await _service.Post(_orden, IsNewItem);
                 if (IsSaved)
                 {
+                    IsDbQuery = true;
+                    await Gets();
                     if (IsNewItem)
                     {
                         Msj = Resources.MsjSaveOk;
@@ -77,7 +127,7 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
                 else
                 {
-                    Msj = RestService<Tbequipo>.ErrorRestService;
+                    Msj = RestService<EquipoDTO>.ErrorRestService;
                 }
             }
             catch (Exception ex)
@@ -92,7 +142,7 @@ namespace MiNegocio.ViewModels.ViewModels
         }
 
         private void Clear()
-        {            
+        {
             IdCliente = string.Empty;
             IdEquipo = default;
             IdEstadoOrden = default;
@@ -212,9 +262,9 @@ namespace MiNegocio.ViewModels.ViewModels
             get => idTecnico;
             set => SetProperty(ref idTecnico, value);
         }
-        private Tborden orden;
+        private OrdenDTO orden;
 
-        public Tborden Orden
+        public OrdenDTO Orden
         {
             get => orden;
             set
@@ -233,13 +283,21 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
             }
         }
-        private IEnumerable<Tborden> list;
+        private IEnumerable<OrdenDTO> list;
 
-        public IEnumerable<Tborden> List
+        public IEnumerable<OrdenDTO> List
         {
             get { return list; }
             set { list = value; }
         }
+        private IEnumerable<OrdenDTO> ordenxCliente;
+
+        public IEnumerable<OrdenDTO> OrdenxCliente
+        {
+            get => ordenxCliente;
+            set => SetProperty(ref ordenxCliente, value);
+        }
+
 
         private bool isSaved;
 
@@ -259,6 +317,10 @@ namespace MiNegocio.ViewModels.ViewModels
         public async Task PostCmd()
         {
             await Post();
+        }
+        public async Task GetOrdenClienteCmd()
+        {
+            await GetOrdenxCliente();
         }
         #endregion
     }

@@ -61,6 +61,87 @@ namespace MiNegocio.ViewModels.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a localpath.
+        /// </summary>
+        internal static string ConfigLocalPath {
+            get {
+                return ResourceManager.GetString("ConfigLocalPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a clientes.json.
+        /// </summary>
+        internal static string JsonClientes {
+            get {
+                return ResourceManager.GetString("JsonClientes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a equipos.json.
+        /// </summary>
+        internal static string JsonEquipos {
+            get {
+                return ResourceManager.GetString("JsonEquipos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a estadoorden.json.
+        /// </summary>
+        internal static string JsonEstadoOrden {
+            get {
+                return ResourceManager.GetString("JsonEstadoOrden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a marcas.json.
+        /// </summary>
+        internal static string JsonMarcas {
+            get {
+                return ResourceManager.GetString("JsonMarcas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a modelos.json.
+        /// </summary>
+        internal static string JsonModelos {
+            get {
+                return ResourceManager.GetString("JsonModelos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ordenes.json.
+        /// </summary>
+        internal static string JsonOrdenes {
+            get {
+                return ResourceManager.GetString("JsonOrdenes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a tecnicos.json.
+        /// </summary>
+        internal static string JsonTecnicos {
+            get {
+                return ResourceManager.GetString("JsonTecnicos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a tipoequipo.json.
+        /// </summary>
+        internal static string JsonTipoEquipo {
+            get {
+                return ResourceManager.GetString("JsonTipoEquipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Faltan datos por diligenciar, por favor verifique que tenga todos los datos diligenciados en el formulario..
         /// </summary>
         internal static string MsjErrorFields {

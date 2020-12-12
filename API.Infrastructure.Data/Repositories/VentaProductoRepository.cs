@@ -1,6 +1,8 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
+using API.Domain.Entities;
 using API.Domain.Interfaces;
 using API.Infrastructure.Data.Data;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,81 +10,64 @@ using System.Threading.Tasks;
 
 namespace API.Infrastructure.Data.Repositories
 {
-    public class VentaProductoRepository : IVentaProducto<Tbventaproducto>
+    public class VentaProductoRepository : IVentaProducto<VentaProductoDTO>
     {
         private readonly soport43_minegocioContext _context;
-
-        public VentaProductoRepository(soport43_minegocioContext context)
+        private readonly IMapper _mapper;
+        public VentaProductoRepository(soport43_minegocioContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<bool> Delete(Tbventaproducto entity)
+        public async Task<bool> Delete(VentaProductoDTO entity)
         {
-            if (await Exists(entity))
-            {
-                _context.Tbventaproducto.Remove(entity);
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return true;
-                else
-                    return false;
-
-            }
-            else
-            {
+            var model = await _context.Tbventaproducto.SingleOrDefaultAsync(x => x.IdVenta == entity.IdVenta);
+            if (model == null)
                 return false;
-            }
+            _context.Tbventaproducto.Remove(model);
+            int query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
 
-        public async Task<bool> Exists(Tbventaproducto entity)
+        public async Task<bool> Exists(VentaProductoDTO entity)
         {
             return await _context.Tbventaproducto.AnyAsync(e => e.IdVenta == entity.IdVenta);
-
         }
 
-        public async Task<IEnumerable<Tbventaproducto>> Get()
+        public async Task<IEnumerable<VentaProductoDTO>> Get()
         {
-            return await _context.Tbventaproducto
-                .OrderBy(x => x.IdVenta)
-                .ToListAsync();
+            return _mapper.Map<IEnumerable<VentaProductoDTO>>(await _context.Tbventaproducto.ToListAsync());
         }
 
-        public async Task<Tbventaproducto> GetById(Tbventaproducto entity)
+        public async Task<VentaProductoDTO> GetById(VentaProductoDTO entity)
         {
-            return await _context.Tbventaproducto
-                .Where(x => x.IdVenta == entity.IdVenta)
-                .FirstOrDefaultAsync();
+            var model = await _context.Tbventaproducto.Where(x => x.IdVenta == entity.IdVenta).FirstOrDefaultAsync();
+            return _mapper.Map<VentaProductoDTO>(model);
         }
 
-        public async Task<Tbventaproducto> Post(Tbventaproducto entity)
+        public async Task<bool> Post(VentaProductoDTO entity)
         {
-            await _context.Tbventaproducto.AddAsync(entity);
+            var model = _mapper.Map<Tbventaproducto>(entity);
+            _context.Tbventaproducto.Add(model);
             var query = await _context.SaveChangesAsync();
             if (query > 0)
-                return await GetById(entity);
+                return true;
             else
-                return null;
+                return false;
         }
 
-        public async Task<Tbventaproducto> Put(Tbventaproducto entity)
+        public async Task<bool> Put(VentaProductoDTO entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            try
-            {
-                var query = await _context.SaveChangesAsync();
-                if (query > 0)
-                    return await GetById(entity);
-                else
-                    return null;
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(entity))
-                    return null;
-                else
-                    throw;
-            }
+            _context.Entry(_mapper.Map<Tbventaproducto>(entity)).State = EntityState.Modified;
+            var query = await _context.SaveChangesAsync();
+            if (query > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

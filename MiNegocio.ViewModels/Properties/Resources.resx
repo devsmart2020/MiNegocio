@@ -117,6 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConfigLocalPath" xml:space="preserve">
+    <value>localpath</value>
+  </data>
+  <data name="JsonClientes" xml:space="preserve">
+    <value>clientes.json</value>
+  </data>
+  <data name="JsonEquipos" xml:space="preserve">
+    <value>equipos.json</value>
+  </data>
+  <data name="JsonEstadoOrden" xml:space="preserve">
+    <value>estadoorden.json</value>
+  </data>
+  <data name="JsonMarcas" xml:space="preserve">
+    <value>marcas.json</value>
+  </data>
+  <data name="JsonModelos" xml:space="preserve">
+    <value>modelos.json</value>
+  </data>
+  <data name="JsonOrdenes" xml:space="preserve">
+    <value>ordenes.json</value>
+  </data>
+  <data name="JsonTecnicos" xml:space="preserve">
+    <value>tecnicos.json</value>
+  </data>
+  <data name="JsonTipoEquipo" xml:space="preserve">
+    <value>tipoequipo.json</value>
+  </data>
   <data name="MsjErrorFields" xml:space="preserve">
     <value>Faltan datos por diligenciar, por favor verifique que tenga todos los datos diligenciados en el formulario.</value>
   </data>

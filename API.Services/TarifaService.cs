@@ -1,4 +1,4 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Domain.Interfaces;
 using API.Services.Interfaces;
 using System.Collections.Generic;
@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class TarifaService : ITarifaService<Tbtarifa>
+    public class TarifaService : ITarifaService<TarifaDTO>
     {
-        private readonly ITarifa<Tbtarifa> _repository;
+        private readonly ITarifa<TarifaDTO> _repository;
 
-        public TarifaService(ITarifa<Tbtarifa> repository)
+        public TarifaService(ITarifa<TarifaDTO> repository)
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(Tbtarifa entity)
+        public async Task<bool> Delete(TarifaDTO entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(Tbtarifa entity)
+        public async Task<bool> Exists(TarifaDTO entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<Tbtarifa> GetById(Tbtarifa entity)
+        public async Task<TarifaDTO> GetById(TarifaDTO entity)
         {
             return await _repository.GetById(entity);
         }
 
-        public async Task<IEnumerable<Tbtarifa>> Get()
+        public async Task<IEnumerable<TarifaDTO>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<Tbtarifa> Post(Tbtarifa entity)
+        public async Task<bool> Post(TarifaDTO entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<Tbtarifa> Put(Tbtarifa entity)
+        public async Task<bool> Put(TarifaDTO entity)
         {
             return await _repository.Put(entity);
         }

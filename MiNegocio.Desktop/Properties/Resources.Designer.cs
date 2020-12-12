@@ -514,6 +514,16 @@ namespace MiNegocio.Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap excel {
+            get {
+                object obj = ResourceManager.GetObject("excel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gps {
             get {
                 object obj = ResourceManager.GetObject("Gps", resourceCulture);
@@ -602,6 +612,16 @@ namespace MiNegocio.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LoginBg {
+            get {
+                object obj = ResourceManager.GetObject("LoginBg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Olvidó la contraseña?.
         /// </summary>
         internal static string LoginForgotPassword {
@@ -622,6 +642,16 @@ namespace MiNegocio.Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoMain {
+            get {
+                object obj = ResourceManager.GetObject("LogoMain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logout {
             get {
                 object obj = ResourceManager.GetObject("Logout", resourceCulture);
@@ -635,6 +665,16 @@ namespace MiNegocio.Desktop.Properties {
         internal static System.Drawing.Bitmap Mapa {
             get {
                 object obj = ResourceManager.GetObject("Mapa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MiNegocioTitle {
+            get {
+                object obj = ResourceManager.GetObject("MiNegocioTitle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -693,6 +733,16 @@ namespace MiNegocio.Desktop.Properties {
         internal static System.Drawing.Bitmap PassIcon {
             get {
                 object obj = ResourceManager.GetObject("PassIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf {
+            get {
+                object obj = ResourceManager.GetObject("pdf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -806,6 +856,26 @@ namespace MiNegocio.Desktop.Properties {
         internal static System.Drawing.Bitmap servicios {
             get {
                 object obj = ResourceManager.GetObject("servicios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Splash {
+            get {
+                object obj = ResourceManager.GetObject("Splash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SplashPng {
+            get {
+                object obj = ResourceManager.GetObject("SplashPng", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

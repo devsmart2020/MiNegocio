@@ -2,6 +2,7 @@
 using MiNegocio.Services.Data;
 using MiNegocio.Services.Services;
 using MiNegocio.Services.Services_interfaces;
+using MiNegocio.ViewModels.Helpers;
 using MiNegocio.ViewModels.Properties;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace MiNegocio.ViewModels.ViewModels
     public class MarcaViewModel : BaseViewModel.BaseViewModel
     {
         #region Members Variables
-        private readonly IMarcaService<Tbmarca> _service;
+        private readonly IMarcaService<MarcaDTO> _service;
         #endregion
 
         #region Constructor
@@ -28,7 +29,16 @@ namespace MiNegocio.ViewModels.ViewModels
             IsBusy = true;
             try
             {
-                List = await _service.GetTs();
+                List = await _service.GetTs(IsDbQuery, LocalDataRepository.Path, Resources.JsonMarcas);
+                if (List == null)
+                {
+                    Msj = RestService<MarcaDTO>.ErrorRestService;
+                }
+                else
+                {
+                    LocalDataRepository.RoutesPath();
+                    LocalDataRepository.CreateJsonData(list, Resources.JsonMarcas);
+                }
             }
             catch (Exception ex)
             {
@@ -42,7 +52,7 @@ namespace MiNegocio.ViewModels.ViewModels
         private async Task Post()
         {
             IsBusy = true;
-            Tbmarca _marca = new Tbmarca()
+            MarcaDTO _marca = new MarcaDTO()
             {
                 IdMarca = IdMarca,
                 Marca = Nombre.Trim()
@@ -63,7 +73,7 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
                 else
                 {
-                    Msj = RestService<Tbmarca>.ErrorRestService;
+                    Msj = RestService<MarcaDTO>.ErrorRestService;
                 }
             }
             catch (Exception ex)
@@ -93,9 +103,9 @@ namespace MiNegocio.ViewModels.ViewModels
             get => nombre;
             set => SetProperty(ref nombre, value);
         }
-        private Tbmarca marca;
+        private MarcaDTO marca;
 
-        public Tbmarca Marca
+        public MarcaDTO Marca
         {
             get => marca;
             set
@@ -108,9 +118,9 @@ namespace MiNegocio.ViewModels.ViewModels
                 }
             }
         }
-        private IEnumerable<Tbmarca> list;
+        private IEnumerable<MarcaDTO> list;
 
-        public IEnumerable<Tbmarca> List
+        public IEnumerable<MarcaDTO> List
         {
             get => list;
             set => SetProperty(ref list, value);

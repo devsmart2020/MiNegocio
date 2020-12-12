@@ -1,11 +1,9 @@
-﻿using System;
+﻿using API.Domain.DTOs;
+using API.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Domain.Entities;
-using API.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace MiNegocio.API.Controllers
 {
@@ -13,15 +11,15 @@ namespace MiNegocio.API.Controllers
     [ApiController]
     public class ProveedoresController : ControllerBase
     {
-        private readonly IProveedorService<Tbproveedor> _service;
+        private readonly IProveedorService<ProveedorDTO> _service;
 
-        public ProveedoresController(IProveedorService<Tbproveedor> service)
+        public ProveedoresController(IProveedorService<ProveedorDTO> service)
         {
             _service = service;
         }
 
         [HttpDelete()]
-        public async Task<ActionResult<Tbproveedor>> Delete(Tbproveedor entity)
+        public async Task<IActionResult> Delete(ProveedorDTO entity)
         {
             if (entity != null)
             {
@@ -30,16 +28,14 @@ namespace MiNegocio.API.Controllers
                 else
                     return Conflict();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
+
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tbproveedor>>> Get()
+        public async Task<IActionResult> Get()
         {
-            IEnumerable<Tbproveedor> model = await _service.Get();
+            IEnumerable<ProveedorDTO> model = await _service.Get();
             if (model.Count() > 0)
                 return Ok(model);
             else
@@ -47,9 +43,9 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost("GetById")]
-        public async Task<ActionResult<Tbproveedor>> GetById(Tbproveedor entity)
+        public async Task<IActionResult> GetById(ProveedorDTO entity)
         {
-            Tbproveedor model = await _service.GetById(entity);
+            ProveedorDTO model = await _service.GetById(entity);
 
             if (model != null)
                 return Ok(model);
@@ -58,37 +54,29 @@ namespace MiNegocio.API.Controllers
         }
 
         [HttpPost()]
-        public async Task<ActionResult<Tbproveedor>> Post(Tbproveedor entity)
+        public async Task<IActionResult> Post(ProveedorDTO entity)
         {
             if (entity != null && ModelState.IsValid)
-            {
-                Tbproveedor model = await _service.Post(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Post(entity))
+                    return Ok(entity);
                 else
                     return Conflict();
-            }
             else
-            {
                 return BadRequest();
-            }
+
         }
 
         [HttpPut()]
-        public async Task<IActionResult> Put(Tbproveedor entity)
+        public async Task<IActionResult> Put(ProveedorDTO entity)
         {
-            if (!string.IsNullOrEmpty(entity.IdProveedor))
+            if (ModelState.IsValid && entity != null)
             {
-                var model = await _service.Put(entity);
-                if (model != null)
-                    return Ok(model);
+                if (await _service.Put(entity))
+                    return Ok(entity);
                 else
                     return NotFound();
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
         }
     }
 }

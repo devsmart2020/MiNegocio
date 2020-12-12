@@ -1,4 +1,4 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Domain.Interfaces;
 using API.Services.Interfaces;
 using System.Collections.Generic;
@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class TipoProductoService : ITipoProductoService<Tbtipoproducto>
+    public class TipoProductoService : ITipoProductoService<TipoProductoDTO>
     {
-        private readonly ITipoProducto<Tbtipoproducto> _repository;
+        private readonly ITipoProducto<TipoProductoDTO> _repository;
 
-        public TipoProductoService(ITipoProducto<Tbtipoproducto> repository)
+        public TipoProductoService(ITipoProducto<TipoProductoDTO> repository)
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(Tbtipoproducto entity)
+        public async Task<bool> Delete(TipoProductoDTO entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(Tbtipoproducto entity)
+        public async Task<bool> Exists(TipoProductoDTO entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<Tbtipoproducto> GetById(Tbtipoproducto entity)
+        public async Task<TipoProductoDTO> GetById(TipoProductoDTO entity)
         {
             return await _repository.GetById(entity);
         }
 
-        public async Task<IEnumerable<Tbtipoproducto>>Get()
+        public async Task<IEnumerable<TipoProductoDTO>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<Tbtipoproducto> Post(Tbtipoproducto entity)
+        public async Task<bool> Post(TipoProductoDTO entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<Tbtipoproducto> Put(Tbtipoproducto entity)
+        public async Task<bool> Put(TipoProductoDTO entity)
         {
             return await _repository.Put(entity);
         }

@@ -24,6 +24,7 @@ namespace MiNegocio.Desktop.Views
         private protected EquipoViewModel _equipoVm;
         private protected OrdenViewModel _ordenVm;
         private protected EstadoOrdenViewModel _estadoOrden;
+        private protected UsuarioViewModel _usuarioVm;
         #endregion
 
         #region Constructor
@@ -36,7 +37,8 @@ namespace MiNegocio.Desktop.Views
             _modeloVm = new ModeloViewModel();
             _equipoVm = new EquipoViewModel();
             _ordenVm = new OrdenViewModel();
-            _estadoOrden = new EstadoOrdenViewModel();            
+            _estadoOrden = new EstadoOrdenViewModel();
+            _usuarioVm = new UsuarioViewModel();
             BindingEquipo();
             BindingOrden();
         }
@@ -49,7 +51,9 @@ namespace MiNegocio.Desktop.Views
             await GetClientes();
             await GetMarca();
             await GetTipoEquipo();
+            await GetOrdenes();
             await GetModelo();
+            await _usuarioVm.GetTecnicosCmd();
             CmbTecnico();
             await CmbEstadoOrden();
             pbLoading.Visible = false;
@@ -58,10 +62,11 @@ namespace MiNegocio.Desktop.Views
         {
             pbLoadEquipo.DataBindings.Add(Resources.BindingVisible, _equipoVm, Resources.PropIsBusy, false, DataSourceUpdateMode.OnPropertyChanged);
             cmbMarca.DataBindings.Add(Resources.BindingDataSource, _marcaVm, Resources.PropList, false, DataSourceUpdateMode.OnPropertyChanged);
-            cmbMarca.DataBindings.Add(Resources.BindingSelectedValue, _modeloVm, Resources.CmbValueMarca, false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbMarca.DataBindings.Add(Resources.BindingSelectedValue, _equipoVm, "IdMarca", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbTipoE.DataBindings.Add(Resources.BindingDataSource, _tipoEquipoVm, Resources.PropList, false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbTipoE.DataBindings.Add(Resources.BindingSelectedValue, _equipoVm, "IdTipoEquipo", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbModelo.DataBindings.Add(Resources.BindingDataSource, _modeloVm, "CmbModelo", false, DataSourceUpdateMode.OnPropertyChanged);
-            cmbModelo.DataBindings.Add(Resources.BindingSelectedValue, _equipoVm, Resources.CmbValueModelo, false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbModelo.DataBindings.Add(Resources.BindingSelectedValue, _equipoVm, "IdModelo", false, DataSourceUpdateMode.OnPropertyChanged);
             txtClienteEquipo.DataBindings.Add(Resources.BindingText, _equipoVm, "IdCliente", false, DataSourceUpdateMode.OnPropertyChanged);
             txtSerial.DataBindings.Add(Resources.BindingText, _equipoVm, "Serie", false, DataSourceUpdateMode.OnPropertyChanged);
             txtImei1.DataBindings.Add(Resources.BindingText, _equipoVm, "Imei1", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -83,6 +88,7 @@ namespace MiNegocio.Desktop.Views
             txtDatoBloqueo.DataBindings.Add(Resources.BindingText, _ordenVm, "DatoBloqueo", false, DataSourceUpdateMode.OnPropertyChanged);
             chkSDSi.DataBindings.Add(Resources.BindingChecked, _ordenVm, "MicroSD", false, DataSourceUpdateMode.OnPropertyChanged);
             chkSimSi.DataBindings.Add(Resources.BindingChecked, _ordenVm, "Sim", false, DataSourceUpdateMode.OnPropertyChanged);
+            cmbTecnico.DataBindings.Add(Resources.BindingDataSource, _usuarioVm, "Tecnicos", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbTecnico.DataBindings.Add(Resources.BindingSelectedValue, _ordenVm, "IdTecnico", false, DataSourceUpdateMode.OnPropertyChanged);
             txtBuscaOrden.DataBindings.Add(Resources.BindingText, _clienteVm, "DocId", false, DataSourceUpdateMode.OnPropertyChanged);
         }
@@ -178,18 +184,21 @@ namespace MiNegocio.Desktop.Views
             {
                 cmbModelo.Text = Resources.MsjNoDatos;
             }
-        }
-        private void CmbModelo()
-        {
-            _modeloVm.IdTipoEquipo = Convert.ToInt32(cmbTipoE.SelectedValue);
-            _modeloVm.GetCmbModeloCmd();
-            cmbModelo.Refresh();
+        }      
+        private async Task CmbModelo()
+        {            
+            if (cmbTipoE.SelectedItems != null && cmbMarca.SelectedItems != null )
+            {
+                _modeloVm.IdTipoEquipo = Convert.ToInt32(cmbTipoE.SelectedValue);
+                _modeloVm.IdMarca = Convert.ToInt32(cmbMarca.SelectedValue);
+                _modeloVm.GetCmbModeloCmd();
+            }
+            await Task.Delay(1);
         }
         private void CmbTecnico()
-        {
-            cmbTecnico.DataSource = LoginViewModel.Tecnicos;
+        {            
             cmbTecnico.ValueMember = Resources.CmbValueCliente;
-            cmbTecnico.DisplayMember = Resources.CmbDisplayCliente;
+            cmbTecnico.DisplayMember = "NomCompleto";
         }
         private async Task CmbEstadoOrden()
         {
@@ -204,7 +213,7 @@ namespace MiNegocio.Desktop.Views
                 _equipoVm.IsNewItem = true;
                 await _equipoVm.PostCmd();
                 if (_equipoVm.IsSaved)
-                {
+                {              
                     using (_msjOk = new MsjOk(_equipoVm.Msj))
                     {
                         _msjOk.ShowDialog();
@@ -284,15 +293,16 @@ namespace MiNegocio.Desktop.Views
         {
             if (!string.IsNullOrEmpty(txtBuscaOrden.Text))
             {
-                await _clienteVm.GetOrdenxClienteCmd();
-                if (_clienteVm.OrdenxCliente.Any())
+                _ordenVm.IdCliente = txtBuscaOrden.Text.Trim();
+                await _ordenVm.GetOrdenClienteCmd();
+                if (_ordenVm.OrdenxCliente.Any())
                 {
-                    using (_frmBuscarOrden = new frmBuscarOrden(_clienteVm.OrdenxCliente))
+                    using (_frmBuscarOrden = new frmBuscarOrden(_ordenVm.OrdenxCliente))
                     {
                         _frmBuscarOrden.FormClosing += _frmBuscarOrden_FormClosing;
                         _frmBuscarOrden.ShowDialog();
                     }
-                }
+                }           
             }
         }
         private void FormBuscaOrdenClosed()
@@ -340,17 +350,14 @@ namespace MiNegocio.Desktop.Views
                 txtSerial.Focus();
             }
         }
-        private void cmbModelo_DropDownOpening(object sender, Syncfusion.WinForms.ListView.Events.DropDownOpeningEventArgs e)
-        {
-            CmbModelo();
-        }
+      
         private async void btnGuardaEquipo_Click(object sender, EventArgs e)
         {
             await PostEquipo();
         }
         private void txtClienteOrden_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Space)
             {                 
                  FormBuscaCliente(txtClienteOrden.Text);
             }
@@ -377,9 +384,12 @@ namespace MiNegocio.Desktop.Views
         {
             await GetOrdenxCliente();
         }
+        private async void cmbModelo_DropDownOpened(object sender, EventArgs e)
+        {
+            await CmbModelo();
+        }
 
         #endregion
-
-
+      
     }
 }

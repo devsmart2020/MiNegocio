@@ -17,6 +17,9 @@
         }
       },
       "API.Domain.DTOs/1.0.0": {
+        "dependencies": {
+          "API.Domain.Entities": "1.0.0"
+        },
         "runtime": {
           "API.Domain.DTOs.dll": {}
         }

@@ -1,4 +1,4 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Domain.Interfaces;
 using API.Services.Interfaces;
 using System.Collections.Generic;
@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class TipoEquipoService : ITipoEquipoService<Tbtipoequipo>
+    public class TipoEquipoService : ITipoEquipoService<TipoEquipoDTO>
     {
-        private readonly ITipoEquipo<Tbtipoequipo> _repository;
+        private readonly ITipoEquipo<TipoEquipoDTO> _repository;
 
-        public TipoEquipoService(ITipoEquipo<Tbtipoequipo> repository)
+        public TipoEquipoService(ITipoEquipo<TipoEquipoDTO> repository)
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(Tbtipoequipo entity)
+        public async Task<bool> Delete(TipoEquipoDTO entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(Tbtipoequipo entity)
+        public async Task<bool> Exists(TipoEquipoDTO entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<Tbtipoequipo> GetById(Tbtipoequipo entity)
+        public async Task<TipoEquipoDTO> GetById(TipoEquipoDTO entity)
         {
             return await _repository.GetById(entity);
         }
 
-        public async Task<IEnumerable<Tbtipoequipo>>Get()
+        public async Task<IEnumerable<TipoEquipoDTO>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<Tbtipoequipo> Post(Tbtipoequipo entity)
+        public async Task<bool> Post(TipoEquipoDTO entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<Tbtipoequipo> Put(Tbtipoequipo entity)
+        public async Task<bool> Put(TipoEquipoDTO entity)
         {
             return await _repository.Put(entity);
         }

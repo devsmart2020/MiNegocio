@@ -1,9 +1,12 @@
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\bin\Debug\netcoreapp3.1\API.Domain.DTOs.deps.json
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\bin\Debug\netcoreapp3.1\API.Domain.DTOs.dll
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\bin\Debug\netcoreapp3.1\API.Domain.DTOs.pdb
+C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\bin\Debug\netcoreapp3.1\API.Domain.Entities.dll
+C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\bin\Debug\netcoreapp3.1\API.Domain.Entities.pdb
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\obj\Debug\netcoreapp3.1\API.Domain.DTOs.csprojAssemblyReference.cache
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\obj\Debug\netcoreapp3.1\API.Domain.DTOs.AssemblyInfoInputs.cache
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\obj\Debug\netcoreapp3.1\API.Domain.DTOs.AssemblyInfo.cs
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\obj\Debug\netcoreapp3.1\API.Domain.DTOs.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\obj\Debug\netcoreapp3.1\API.Domain.DTOs.csproj.CopyComplete
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\obj\Debug\netcoreapp3.1\API.Domain.DTOs.dll
 C:\Users\Administrador\source\repos\MiNegocio\API.Domain.DTOs\obj\Debug\netcoreapp3.1\API.Domain.DTOs.pdb

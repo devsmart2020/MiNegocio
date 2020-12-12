@@ -1,4 +1,4 @@
-﻿using API.Domain.Entities;
+﻿using API.Domain.DTOs;
 using API.Domain.Interfaces;
 using API.Services.Interfaces;
 using System.Collections.Generic;
@@ -6,40 +6,40 @@ using System.Threading.Tasks;
 
 namespace API.Services
 {
-    public class ModeloService : IModeloService<Tbmodelo>
+    public class ModeloService : IModeloService<ModeloDTO>
     {
-        private readonly IModelo<Tbmodelo> _repository;
+        private readonly IModelo<ModeloDTO> _repository;
 
-        public ModeloService(IModelo<Tbmodelo> repository)
+        public ModeloService(IModelo<ModeloDTO> repository)
         {
             _repository = repository;
         }
-        public async Task<bool> Delete(Tbmodelo entity)
+        public async Task<bool> Delete(ModeloDTO entity)
         {
             return await _repository.Delete(entity);
         }
 
-        public async Task<bool> Exists(Tbmodelo entity)
+        public async Task<bool> Exists(ModeloDTO entity)
         {
             return await _repository.Exists(entity);
         }
 
-        public async Task<Tbmodelo> GetById(Tbmodelo entity)
+        public async Task<ModeloDTO> GetById(ModeloDTO entity)
         {
             return await _repository.GetById(entity);
         }
 
-        public async Task<IEnumerable<Tbmodelo>>Get()
+        public async Task<IEnumerable<ModeloDTO>> Get()
         {
             return await _repository.Get();
         }
 
-        public async Task<Tbmodelo> Post(Tbmodelo entity)
+        public async Task<bool> Post(ModeloDTO entity)
         {
             return await _repository.Post(entity);
         }
 
-        public async Task<Tbmodelo> Put(Tbmodelo entity)
+        public async Task<bool> Put(ModeloDTO entity)
         {
             return await _repository.Put(entity);
         }
